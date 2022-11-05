@@ -17,8 +17,8 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "composite": true
   },
-  "include": ["src", ".eslintrc.cjs", "vite.config.ts", "tests"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", ".eslintrc.cjs", "vite.config.ts", "tests"]
 }
