@@ -20,11 +20,113 @@
     "import",
     "jsx-a11y",
     "react-hooks",
+    "jest-dom",
+    "testing-library",
     "prettier",
     "@typescript-eslint",
     "react"
   ],
   "rules": {
+    "react/react-in-jsx-scope": [
+      "off"
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "jest-dom/prefer-checked": [
+      "error"
+    ],
+    "jest-dom/prefer-empty": [
+      "error"
+    ],
+    "jest-dom/prefer-enabled-disabled": [
+      "error"
+    ],
+    "jest-dom/prefer-focus": [
+      "error"
+    ],
+    "jest-dom/prefer-in-document": [
+      "error"
+    ],
+    "jest-dom/prefer-required": [
+      "error"
+    ],
+    "jest-dom/prefer-to-have-attribute": [
+      "error"
+    ],
+    "jest-dom/prefer-to-have-class": [
+      "error"
+    ],
+    "jest-dom/prefer-to-have-style": [
+      "error"
+    ],
+    "jest-dom/prefer-to-have-text-content": [
+      "error"
+    ],
+    "jest-dom/prefer-to-have-value": [
+      "error"
+    ],
+    "testing-library/await-async-query": [
+      "error"
+    ],
+    "testing-library/await-async-utils": [
+      "error"
+    ],
+    "testing-library/no-await-sync-query": [
+      "error"
+    ],
+    "testing-library/no-container": [
+      "error"
+    ],
+    "testing-library/no-debugging-utils": [
+      "error"
+    ],
+    "testing-library/no-dom-import": [
+      "error",
+      "react"
+    ],
+    "testing-library/no-node-access": [
+      "error"
+    ],
+    "testing-library/no-promise-in-fire-event": [
+      "error"
+    ],
+    "testing-library/no-render-in-setup": [
+      "error"
+    ],
+    "testing-library/no-unnecessary-act": [
+      "error"
+    ],
+    "testing-library/no-wait-for-empty-callback": [
+      "error"
+    ],
+    "testing-library/no-wait-for-multiple-assertions": [
+      "error"
+    ],
+    "testing-library/no-wait-for-side-effects": [
+      "error"
+    ],
+    "testing-library/no-wait-for-snapshot": [
+      "error"
+    ],
+    "testing-library/prefer-find-by": [
+      "error"
+    ],
+    "testing-library/prefer-presence-queries": [
+      "error"
+    ],
+    "testing-library/prefer-query-by-disappearance": [
+      "error"
+    ],
+    "testing-library/prefer-screen-queries": [
+      "error"
+    ],
+    "testing-library/render-result-naming-convention": [
+      "error"
+    ],
     "prettier/prettier": [
       "error"
     ],
@@ -1148,9 +1250,6 @@
         "skipUndeclared": false
       }
     ],
-    "react/react-in-jsx-scope": [
-      2
-    ],
     "react/require-render-return": [
       2
     ],
@@ -2026,16 +2125,6 @@
     ],
     "react/no-adjacent-inline-elements": [
       "off"
-    ],
-    "react/function-component-definition": [
-      "error",
-      {
-        "namedComponents": [
-          "function-declaration",
-          "function-expression"
-        ],
-        "unnamedComponents": "function-expression"
-      }
     ],
     "react/jsx-no-constructed-context-values": [
       "error"

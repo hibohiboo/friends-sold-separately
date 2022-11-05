@@ -10,6 +10,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:testing-library/react',
+    'plugin:jest-dom/recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -22,6 +24,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
-  rules: {},
+  plugins: ['react', '@typescript-eslint', 'prettier', 'testing-library', 'jest-dom'],
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+  },
 };
