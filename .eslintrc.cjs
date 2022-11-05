@@ -20,10 +20,6 @@ module.exports = {
   },
   overrides: [],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
   plugins: ['react', '@typescript-eslint', 'prettier', 'testing-library', 'jest-dom'],
   rules: {
     'react/react-in-jsx-scope': 'off',
