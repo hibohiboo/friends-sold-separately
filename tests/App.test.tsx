@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../src/App';
+import App from '@/App';
 
 test('should first', async () => {
   // Appコンポーネントを描画

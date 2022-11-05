@@ -10,6 +10,7 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
+    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true,
       "generators": false,
@@ -34,6 +35,17 @@
       2,
       {
         "namedComponents": "arrow-function"
+      }
+    ],
+    "import/extensions": [
+      "off",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "jest-dom/prefer-checked": [
@@ -1450,17 +1462,6 @@
     "@typescript-eslint/return-await": [
       "error",
       "in-try-catch"
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "mjs": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
     ],
     "import/no-extraneous-dependencies": [
       "error",
@@ -3290,5 +3291,16 @@
       "\\.(coffee|scss|css|less|hbs|svg|json)$"
     ]
   },
-  "ignorePatterns": []
+  "ignorePatterns": [
+    ".DS_Store",
+    "node_modules",
+    "/build",
+    "/package",
+    ".env",
+    ".env.*",
+    "!.env.example",
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "yarn.lock"
+  ]
 }
