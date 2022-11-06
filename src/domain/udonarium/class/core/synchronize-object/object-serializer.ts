@@ -5,9 +5,9 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-underscore-dangle */
 import { XmlUtil } from '../system/util/xml-util';
+import { ObjectFactory } from './object-factory';
 import type { Attributes } from './attributes';
 import type { GameObject, ObjectContext } from './game-object';
-import { ObjectFactory } from './object-factory';
 
 export interface XmlAttributes extends GameObject {
   toAttributes(): Attributes;

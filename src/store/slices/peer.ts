@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserContext } from '@/domain/user/types';
 import { getUser } from '@/domain/udonarium/room/lobby';
+import { UserContext } from '@/domain/user/types';
 
 // コンパイラが ts4023のエラーを const store = configureStore で出すので解決のためにexport
 export interface PeerState {

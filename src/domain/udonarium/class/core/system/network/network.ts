@@ -3,9 +3,9 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable prefer-spread */
 import { setZeroTimeout } from '../util/zero-timeout';
+import { ConnectionCallback } from './connection';
 import { PeerContext } from './peer-context';
 import { SkyWayConnection } from './skyway-connection';
-import { ConnectionCallback } from './connection';
 import type { Connection } from './connection';
 import type { IPeerContext } from './peer-context';
 

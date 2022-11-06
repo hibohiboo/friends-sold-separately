@@ -5,10 +5,10 @@
 /* eslint-disable no-underscore-dangle */
 import { EVENT_NAME } from '../../../event/constants';
 import { EventSystem, Network } from '../system';
-import type { GameObject, ObjectContext } from './game-object';
 import { ObjectFactory } from './object-factory';
 import { type CatalogItem, ObjectStore } from './object-store';
 import { type SynchronizeRequest, SynchronizeTask } from './synchronize-task';
+import type { GameObject, ObjectContext } from './game-object';
 
 type PeerId = string;
 type ObjectIdentifier = string;

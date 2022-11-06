@@ -1,6 +1,6 @@
+import { EVENT_NAME } from '../../../../event/constants';
 import type { Event } from './event';
 import type { Subject } from './subject';
-import { EVENT_NAME } from '../../../../event/constants';
 
 export type Callback<T> = (event: Event<T>, listener?: Observer) => void;
 

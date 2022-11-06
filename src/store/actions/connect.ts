@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from '..';
+import { PeerUser } from '@/domain/udonarium/class/peer-user';
 import {
   createPeerUser,
   getUser,
@@ -7,9 +7,9 @@ import {
   initGameObject,
   initLobby,
 } from '@/domain/udonarium/room/lobby';
-import { peerSlice } from '../slices/peer';
 import { UserContext } from '@/domain/user/types';
-import { PeerUser } from '@/domain/udonarium/class/peer-user';
+import { RootState } from '..';
+import { peerSlice } from '../slices/peer';
 import { userProfileSlice } from '../slices/userProfile';
 
 const peerToContext = (u: PeerUser) => u.toContext() as UserContext;

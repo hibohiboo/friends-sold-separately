@@ -2,7 +2,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-plusplus */
 import * as Pako from 'pako';
-
 import { setZeroTimeout } from './zero-timeout';
 
 type NullableUint8Array = Uint8Array | null;

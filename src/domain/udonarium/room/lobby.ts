@@ -3,7 +3,6 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import { skywayKey } from '@/constants';
 import { LOBBY_ROOM_ID, LOBBY_ROOM_NAME, LOBBY_ROOM_PASS } from '../../lobby/constants';
 import { ObjectFactory } from '../class/core/synchronize-object/object-factory';
 import { ObjectSerializer } from '../class/core/synchronize-object/object-serializer';
@@ -13,6 +12,7 @@ import { EventSystem, Network } from '../class/core/system';
 import { PeerContext } from '../class/core/system/network/peer-context';
 import { PeerUser } from '../class/peer-user';
 import { EVENT_NAME } from '../event/constants';
+import { skywayKey } from '@/constants';
 
 const USER_DEFAULT_NAME = 'ななしのTRPG民';
 export const getUsers = () => {

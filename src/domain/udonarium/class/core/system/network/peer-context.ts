@@ -1,8 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable prefer-destructuring */
-import * as lzbase62 from 'lzbase62';
 import SHA256 from 'crypto-js/sha256'; // @diff ts errorが出たのでimport記述を修正
-
+import * as lzbase62 from 'lzbase62';
 import { base } from '../util/base-x';
 import { PeerSessionGrade } from './peer-session-state';
 import type { MutablePeerSessionState, PeerSessionState } from './peer-session-state';

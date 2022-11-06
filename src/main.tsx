@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom/client';
+import { connect } from '@/store/actions/connect';
 import App from './App';
 import { store } from '@/store';
 import './index.css';
-import { connect } from './store/actions/connect';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>

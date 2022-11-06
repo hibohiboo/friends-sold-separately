@@ -4,7 +4,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* @ts-ignore */
 import { EventEmitter } from 'events';
-
 import { MessagePack } from '../util/message-pack';
 import { UUID } from '../util/uuid';
 import { setZeroTimeout } from '../util/zero-timeout';

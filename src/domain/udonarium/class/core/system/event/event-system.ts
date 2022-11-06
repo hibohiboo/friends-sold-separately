@@ -1,12 +1,12 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
+import { EVENT_NAME } from '../../../../event/constants';
 import { Network } from '../network/network';
 import { Event } from './event';
 import { Listener } from './listener';
 import type { EventContext } from './event';
 import type { Callback } from './observer';
 import type { Subject } from './subject';
-import { EVENT_NAME } from '../../../../event/constants';
 
 type EventName = string;
 

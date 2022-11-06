@@ -1,8 +1,8 @@
 import React, { ChangeEventHandler } from 'react';
+import { updateProfile } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { userProfileSlice } from '@/store/slices/userProfile';
-import { updateProfile } from '@/store/actions/connect';
 
 const Profile: React.FC = () => {
   const user = useAppSelector(userProfileSelector);
