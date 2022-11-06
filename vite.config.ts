@@ -24,4 +24,5 @@ export default defineConfig({
   define: {
     VITE_DEFINE_BASE_PATH: JSON.stringify(dev ? '' : process.env.DEFINE_BASE_PATH),
   },
+  base: dev ? '' : `/${process.env.DEFINE_BASE_PATH}/`,
 });
