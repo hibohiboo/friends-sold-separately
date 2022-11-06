@@ -35,5 +35,8 @@ export const userProfileSlice = createSlice({
     toggleIsPublish(state) {
       state.isPublish = !state.isPublish;
     },
+    userReceived(state, action) {
+      return action.payload;
+    },
   },
 });

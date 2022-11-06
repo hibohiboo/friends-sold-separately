@@ -18,7 +18,7 @@ const initAttributes = () => {
 };
 export const initAttributeEntity = (dispatch: Dispatch) => {
   const user = initUser();
-  if (user) userProfileSlice.actions.setUser(user);
+  if (user) userProfileSlice.actions.userReceived(user);
   const attr = initAttributes();
   if (attr) dispatch(attributesSlice.actions.attributesReceived(attr));
 };

@@ -40,6 +40,7 @@ const Profile: React.FC = () => {
           id="input-is-publish"
           type="checkbox"
           defaultChecked={user.isPublish}
+          checked={user.isPublish}
           onClick={changePublishHandler}
         />
       </label>
