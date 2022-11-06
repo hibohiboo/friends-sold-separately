@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { persistMiddleWare } from '@/domain/user/repository';
 import { attributesSlice } from './slices/attributes';
 import { peerSlice } from './slices/peer';
 import { userProfileSlice } from './slices/userProfile';
@@ -9,7 +10,7 @@ export const store = configureStore({
     userProfile: userProfileSlice.reducer,
     attributes: attributesSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(persistMiddleWare),
 });
 
 export type AppDispatch = typeof store.dispatch;

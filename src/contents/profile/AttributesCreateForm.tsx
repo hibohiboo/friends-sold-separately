@@ -24,7 +24,7 @@ const AttributesCreateForm: React.FC = () => {
 
   return (
     <div>
-      <h4 style={{ marginBottom: '0' }}>所持ルルブ</h4>
+      <h4 style={{ marginBottom: '0' }}>遊びたいシステム</h4>
       <label htmlFor="input-name" style={{ margin: '0.5rem' }}>
         <input
           id="input-name"

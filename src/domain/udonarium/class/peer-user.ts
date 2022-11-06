@@ -94,14 +94,15 @@ export class PeerUser extends GameObject {
     return null;
   }
 
-  static createMyUser(): PeerUser {
+  static createMyUser(identifier?: string): PeerUser {
     if (PeerUser.myUser) {
       console.warn('It is already created.');
       return PeerUser.myUser;
     }
-    PeerUser.myUser = new PeerUser();
+    PeerUser.myUser = new PeerUser(identifier);
     PeerUser.myUser.userId = '';
     PeerUser.myUser.peerId = Network.peerId;
+
     PeerUser.myUser.initialize();
     return PeerUser.myUser;
   }

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
-import { connect } from '@/store/actions/connect';
 import App from './App';
+import { initAttributeEntity } from './domain/user/repository';
+import { connect } from './store/actions/connect';
 import { store } from '@/store';
+
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -14,4 +16,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   </Provider>
 );
 
+initAttributeEntity(store.dispatch);
 store.dispatch(connect());

@@ -3,6 +3,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
+import { initUser } from '@/domain/user/repository';
 import { LOBBY_ROOM_ID, LOBBY_ROOM_NAME, LOBBY_ROOM_PASS } from '../../lobby/constants';
 import { ObjectFactory } from '../class/core/synchronize-object/object-factory';
 import { ObjectSerializer } from '../class/core/synchronize-object/object-serializer';
@@ -22,6 +23,19 @@ export const getUser = () => {
   const user = PeerUser.myUser;
   if (!user) throw new Error('初期化前には使用しないでください');
   return user;
+};
+
+const initMyUser = () => {
+  const persistedUser = initUser();
+  const myUser = PeerUser.createMyUser(persistedUser?.identifier);
+  if (!persistedUser) {
+    myUser.name = USER_DEFAULT_NAME;
+  } else {
+    myUser.name = persistedUser.name;
+    myUser.isPublish = persistedUser.isPublish;
+    myUser.userId = persistedUser.userId;
+  }
+  return myUser;
 };
 
 const initNetwork = () =>
@@ -78,8 +92,7 @@ export const createRoom = async (roomName: string, roomPassword = '') => {
   Network.open(userId, PeerContext.generateId('***'), roomName, roomPassword);
 };
 export const createPeerUser = (updateCallback: () => void) => {
-  const myUser = PeerUser.createMyUser();
-  myUser.name = USER_DEFAULT_NAME;
+  const myUser = initMyUser();
 
   EventSystem.register('application init')
     .on(EVENT_NAME.UPDATE_GAME_OBJECT, (event) => {
