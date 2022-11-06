@@ -3,6 +3,8 @@ import { updateProfile } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { userProfileSlice } from '@/store/slices/userProfile';
+import AttributesCreateForm from './AttributesCreateForm';
+import AttributesList from './AttributesList';
 
 const Profile: React.FC = () => {
   const user = useAppSelector(userProfileSelector);
@@ -19,7 +21,7 @@ const Profile: React.FC = () => {
 
   return (
     <section style={{ backgroundColor: '#333', padding: '10px' }}>
-      <h3 style={{ marginTop: '0' }}>僕の説明書</h3>
+      <h2 style={{ marginTop: '0' }}>僕の説明書</h2>
       <label htmlFor="input-name" style={{ display: 'flex', margin: '0.5rem' }}>
         名前：
         <input
@@ -29,8 +31,11 @@ const Profile: React.FC = () => {
           onChange={nameChangeHandler}
         />
       </label>
+
+      <AttributesCreateForm />
+      <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>
-        他人に見せてOK
+        売り場に並ぶ
         <input
           id="input-is-publish"
           type="checkbox"
