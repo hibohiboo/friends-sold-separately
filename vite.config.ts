@@ -23,6 +23,8 @@ export default defineConfig({
   },
   define: {
     VITE_DEFINE_BASE_PATH: JSON.stringify(dev ? '' : process.env.DEFINE_BASE_PATH),
+    VITE_DEFINE_SKYWAY_KEY: JSON.stringify(process.env.DEFINE_SKYWAY_KEY),
+    VITE_DEFINE_ROOM_PASSWORD: JSON.stringify(process.env.DEFINE_ROOM_PASSWORD),
   },
   base: dev ? '' : `/${process.env.DEFINE_BASE_PATH}/`,
   build: {
@@ -32,8 +34,10 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom'],
           rtk: ['react-redux', '@reduxjs/toolkit'],
+          udonarium: ['crypto-js', 'lzbase62', 'msgpack-lite', 'pako', 'skyway-js'],
         },
       },
     },
   },
+  server: { port: 4200 },
 });

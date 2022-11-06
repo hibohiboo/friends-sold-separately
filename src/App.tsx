@@ -1,17 +1,16 @@
 import React from 'react';
 import './App.css';
-import Logo from '@/contents/toppage/Logo';
 import { useAppDispatch, useAppSelector } from './store/hooks';
-import { sampleSlice } from './store/slices/sample';
-import { countSelector } from './store/selectors/sampleSelector';
+import { selfUserSelector } from './store/selectors/peerSelector';
 
 const App: React.FC = () => {
-  const count = useAppSelector(countSelector);
+  const user = useAppSelector(selfUserSelector);
   const dispatch = useAppDispatch();
 
   return (
     <div className="App">
       <h1>※友達は別売りです</h1>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
     </div>
   );
 };

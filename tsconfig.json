@@ -17,7 +17,8 @@
     "jsx": "react-jsx",
     "paths": { "@/*": ["./src/*"] },
     "composite": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "experimentalDecorators": true
   },
   "include": ["src", ".eslintrc.cjs", "vite.config.ts", "tests"]
 }

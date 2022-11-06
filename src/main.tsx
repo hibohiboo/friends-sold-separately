@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { store } from '@/store';
 import './index.css';
+import { connect } from './store/actions/connect';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
@@ -12,3 +13,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </React.StrictMode>
   </Provider>
 );
+
+store.dispatch(connect());
