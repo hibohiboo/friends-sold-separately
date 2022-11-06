@@ -2,11 +2,13 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    es6: true,
   },
   extends: [
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
+    'react-app',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
@@ -25,5 +27,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'import/extensions': 'off',
+    // react-redux
+    'import/prefer-default-export': 'off',
+    'no-param-reassign': 'off',
   },
 };
