@@ -10,7 +10,7 @@ import {
 import { peerSlice } from '../slices/peer';
 import { UserContext } from '@/domain/user/types';
 import { PeerUser } from '@/domain/udonarium/class/peer-user';
-import { userProfileSlice, UserProfileState } from '../slices/userProfile';
+import { userProfileSlice } from '../slices/userProfile';
 
 const peerToContext = (u: PeerUser) => u.toContext() as UserContext;
 export const connect = createAsyncThunk<void, void, { state: RootState }>(
@@ -37,6 +37,8 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
   async (req, thunkAPI) => {
     const state = thunkAPI.getState();
     const user = getUser();
-    user.name = state.userProfile.name;
+    const profile = state.userProfile;
+    user.name = profile.name;
+    user.isPublish = profile.isPublish;
   }
 );

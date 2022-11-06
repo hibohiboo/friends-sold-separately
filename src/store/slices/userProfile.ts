@@ -6,6 +6,7 @@ export interface UserProfileState {
   userId: string;
   peerId: string;
   name: string;
+  isPublish: boolean;
 }
 
 const initialState: UserProfileState = {
@@ -13,6 +14,7 @@ const initialState: UserProfileState = {
   userId: '',
   peerId: '',
   name: '',
+  isPublish: false,
 };
 
 export const userProfileSlice = createSlice({
@@ -25,9 +27,13 @@ export const userProfileSlice = createSlice({
       state.name = syncData.name;
       state.userId = syncData.userId;
       state.peerId = syncData.peerId;
+      state.isPublish = syncData.isPublish;
     },
     setUserName(state, action: PayloadAction<string>) {
       state.name = action.payload;
+    },
+    toggleIsPublish(state) {
+      state.isPublish = !state.isPublish;
     },
   },
 });

@@ -7,5 +7,5 @@ export const selfUserSelector = createSelector(peerSelector, (peer) => {
   return peer.self;
 });
 export const peersSelector = createSelector(peerSelector, (peers) => {
-  return peers.list;
+  return peers.list.filter((peer) => peer.syncData.isPublish);
 });

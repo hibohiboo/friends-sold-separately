@@ -25,6 +25,8 @@ export class PeerUser extends GameObject {
 
   declare name: string;
 
+  declare isPublish: boolean;
+
   declare tags: Tag[];
 
   get isMine(): boolean {
@@ -36,10 +38,12 @@ export class PeerUser extends GameObject {
     SyncVar()(this, 'userId');
     SyncVar()(this, 'peerId');
     SyncVar()(this, 'name');
+    SyncVar()(this, 'isPublish');
     SyncVar()(this, 'tags');
     this.userId = '';
     this.peerId = '';
     this.name = '';
+    this.isPublish = false;
     this.tags = [];
   }
 

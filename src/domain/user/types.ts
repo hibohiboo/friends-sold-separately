@@ -7,5 +7,6 @@ export type UserContext = {
     userId: string;
     peerId: string;
     name: string;
+    isPublish: boolean;
   };
 };
