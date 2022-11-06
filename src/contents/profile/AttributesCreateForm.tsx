@@ -1,4 +1,6 @@
 import React, { ChangeEventHandler, useState } from 'react';
+import { FaBookOpen } from 'react-icons/fa';
+import { updateAttributes } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { attributesSlice } from '@/store/slices/attributes';
@@ -14,17 +16,21 @@ const AttributesCreateForm: React.FC = () => {
     if (name === '') return;
     dispatch(
       attributesSlice.actions.attributeAdded({
-        userId: user.userId,
+        userIdentifier: user.identifier,
         type: 'RuleBook',
         name,
       })
     );
     setName('');
+    dispatch(updateAttributes());
   };
 
   return (
     <div>
-      <h4 style={{ marginBottom: '0' }}>遊びたいシステム</h4>
+      <h4 style={{ marginBottom: '0', display: 'flex', alignItems: 'center' }}>
+        <FaBookOpen />
+        <span style={{ marginLeft: '0.5rem' }}>遊びたいシステム</span>
+      </h4>
       <label htmlFor="input-name" style={{ margin: '0.5rem' }}>
         <input
           id="input-name"

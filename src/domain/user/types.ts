@@ -8,12 +8,13 @@ export type UserContext = {
     peerId: string;
     name: string;
     isPublish: boolean;
+    attributes: Attribute[];
   };
 };
 type AttributeType = 'RuleBook';
 export type Attribute = {
   id: string;
-  userId: string;
+  userIdentifier: string;
   createdAt: number;
   name: string;
   type: AttributeType;
@@ -21,5 +22,5 @@ export type Attribute = {
 export type AttributeEditForm = {
   name: string;
   type: AttributeType;
-  userId: string;
+  userIdentifier: string;
 };

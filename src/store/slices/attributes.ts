@@ -18,13 +18,13 @@ export const attributesSlice = createSlice({
         attributesAdapter.addOne(state, action.payload);
       },
       prepare(form: AttributeEditForm) {
-        const { name, type, userId } = form;
+        const { name, type, userIdentifier } = form;
         const now = Date.now();
         const entity = {
           id: UUID.generateUuid(),
           name,
           type,
-          userId,
+          userIdentifier,
           createdAt: now,
         };
         return { payload: entity };

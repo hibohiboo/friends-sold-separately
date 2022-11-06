@@ -88,5 +88,7 @@ module.exports = {
         ],
       },
     ],
+    // tsで型チェックするので不要
+    'react/prop-types': ['off'],
   },
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { updateAttributes } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { attributesEntitySelector } from '@/store/selectors/attributesSelector';
 import { attributesSlice } from '@/store/slices/attributes';
@@ -8,6 +9,7 @@ const AttributesList: React.FC = () => {
   const dispatch = useAppDispatch();
   const deleteHandler = (id: string) => {
     dispatch(attributesSlice.actions.attibuteRemove(id));
+    dispatch(updateAttributes());
   };
   return (
     <ul style={{ display: 'flex', listStyle: 'none', padding: '0' }}>

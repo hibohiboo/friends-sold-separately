@@ -42,3 +42,13 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     user.isPublish = profile.isPublish;
   }
 );
+
+export const updateAttributes = createAsyncThunk<void, void, { state: RootState }>(
+  'updateAttributes',
+  async (req, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const user = getUser();
+    const attributes = Object.values(state.attributes.entities);
+    user.attributes = attributes.flatMap((attr) => (attr ? [attr] : []));
+  }
+);

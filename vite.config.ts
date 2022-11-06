@@ -3,8 +3,8 @@
 /// <reference types="vite/client" />
 
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
 import dotenv from 'dotenv';
+import { defineConfig } from 'vite';
 
 dotenv.config();
 const dev = process.env.npm_lifecycle_event === 'dev';
@@ -33,6 +33,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ['react', 'react-dom'],
+          reactFamilies: ['react-icons'],
           rtk: ['react-redux', '@reduxjs/toolkit'],
           udonarium: ['crypto-js', 'lzbase62', 'msgpack-lite', 'pako', 'skyway-js'],
         },

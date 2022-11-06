@@ -1,3 +1,4 @@
+import { Attribute } from '@/domain/user/types';
 import { EVENT_NAME } from '../event/constants';
 import { SyncObject, SyncVar } from './core/synchronize-object/decorator';
 import { GameObject } from './core/synchronize-object/game-object';
@@ -7,10 +8,7 @@ import { EventSystem, Network } from './core/system';
 type UserId = string;
 type PeerId = string;
 type ObjectIdentifier = string;
-type Tag = {
-  name: string;
-  type: string;
-};
+
 @SyncObject('PeerUser')
 export class PeerUser extends GameObject {
   static myUser: PeerUser | null = null;
@@ -27,7 +25,7 @@ export class PeerUser extends GameObject {
 
   declare isPublish: boolean;
 
-  declare tags: Tag[];
+  declare attributes: Attribute[];
 
   get isMine(): boolean {
     return PeerUser.myUser != null && PeerUser.myUser === this;
@@ -39,12 +37,12 @@ export class PeerUser extends GameObject {
     SyncVar()(this, 'peerId');
     SyncVar()(this, 'name');
     SyncVar()(this, 'isPublish');
-    SyncVar()(this, 'tags');
+    SyncVar()(this, 'attributes');
     this.userId = '';
     this.peerId = '';
     this.name = '';
     this.isPublish = false;
-    this.tags = [];
+    this.attributes = [];
   }
 
   // GameObject Lifecycle

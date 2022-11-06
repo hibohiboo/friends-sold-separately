@@ -3,7 +3,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import { initUser } from '@/domain/user/repository';
+import { initAttributes, initUser } from '@/domain/user/repository';
 import { LOBBY_ROOM_ID, LOBBY_ROOM_NAME, LOBBY_ROOM_PASS } from '../../lobby/constants';
 import { ObjectFactory } from '../class/core/synchronize-object/object-factory';
 import { ObjectSerializer } from '../class/core/synchronize-object/object-serializer';
@@ -34,6 +34,8 @@ const initMyUser = () => {
     myUser.name = persistedUser.name;
     myUser.isPublish = persistedUser.isPublish;
     myUser.userId = persistedUser.userId;
+    const attr = initAttributes();
+    if (attr) myUser.attributes = attr;
   }
   return myUser;
 };

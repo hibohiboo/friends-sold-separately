@@ -8,6 +8,7 @@ const App: React.FC = () => {
     <div className="App">
       <h1>※友達は別売りです</h1>
       <Profile />
+      <h3>友達売り場</h3>
       <Friends />
     </div>
   );

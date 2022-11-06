@@ -11,7 +11,7 @@ export const initUser = (): UserProfileState | null => {
   if (!userJson) return null;
   return JSON.parse(userJson) as UserProfileState;
 };
-const initAttributes = () => {
+export const initAttributes = () => {
   const attributesJson = localStorage.getItem(ATTRIBUTES_LOCAL_STORAGE_KEY);
   if (!attributesJson) return null;
   return JSON.parse(attributesJson);
