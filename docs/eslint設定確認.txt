@@ -2,8 +2,8 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "es6": true,
     "commonjs": true,
+    "es6": true,
     "jest": true,
     "node": true
   },
@@ -30,6 +30,7 @@
     "jsx-a11y",
     "flowtype",
     "import",
+    "unused-imports",
     "jest-dom",
     "testing-library",
     "prettier",
@@ -77,6 +78,61 @@
           "$scope",
           "staticContext"
         ]
+      }
+    ],
+    "unused-imports/no-unused-imports": [
+      "error"
+    ],
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "parent",
+            "sibling"
+          ],
+          "object",
+          "type",
+          "index"
+        ],
+        "newlines-between": "never",
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "react**",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "{@/store/**,@/domain/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "{@/components/**,./**.style}",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "warnOnUnassignedImports": false
       }
     ],
     "jest-dom/prefer-checked": [
@@ -2509,19 +2565,6 @@
     ],
     "import/no-namespace": [
       "off"
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          [
-            "builtin",
-            "external",
-            "internal"
-          ]
-        ],
-        "warnOnUnassignedImports": false
-      }
     ],
     "import/newline-after-import": [
       "error"
