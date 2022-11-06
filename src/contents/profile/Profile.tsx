@@ -39,9 +39,8 @@ const Profile: React.FC = () => {
         <input
           id="input-is-publish"
           type="checkbox"
-          defaultChecked={user.isPublish}
           checked={user.isPublish}
-          onClick={changePublishHandler}
+          onChange={changePublishHandler}
         />
       </label>
       <button type="button" onClick={submitHandler} style={{ cursor: 'pointer' }}>
