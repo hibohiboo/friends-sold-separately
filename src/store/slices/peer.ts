@@ -5,11 +5,13 @@ import { UserContext } from '@/domain/user/types';
 export interface PeerState {
   self?: UserContext;
   isReady: boolean;
+  list: UserContext[];
 }
 
 const initialState: PeerState = {
   self: undefined,
   isReady: false,
+  list: [],
 };
 
 export const peerSlice = createSlice({
@@ -18,6 +20,9 @@ export const peerSlice = createSlice({
   reducers: {
     setUser(state, action: PayloadAction<UserContext>) {
       state.self = action.payload;
+    },
+    setPeers(state, action: PayloadAction<UserContext[]>) {
+      state.list = action.payload;
     },
   },
 });
