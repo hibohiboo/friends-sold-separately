@@ -14,11 +14,14 @@ import { PeerContext } from '../class/core/system/network/peer-context';
 import { PeerUser } from '../class/peer-user';
 import { EVENT_NAME } from '../event/constants';
 
+const USER_DEFAULT_NAME = 'ななしのTRPG民';
 export const getUsers = () => {
   return ObjectStore.instance.getObjects<PeerUser>(PeerUser);
 };
 export const getUser = () => {
-  return PeerUser.myUser;
+  const user = PeerUser.myUser;
+  if (!user) throw new Error('初期化前には使用しないでください');
+  return user;
 };
 
 const initNetwork = () =>
@@ -76,7 +79,7 @@ export const createRoom = async (roomName: string, roomPassword = '') => {
 };
 export const createPeerUser = (updateCallback: () => void) => {
   const myUser = PeerUser.createMyUser();
-  myUser.name = '友達欲しい太郎';
+  myUser.name = USER_DEFAULT_NAME;
 
   EventSystem.register('application init')
     .on(EVENT_NAME.UPDATE_GAME_OBJECT, (event) => {

@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { peerSlice } from './slices/peer';
+import { userProfileSlice } from './slices/userProfile';
 
 export const store = configureStore({
   reducer: {
     peer: peerSlice.reducer,
+    userProfile: userProfileSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
