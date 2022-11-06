@@ -1,19 +1,27 @@
 import React from 'react';
-import { useAppSelector } from '@/store/hooks';
-import { peersSelector } from '@/store/selectors/peerSelector';
+import { favoriteAttributes } from '@/store/actions/attributes';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { friendsSelector } from '@/store/selectors/peerSelector';
 import AttributeItem from './AttributeItem';
 
 const Friends: React.FC = () => {
-  const peers = useAppSelector(peersSelector);
+  const friends = useAppSelector(friendsSelector);
+  const dispatch = useAppDispatch();
 
   return (
     <ul style={{ listStyle: 'none' }}>
-      {peers.map((peer) => (
-        <li key={peer.identifier}>
-          <span>{peer.syncData.name}</span>
+      {friends.map((friend) => (
+        <li key={friend.userIdentifier}>
+          <span>{friend.name}</span>
           <ul style={{ listStyle: 'none', display: 'flex' }}>
-            {peer.syncData.attributes.map((attr) => (
-              <AttributeItem key={attr.id} attr={attr} />
+            {friend.attributes.map((attr) => (
+              <AttributeItem
+                key={attr.id}
+                attr={attr}
+                clickHandler={() => {
+                  dispatch(favoriteAttributes({ friend, attribute: attr }));
+                }}
+              />
             ))}
           </ul>
         </li>

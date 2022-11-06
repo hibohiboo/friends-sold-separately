@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserContext } from '@/domain/user/types';
+import { MyFavorite, UserContext } from '@/domain/user/types';
 
 export interface UserProfileState {
   identifier: string;
@@ -7,6 +7,7 @@ export interface UserProfileState {
   peerId: string;
   name: string;
   isPublish: boolean;
+  favoriteAttribute: MyFavorite[];
 }
 
 const initialState: UserProfileState = {
@@ -15,6 +16,7 @@ const initialState: UserProfileState = {
   peerId: '',
   name: '',
   isPublish: false,
+  favoriteAttribute: [],
 };
 
 export const userProfileSlice = createSlice({
@@ -36,7 +38,10 @@ export const userProfileSlice = createSlice({
       state.isPublish = !state.isPublish;
     },
     userReceived(state, action) {
-      return action.payload;
+      return { ...action.payload, favoriteAttribute: [] };
+    },
+    addFavorite(state, action: PayloadAction<MyFavorite>) {
+      state.favoriteAttribute.push(action.payload);
     },
   },
 });

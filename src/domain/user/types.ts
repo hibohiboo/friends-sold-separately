@@ -1,5 +1,6 @@
+type UserIdentifier = string;
 export type UserContext = {
-  identifier: string;
+  identifier: UserIdentifier;
   aliasName: string;
   majorVersion: number;
   minorVersion: number;
@@ -12,9 +13,10 @@ export type UserContext = {
   };
 };
 type AttributeType = 'RuleBook';
+type AttributeId = string;
 export type Attribute = {
-  id: string;
-  userIdentifier: string;
+  id: AttributeId;
+  userIdentifier: UserIdentifier;
   createdAt: number;
   name: string;
   type: AttributeType;
@@ -22,5 +24,21 @@ export type Attribute = {
 export type AttributeEditForm = {
   name: string;
   type: AttributeType;
-  userIdentifier: string;
+  userIdentifier: UserIdentifier;
+};
+export type FriendAttribute = Attribute & { isFavorite: boolean };
+export type Friend = {
+  userIdentifier: UserIdentifier;
+  peerId: string;
+  name: string;
+  attributes: FriendAttribute[];
+};
+
+export type MyFavorite = {
+  id: AttributeId;
+  userIdentifier: UserIdentifier;
+  userName: string;
+  type: AttributeType;
+  name: string;
+  twitter?: string;
 };
