@@ -25,4 +25,15 @@ export default defineConfig({
     VITE_DEFINE_BASE_PATH: JSON.stringify(dev ? '' : process.env.DEFINE_BASE_PATH),
   },
   base: dev ? '' : `/${process.env.DEFINE_BASE_PATH}/`,
+  build: {
+    sourcemap: process.env.NODE_ENV !== 'production',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          rtk: ['react-redux', '@reduxjs/toolkit'],
+        },
+      },
+    },
+  },
 });
