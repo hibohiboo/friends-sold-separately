@@ -14,6 +14,13 @@ import { PeerContext } from '../class/core/system/network/peer-context';
 import { PeerUser } from '../class/peer-user';
 import { EVENT_NAME } from '../event/constants';
 
+export const getUsers = () => {
+  return ObjectStore.instance.getObjects<PeerUser>(PeerUser);
+};
+export const getUser = () => {
+  return PeerUser.myUser;
+};
+
 const initNetwork = () =>
   new Promise<string>((resolve) => {
     EventSystem.register('lobby').on(EVENT_NAME.OPEN_NETWORK, () => {
@@ -69,8 +76,7 @@ export const createRoom = async (roomName: string, roomPassword = '') => {
 };
 export const createPeerUser = (updateCallback: () => void) => {
   const myUser = PeerUser.createMyUser();
-  myUser.name = 'プレイヤー';
-  if (PeerUser.myUser) PeerUser.myUser.name = 'ぷれいやー';
+  myUser.name = '友達欲しい太郎';
 
   EventSystem.register('application init')
     .on(EVENT_NAME.UPDATE_GAME_OBJECT, (event) => {
@@ -121,10 +127,6 @@ export const createPeerUser = (updateCallback: () => void) => {
 
   return myUser;
 };
-export const getUsers = () => {
-  return ObjectStore.instance.getObjects<PeerUser>(PeerUser);
-};
-
 interface EventMessage {
   isSendFromSelf: boolean;
   eventName: string;

@@ -3,6 +3,7 @@ import './App.css';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { selfUserSelector } from '@/store/selectors/peerSelector';
 import Friends from '../peers/Friends';
+import Profile from '../profile/Profile';
 
 const App: React.FC = () => {
   const user = useAppSelector(selfUserSelector);
@@ -11,6 +12,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>※友達は別売りです</h1>
+      <Profile />
       <Friends />
       <pre>{JSON.stringify(user, null, 2)}</pre>
     </div>
