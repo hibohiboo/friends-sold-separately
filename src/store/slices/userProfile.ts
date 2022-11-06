@@ -38,7 +38,7 @@ export const userProfileSlice = createSlice({
       state.isPublish = !state.isPublish;
     },
     userReceived(state, action) {
-      return { ...action.payload, favoriteAttribute: [] };
+      return { ...action.payload };
     },
     addFavorite(state, action: PayloadAction<MyFavorite>) {
       state.favoriteAttribute.push(action.payload);

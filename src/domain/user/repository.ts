@@ -18,7 +18,8 @@ export const initAttributes = () => {
 };
 export const initAttributeEntity = (dispatch: Dispatch) => {
   const user = initUser();
-  if (user) userProfileSlice.actions.userReceived(user);
+
+  if (user) dispatch(userProfileSlice.actions.userReceived(user));
   const attr = initAttributes();
   if (attr) dispatch(attributesSlice.actions.attributesReceived(attr));
 };
@@ -31,6 +32,7 @@ export const persistMiddleWare: Middleware = (store) => (next) => (action) => {
       userProfileSlice.actions.setUser.type,
       userProfileSlice.actions.setUserName.type,
       userProfileSlice.actions.toggleIsPublish.type,
+      userProfileSlice.actions.addFavorite.type,
     ].includes(action.type)
   ) {
     const state: RootState = store.getState();
