@@ -1,3 +1,5 @@
+import { AttributeType } from './constants';
+
 type UserIdentifier = string;
 export type UserContext = {
   identifier: UserIdentifier;
@@ -12,7 +14,7 @@ export type UserContext = {
     attributes: Attribute[];
   };
 };
-type AttributeType = 'RuleBook';
+
 type AttributeId = string;
 export type Attribute = {
   id: AttributeId;
@@ -21,6 +23,7 @@ export type Attribute = {
   name: string;
   type: AttributeType;
 };
+
 export type AttributeEditForm = {
   name: string;
   type: AttributeType;
