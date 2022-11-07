@@ -3,6 +3,7 @@ import { updateAttributes } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { attributesEntitySelector } from '@/store/selectors/attributesSelector';
 import { attributesSlice } from '@/store/slices/attributes';
+import AttributeTypeIcon from './AttributeTypeIcon';
 
 const AttributesList: React.FC = () => {
   const attributes = useAppSelector(attributesEntitySelector);
@@ -16,9 +17,18 @@ const AttributesList: React.FC = () => {
       {attributes.map((attr) => (
         <li
           key={attr.id}
-          style={{ border: 'solid 1px #eee', marginLeft: '0.5rem', padding: '5px' }}
+          style={{
+            border: 'solid 1px #eee',
+            marginLeft: '0.5rem',
+            padding: '5px',
+            display: 'flex',
+            alignItems: 'center',
+          }}
         >
-          <span>{attr.name}</span>
+          <div style={{ display: 'flex', padding: '0 5px' }}>
+            <AttributeTypeIcon type={attr.type} />
+          </div>
+          <div>{attr.name}</div>
           <button
             type="button"
             onClick={() => deleteHandler(attr.id)}

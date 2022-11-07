@@ -1,5 +1,5 @@
-import React, { ChangeEventHandler, useState } from 'react';
-import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
+import React, { ChangeEventHandler, useCallback, useState } from 'react';
+import { AttributeType, ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { updateAttributes } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
@@ -15,25 +15,35 @@ const Title: React.FC<{ type: string; text: string }> = ({ type, text }) => {
   );
 };
 
-const AttributesCreateForm: React.FC = () => {
-  const user = useAppSelector(userProfileSelector);
+const useAttribute = (identifier: string, type: AttributeType) => {
   const dispatch = useAppDispatch();
-  const [name, setName] = useState('');
-  const nameChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setName(e.target.value);
-  };
-  const submitHandler = () => {
+  const [name, setRuleBookName] = useState('');
+  const changeHandler: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (e) => {
+      setRuleBookName(e.target.value);
+    },
+    [setRuleBookName]
+  );
+  const submitHandler = useCallback(() => {
     if (name === '') return;
     dispatch(
       attributesSlice.actions.attributeAdded({
-        userIdentifier: user.identifier,
-        type: ATTRIBUTE_TYPE.Rulebook,
+        userIdentifier: identifier,
+        type,
         name,
       })
     );
-    setName('');
+
     dispatch(updateAttributes());
-  };
+    setRuleBookName('');
+  }, [dispatch, identifier, name, type]);
+  return { name, changeHandler, submitHandler } as const;
+};
+
+const AttributesCreateForm: React.FC = () => {
+  const user = useAppSelector(userProfileSelector);
+
+  const rulebook = useAttribute(user.identifier, ATTRIBUTE_TYPE.Rulebook);
 
   return (
     <div>
@@ -42,14 +52,13 @@ const AttributesCreateForm: React.FC = () => {
         <label htmlFor="input-name" style={{ margin: '0.5rem' }}>
           <input
             id="input-name"
-            // placeholder="システム名を入力してください"
-            onChange={nameChangeHandler}
+            onChange={rulebook.changeHandler}
             style={{ width: '200px' }}
-            value={name}
+            value={rulebook.name}
           />
         </label>
 
-        <button type="button" onClick={submitHandler} style={{ cursor: 'pointer' }}>
+        <button type="button" onClick={rulebook.submitHandler} style={{ cursor: 'pointer' }}>
           追加
         </button>
       </div>
