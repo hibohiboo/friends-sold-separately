@@ -30,7 +30,7 @@ export type AttributeEditForm = {
   type: AttributeType;
   userIdentifier: UserIdentifier;
 };
-export type FriendAttribute = Attribute & { isFavorite: boolean };
+export type FriendAttribute = Attribute & { isFavorite: boolean; isSelf: boolean };
 export type Friend = {
   userIdentifier: UserIdentifier;
   peerId: string;

@@ -22,22 +22,26 @@ const AttributeItem: React.FC<{ attr: FriendAttribute; clickHandler: () => void 
         <AttributeTypeIcon type={attr.type} />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginLeft: '0.5rem' }}>{attr.name}</div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          marginLeft: '1rem',
-          fontSize: '2rem',
-          cursor: 'pointer',
-          // backgroundColor: '#f34',
-          color: attr.isFavorite ? '#fa0' : '#aaa',
-          padding: '0 10px',
-        }}
-        title="僕も私も！"
-        onClick={clickHandler}
-      >
-        <FaRegHandshake />
-      </div>
+      {attr.isSelf ? (
+        <div />
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginLeft: '1rem',
+            fontSize: '2rem',
+            cursor: 'pointer',
+            // backgroundColor: '#f34',
+            color: attr.isFavorite ? '#fa0' : '#aaa',
+            padding: '0 10px',
+          }}
+          title="僕も私も！"
+          onClick={clickHandler}
+        >
+          <FaRegHandshake />
+        </div>
+      )}
     </li>
   );
 };
