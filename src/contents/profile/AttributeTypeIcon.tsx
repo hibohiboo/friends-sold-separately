@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsFillTagFill, BsTrophy } from 'react-icons/bs';
-import { FaBookOpen } from 'react-icons/fa';
+import { FaBookOpen, FaMask } from 'react-icons/fa';
 import { GiUnlitBomb } from 'react-icons/gi';
 import { MdAccessTime, MdFavorite, MdOutlineGrade } from 'react-icons/md';
 import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
@@ -25,6 +25,8 @@ const AttributeTypeIcon: React.FC<{ type: string }> = ({ type }) => {
       return <img src={mascleIcon} alt="スキル" style={{ width: '1rem' }} />;
     case ATTRIBUTE_TYPE.Like:
       return <MdFavorite />;
+    case ATTRIBUTE_TYPE.RolePlayType:
+      return <FaMask />;
   }
   return <BsFillTagFill />;
 };

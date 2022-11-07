@@ -2,6 +2,7 @@ import React, { ChangeEventHandler, useCallback, useState } from 'react';
 import { AttributeType, ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { updateAttributes } from '@/store/actions/connect';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { newlySelector } from '@/store/selectors/attributesSelector';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { attributesSlice } from '@/store/slices/attributes';
 import AttributeTypeIcon from './AttributeTypeIcon';
@@ -40,35 +41,113 @@ const useAttribute = (identifier: string, type: AttributeType) => {
   return { name, changeHandler, submitHandler } as const;
 };
 
-const AttributesCreateForm: React.FC = () => {
-  const user = useAppSelector(userProfileSelector);
-
-  const rulebook = useAttribute(user.identifier, ATTRIBUTE_TYPE.Rulebook);
-
+const AttributeInputForm: React.FC<{ userId: string; type: AttributeType; title: string }> = ({
+  userId,
+  type,
+  title,
+}) => {
+  const attr = useAttribute(userId, type);
   return (
     <div>
-      <div>
-        <Title type={ATTRIBUTE_TYPE.Rulebook} text="遊びたいシステム" />
-        <label htmlFor="input-name" style={{ margin: '0.5rem' }}>
-          <input
-            id="input-name"
-            onChange={rulebook.changeHandler}
-            style={{ width: '200px' }}
-            value={rulebook.name}
-          />
-        </label>
+      <Title type={type} text={title} />
+      <label htmlFor={`input-name-${type}`} style={{ margin: '0.5rem' }}>
+        <input
+          id={`input-name-${type}`}
+          onChange={attr.changeHandler}
+          style={{ width: '200px' }}
+          value={attr.name}
+        />
+      </label>
 
-        <button type="button" onClick={rulebook.submitHandler} style={{ cursor: 'pointer' }}>
-          追加
-        </button>
-      </div>
-      <Title type={ATTRIBUTE_TYPE.WantToPlay} text="遊びたいシナリオ" />
-      <Title type={ATTRIBUTE_TYPE.FunScenario} text="楽しかったシナリオ" />
-      <Title type={ATTRIBUTE_TYPE.Like} text="好き" />
-      <Title type={ATTRIBUTE_TYPE.SuperPower} text="スキル" />
-      <Title type={ATTRIBUTE_TYPE.PlayableTime} text="遊べる時間" />
-      <Title type={ATTRIBUTE_TYPE.Mine} text="苦手。地雷。好きな人はごめん。" />
-      <Title type={ATTRIBUTE_TYPE.Newly} text="初心者" />
+      <button type="button" onClick={attr.submitHandler} style={{ cursor: 'pointer' }}>
+        追加
+      </button>
+    </div>
+  );
+};
+
+const AttributesCreateForm: React.FC = () => {
+  const user = useAppSelector(userProfileSelector);
+  const newlyId = useAppSelector(newlySelector);
+  const dispatch = useAppDispatch();
+  return (
+    <div>
+      <AttributeInputForm type={ATTRIBUTE_TYPE.Like} title="好き" userId={user.identifier} />
+      <AttributeInputForm
+        type={ATTRIBUTE_TYPE.WantToPlay}
+        title="遊びたいシナリオ"
+        userId={user.identifier}
+      />
+      <details>
+        <summary>もっと詳しく...</summary>
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.FunScenario}
+          title="楽しかったシナリオ"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.Rulebook}
+          title="遊びたいシステム"
+          userId={user.identifier}
+        />
+
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.RolePlayType}
+          title="ロールプレイ傾向"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.SuperPower}
+          title="スキル"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.PlayableTime}
+          title="遊べる時間"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.Mine}
+          title="苦手。地雷。好きな人はごめん。"
+          userId={user.identifier}
+        />
+      </details>
+      <label
+        htmlFor="input-newly"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          verticalAlign: 'center',
+          padding: '5px 10px',
+        }}
+      >
+        <div style={{ display: 'flex' }}>
+          <input
+            type="checkbox"
+            id="input-newly"
+            checked={!!newlyId}
+            onChange={() => {
+              if (newlyId) {
+                dispatch(attributesSlice.actions.attibuteRemove(newlyId));
+              } else {
+                dispatch(
+                  attributesSlice.actions.attributeAdded({
+                    userIdentifier: user.identifier,
+                    type: ATTRIBUTE_TYPE.Newly,
+                    name: '初心者',
+                  })
+                );
+              }
+
+              dispatch(updateAttributes());
+            }}
+          />
+        </div>
+        <div style={{ display: 'flex' }}>
+          <AttributeTypeIcon type={ATTRIBUTE_TYPE.Newly} />
+          <span style={{ marginLeft: '0.5rem' }}>初心者</span>
+        </div>
+      </label>
     </div>
   );
 };

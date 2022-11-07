@@ -7,5 +7,6 @@ export const ATTRIBUTE_TYPE = {
   PlayableTime: 'PlayableTime',
   SuperPower: 'SuperPower',
   Like: 'Like',
+  RolePlayType: 'RolePlayType',
 } as const;
 export type AttributeType = typeof ATTRIBUTE_TYPE[keyof typeof ATTRIBUTE_TYPE];

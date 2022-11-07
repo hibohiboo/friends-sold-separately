@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { RootState } from '..';
 import { attributesAdapter } from '../slices/attributes';
 
@@ -23,3 +24,10 @@ export const selectedAttributeIdSelector = createSelector(
   attributesSelector,
   (state) => state.selectedId
 );
+
+export const newlySelector = createSelector(attributesEntitySelector, (attributes) => {
+  if (!attributes) return null;
+  const newly = attributes.find((attr) => attr.type === ATTRIBUTE_TYPE.Newly);
+  if (!newly) return null;
+  return newly.id;
+});
