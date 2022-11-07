@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
-
 import react from '@vitejs/plugin-react';
 import dotenv from 'dotenv';
+import { terser } from 'rollup-plugin-terser';
 import { defineConfig } from 'vite';
 
 dotenv.config();
@@ -11,7 +11,7 @@ const dev = process.env.npm_lifecycle_event === 'dev';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), terser({ compress: { drop_console: true } })],
   test: {
     globals: true,
     environment: 'jsdom',
