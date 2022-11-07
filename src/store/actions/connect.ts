@@ -40,6 +40,7 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     const profile = state.userProfile;
     user.name = profile.name;
     user.isPublish = profile.isPublish;
+    user.twitterId = profile.twitterId;
   }
 );
 

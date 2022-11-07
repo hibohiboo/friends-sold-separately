@@ -6,6 +6,7 @@ export interface UserProfileState {
   userId: string;
   peerId: string;
   name: string;
+  twitterId: string;
   isPublish: boolean;
   favoriteAttribute: MyFavorite[];
 }
@@ -15,6 +16,7 @@ const initialState: UserProfileState = {
   userId: '',
   peerId: '',
   name: '',
+  twitterId: '',
   isPublish: false,
   favoriteAttribute: [],
 };
@@ -30,9 +32,13 @@ export const userProfileSlice = createSlice({
       state.userId = syncData.userId;
       state.peerId = syncData.peerId;
       state.isPublish = syncData.isPublish;
+      state.twitterId = syncData.twitterId;
     },
     setUserName(state, action: PayloadAction<string>) {
       state.name = action.payload;
+    },
+    setTwitterId(state, action: PayloadAction<string>) {
+      state.twitterId = action.payload;
     },
     toggleIsPublish(state) {
       state.isPublish = !state.isPublish;

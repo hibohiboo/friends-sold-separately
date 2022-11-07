@@ -12,7 +12,18 @@ const Friends: React.FC = () => {
     <ul style={{ listStyle: 'none' }}>
       {friends.map((friend) => (
         <li key={friend.userIdentifier}>
-          <span>{friend.name}</span>
+          {friend.twitterId ? (
+            <a
+              href={`https://twitter.com/${friend.twitterId}`}
+              title={friend.name}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {friend.name}
+            </a>
+          ) : (
+            <span>{friend.name}</span>
+          )}
           <ul style={{ listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
             {friend.attributes.map((attr) => (
               <AttributeItem

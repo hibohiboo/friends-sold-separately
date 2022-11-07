@@ -16,6 +16,7 @@ export const favoriteAttributes = createAsyncThunk<
       userName: req.friend.name,
       type: req.attribute.type,
       name: req.attribute.name,
+      twitterId: req.friend.twitterId,
     })
   );
   // 自分が持っていない属性は追加する

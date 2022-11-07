@@ -12,6 +12,9 @@ const Profile: React.FC = () => {
   const nameChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     dispatch(userProfileSlice.actions.setUserName(e.target.value));
   };
+  const twitterChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
+    dispatch(userProfileSlice.actions.setTwitterId(e.target.value));
+  };
   const submitHandler = () => {
     dispatch(updateProfile());
   };
@@ -21,7 +24,7 @@ const Profile: React.FC = () => {
 
   return (
     <section style={{ backgroundColor: '#333', padding: '10px' }}>
-      <h2 style={{ marginTop: '0' }}>僕の説明書</h2>
+      <h2 style={{ marginTop: '0' }}>僕の私の説明書</h2>
       <label htmlFor="input-name" style={{ display: 'flex', margin: '0.5rem' }}>
         名前：
         <input
@@ -31,7 +34,15 @@ const Profile: React.FC = () => {
           onChange={nameChangeHandler}
         />
       </label>
-
+      <label htmlFor="input-twitter" style={{ display: 'flex', margin: '0.5rem' }}>
+        twitter：
+        <input
+          id="input-twitter"
+          defaultValue={user.twitterId}
+          placeholder="ツイッターのIDを入力してください"
+          onChange={twitterChangeHandler}
+        />
+      </label>
       <AttributesCreateForm />
       <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>

@@ -33,6 +33,7 @@ export const persistMiddleWare: Middleware = (store) => (next) => (action) => {
       userProfileSlice.actions.setUserName.type,
       userProfileSlice.actions.toggleIsPublish.type,
       userProfileSlice.actions.addFavorite.type,
+      userProfileSlice.actions.setTwitterId.type,
     ].includes(action.type)
   ) {
     const state: RootState = store.getState();

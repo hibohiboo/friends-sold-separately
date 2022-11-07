@@ -10,6 +10,7 @@ export type UserContext = {
     userId: string;
     peerId: string;
     name: string;
+    twitterId: string;
     isPublish: boolean;
     attributes: Attribute[];
   };
@@ -34,6 +35,7 @@ export type Friend = {
   userIdentifier: UserIdentifier;
   peerId: string;
   name: string;
+  twitterId: string;
   attributes: FriendAttribute[];
 };
 
@@ -43,5 +45,5 @@ export type MyFavorite = {
   userName: string;
   type: AttributeType;
   name: string;
-  twitter?: string;
+  twitterId: string;
 };

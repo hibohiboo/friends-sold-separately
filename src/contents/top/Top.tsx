@@ -10,12 +10,13 @@ const App: React.FC = () => {
     <div>
       <main style={{ minHeight: '100vh' }}>
         <h1>※友達は別売りです</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          <div style={{ maxWidth: '800px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
+          <div style={{ maxWidth: '800px', maxHeight: '500px', overflowY: 'auto' }}>
             <Profile />
           </div>
-
-          <FavoriteList />
+          <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
+            <FavoriteList />
+          </div>
         </div>
 
         <h3>友達売り場</h3>

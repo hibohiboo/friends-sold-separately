@@ -34,6 +34,7 @@ const initMyUser = () => {
     myUser.name = persistedUser.name;
     myUser.isPublish = persistedUser.isPublish;
     myUser.userId = persistedUser.userId;
+    myUser.twitterId = persistedUser.twitterId;
     const attr = initAttributes();
     if (attr) myUser.attributes = attr;
   }

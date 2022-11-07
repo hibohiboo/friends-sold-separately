@@ -23,6 +23,8 @@ export class PeerUser extends GameObject {
 
   declare name: string;
 
+  declare twitterId: string;
+
   declare isPublish: boolean;
 
   declare attributes: Attribute[];
@@ -38,9 +40,11 @@ export class PeerUser extends GameObject {
     SyncVar()(this, 'name');
     SyncVar()(this, 'isPublish');
     SyncVar()(this, 'attributes');
+    SyncVar()(this, 'twitterId');
     this.userId = '';
     this.peerId = '';
     this.name = '';
+    this.twitterId = '';
     this.isPublish = false;
     this.attributes = [];
   }

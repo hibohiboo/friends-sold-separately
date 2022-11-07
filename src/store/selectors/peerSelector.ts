@@ -19,6 +19,7 @@ export const friendsSelector = createSelector(
           userIdentifier: peer.identifier,
           peerId: peer.syncData.peerId,
           name: peer.syncData.name,
+          twitterId: peer.syncData.twitterId,
           attributes: peer.syncData.attributes.map((attr) => ({
             ...attr,
             isFavorite: favorites.some((fav) => fav.id === attr.id),
