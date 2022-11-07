@@ -13,12 +13,13 @@ const Friends: React.FC = () => {
       {friends.map((friend) => (
         <li key={friend.userIdentifier}>
           <span>{friend.name}</span>
-          <ul style={{ listStyle: 'none', display: 'flex' }}>
+          <ul style={{ listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
             {friend.attributes.map((attr) => (
               <AttributeItem
                 key={attr.id}
                 attr={attr}
                 clickHandler={() => {
+                  if (attr.isFavorite) return;
                   dispatch(favoriteAttributes({ friend, attribute: attr }));
                 }}
               />
