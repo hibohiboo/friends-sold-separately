@@ -3,6 +3,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-plusplus */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
+import { FavoriteMessage } from '@/domain/favorite/types';
 import { initAttributes, initUser } from '@/domain/user/repository';
 import { LOBBY_ROOM_ID, LOBBY_ROOM_NAME, LOBBY_ROOM_PASS } from '../../lobby/constants';
 import { ObjectFactory } from '../class/core/synchronize-object/object-factory';
@@ -225,9 +226,10 @@ export const initLobby = async (callback: (message: EventMessage) => void) => {
   } else {
     openLobby();
   }
-  EventSystem.register('lobby').on(EVENT_NAME.SEND_SIMPLE_MESSAGE, callback);
+  EventSystem.register('lobby').on(EVENT_NAME.SEND_FAVORITE_MESSAGE, callback);
 };
 
-export const sendSimpleMessage = (message: string) => {
-  EventSystem.call(EVENT_NAME.SEND_SIMPLE_MESSAGE, message);
+export const sendFavoriteMessage = (message: FavoriteMessage, peerId: string) => {
+  console.log('fav send', message);
+  EventSystem.call(EVENT_NAME.SEND_FAVORITE_MESSAGE, message, peerId);
 };

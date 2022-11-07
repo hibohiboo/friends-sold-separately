@@ -9,6 +9,7 @@ import {
 } from '@/domain/udonarium/room/lobby';
 import { UserContext } from '@/domain/user/types';
 import { RootState } from '..';
+import { favoritesSlice } from '../slices/favorite';
 import { peerSlice } from '../slices/peer';
 import { userProfileSlice } from '../slices/userProfile';
 
@@ -24,7 +25,8 @@ export const connect = createAsyncThunk<void, void, { state: RootState }>(
     initGameObject();
     const user = createPeerUser(updateGameObjectHandler);
     await initLobby((ev) => {
-      console.log('lobby initialized', ev);
+      console.log('receive', ev);
+      thunkAPI.dispatch(favoritesSlice.actions.favoriteAdded(ev.data as any));
     });
     const userContext = peerToContext(user);
     thunkAPI.dispatch(peerSlice.actions.setUser(userContext));

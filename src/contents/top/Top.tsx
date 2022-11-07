@@ -14,7 +14,7 @@ const App: React.FC = () => {
           <div style={{ maxWidth: '800px', maxHeight: '500px', overflowY: 'auto' }}>
             <Profile />
           </div>
-          <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
+          <div style={{ maxHeight: '500px', overflowY: 'auto', maxWidth: '300px' }}>
             <FavoriteList />
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { sendFavoriteMessage } from '@/domain/udonarium/room/lobby';
 import { Attribute, Friend, FriendAttribute } from '@/domain/user/types';
 import { RootState } from '..';
 import { attributesSlice } from '../slices/attributes';
@@ -19,6 +20,7 @@ export const favoriteAttributes = createAsyncThunk<
       twitterId: req.friend.twitterId,
     })
   );
+
   // 自分が持っていない属性は追加する
   const state = thunkAPI.getState();
   const attributes = Object.values(state.attributes.entities) as Attribute[];
@@ -33,4 +35,17 @@ export const favoriteAttributes = createAsyncThunk<
       })
     );
   }
+  // 相手に握手のメッセージを送る
+  sendFavoriteMessage(
+    {
+      id: `${state.userProfile.identifier}_${req.attribute.id}`,
+      friendIdentifier: state.userProfile.identifier,
+      friendName: state.userProfile.name,
+      friendTwitterId: state.userProfile.twitterId,
+      attributeId: req.attribute.id,
+      attributeType: req.attribute.type,
+      attributeName: req.attribute.name,
+    },
+    req.friend.peerId
+  );
 });

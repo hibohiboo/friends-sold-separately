@@ -1,6 +1,6 @@
 import { AttributeType } from './constants';
 
-type UserIdentifier = string;
+export type UserIdentifier = string;
 export type UserContext = {
   identifier: UserIdentifier;
   aliasName: string;

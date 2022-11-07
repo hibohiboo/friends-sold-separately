@@ -1,3 +1,4 @@
+import { FavoriteMessage } from '@/domain/favorite/types';
 import { EVENT_NAME } from '../../../../event/constants';
 import type { Event } from './event';
 import type { Subject } from './subject';
@@ -22,7 +23,7 @@ export interface EventMap {
     minorVersion: number;
     syncData: Record<string | symbol, any>;
   };
-  [EVENT_NAME.SEND_SIMPLE_MESSAGE]: string;
+  [EVENT_NAME.SEND_FAVORITE_MESSAGE]: FavoriteMessage;
 }
 
 export interface Observer {
