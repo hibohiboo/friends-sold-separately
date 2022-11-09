@@ -25,3 +25,5 @@ dist-ssr
 *.sw?
 *.tsbuildinfo
 .env
+.env_1
+.env_2
