@@ -25,7 +25,7 @@ const createPolicy = (bucket: s3.IBucket, identity: cf.OriginAccessIdentity) => 
   });
   return myBucketPolicy;
 };
-class AWSFriendsSoldSeparatelytack extends core.Stack {
+class AWSFriendsShakeHandStack extends core.Stack {
   constructor(scope: Construct, id: string, props: Props) {
     super(scope, id, props);
     // CloudFront オリジン用のS3バケットへの参照を取得
@@ -74,4 +74,4 @@ class AWSFriendsSoldSeparatelytack extends core.Stack {
   }
 }
 
-export default AWSFriendsSoldSeparatelytack;
+export default AWSFriendsShakeHandStack;

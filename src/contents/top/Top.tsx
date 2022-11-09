@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <div>
       <main style={{ minHeight: '100vh' }}>
-        <h1>※友達は別売りです</h1>
+        <h1>ぎゅっとはんど</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
           <div style={{ maxWidth: '800px', maxHeight: '500px', overflowY: 'auto' }}>
             <Profile />

@@ -2,7 +2,7 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import * as dotenv from 'dotenv';
-import AWSFriendsSoldSeparatelytack from '../lib/cdk-stack';
+import AWSFriendsShakeHandStack from '../lib/cdk-stack';
 
 dotenv.config();
 const envList = [
@@ -26,7 +26,7 @@ const env = {
 const projectId = processEnv.PROJECT_ID;
 
 // eslint-disable-next-line no-new
-new AWSFriendsSoldSeparatelytack(app, `${projectId}-stack`, {
+new AWSFriendsShakeHandStack(app, `${projectId}-stack`, {
   bucketName: processEnv.BUCKET_NAME,
   projectId: `${projectId}`,
   distributionId: processEnv.DISTRIBUTION_ID,
