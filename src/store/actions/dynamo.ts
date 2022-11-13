@@ -45,6 +45,7 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     const state = thunkAPI.getState();
 
     await putUser(toPutUserContext(state));
+    thunkAPI.dispatch(connectServer());
   }
 );
 
