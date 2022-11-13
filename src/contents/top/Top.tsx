@@ -19,7 +19,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <h3>友達売り場</h3>
+        <h3>ミエルトモダチ</h3>
         <Friends />
       </main>
       <Footer />

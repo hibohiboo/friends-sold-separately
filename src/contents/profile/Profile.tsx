@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
       <AttributesCreateForm />
       <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>
-        売り場に並んでもよい
+        ミエルようにする
         <input
           id="input-is-publish"
           type="checkbox"
