@@ -5,7 +5,7 @@ import { favoriteEntitySelector } from '@/store/selectors/favoriteSelector';
 
 const FavoriteList: React.FC = () => {
   const favorites = useAppSelector(favoriteEntitySelector);
-  console.log('fav', favorites);
+
   return (
     <div style={{ padding: '0 10px', backgroundColor: '#111' }}>
       <h2 style={{ display: 'flex', paddingTop: '1.5rem' }}>
@@ -13,6 +13,7 @@ const FavoriteList: React.FC = () => {
         <div style={{ marginLeft: '1rem' }}>僕も私も</div>
       </h2>
       <div>
+        {favorites.length === 0 ? <div>トモダチからあなたへの握手はまだありません</div> : <div />}
         {favorites.map((fav) => (
           <div key={fav.id} style={{ marginBottom: '10px' }}>
             {fav.friendTwitterId ? (
