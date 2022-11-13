@@ -47,3 +47,10 @@ export type MyFavorite = {
   name: string;
   twitterId: string;
 };
+
+export type PutUserContext = {
+  userId: UserIdentifier;
+  name: string;
+  twitterId: string;
+  isPublish: boolean;
+};

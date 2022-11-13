@@ -7,6 +7,7 @@ import {
   initGameObject,
   initLobby,
 } from '@/domain/udonarium/room/lobby';
+import { putUesr } from '@/domain/user/api';
 import { UserContext } from '@/domain/user/types';
 import { RootState } from '..';
 import { favoritesSlice } from '../slices/favorite';
@@ -38,11 +39,18 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
   'updateProfile',
   async (req, thunkAPI) => {
     const state = thunkAPI.getState();
-    const user = getUser();
     const profile = state.userProfile;
-    user.name = profile.name;
-    user.isPublish = profile.isPublish;
-    user.twitterId = profile.twitterId;
+    // udonarium
+    // const user = getUser();
+    // user.name = profile.name;
+    // user.isPublish = profile.isPublish;
+    // user.twitterId = profile.twitterId;
+    await putUesr({
+      userId: profile.identifier,
+      twitterId: profile.twitterId,
+      name: profile.name,
+      isPublish: profile.isPublish,
+    });
   }
 );
 

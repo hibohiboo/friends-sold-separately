@@ -7,6 +7,9 @@ export const handlers = [
     return res(ctx.status(200));
   }),
   rest.get('/v1/api/gyutto-hand-user', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json([]));
+    return res(
+      ctx.status(200),
+      ctx.json([{ userId: '389a3fed-71e5-4a1c-abbc-095ce2356754', name: 'ひぼ', isPublish: true }])
+    );
   }),
 ];
