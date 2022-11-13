@@ -19,7 +19,19 @@ export const getUsers = async (): Promise<PutUserContext[]> => {
     method: 'GET',
   });
   const resultJson = await response.text();
-  const result = JSON.parse(resultJson);
-  const users = result.map((r: any) => JSON.parse(r.json));
+  const result = JSON.parse(resultJson) as DynamoResponseUsers;
+  const users = result.Items.map((r) => JSON.parse(r.json.S));
   return users as PutUserContext[];
+};
+type DynamoResponseUsers = {
+  Count: number;
+  Items: {
+    json: {
+      S: string;
+    };
+    userId: {
+      S: string;
+    };
+  }[];
+  ScannedCount: number;
 };
