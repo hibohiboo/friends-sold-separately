@@ -16,7 +16,7 @@ export const handlers = [
     console.log('put', req);
     return res(ctx.status(200));
   }),
-  rest.get('/v1/api/gyutto-hand-favorite', (req, res, ctx) => {
+  rest.get('/v1/api/gyutto-hand-favorite/:userid', (req, res, ctx) => {
     console.log('get', req);
     return res(ctx.status(200), ctx.json(gyuttoAttr));
   }),

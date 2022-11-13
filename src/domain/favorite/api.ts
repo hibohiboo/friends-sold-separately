@@ -9,28 +9,25 @@ export const putFavoriteMessage = async (message: FavoriteMessage, targetId: str
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      userId: targetId,
       attributeId: message.attributeId,
+      userId: targetId,
       json: JSON.stringify(message),
     }),
   });
 };
-export const getUsers = async (): Promise<FavoriteMessage[]> => {
-  const response = await myFetch(GYUTTO_HAND_USER_PATH, {
+export const getFavoriteMessage = async (userId: string): Promise<FavoriteMessage[]> => {
+  const response = await myFetch(`${GYUTTO_HAND_USER_PATH}/${userId}`, {
     method: 'GET',
   });
   const resultJson = await response.text();
-  const result = JSON.parse(resultJson) as DynamoResponseUsers;
-  const users = result.Items.map((r) => JSON.parse(r.json.S));
+  const result = JSON.parse(resultJson) as DynamoResponseFavorite;
+  const users = result.Items.flatMap((r) => JSON.parse(r.json.S));
   return users as FavoriteMessage[];
 };
-type DynamoResponseUsers = {
+type DynamoResponseFavorite = {
   Count: number;
   Items: {
     json: {
-      S: string;
-    };
-    userId: {
       S: string;
     };
   }[];

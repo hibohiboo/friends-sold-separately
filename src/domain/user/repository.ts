@@ -61,7 +61,11 @@ export const persistMiddleWare: Middleware = (store) => (next) => (action) => {
       JSON.stringify(Object.values(state.attributes.entities))
     );
   }
-  if ([favoritesSlice.actions.favoriteAdded.type].includes(action.type)) {
+  if (
+    [favoritesSlice.actions.favoriteAdded.type, favoritesSlice.actions.favoritesAdd.type].includes(
+      action.type
+    )
+  ) {
     const state: RootState = store.getState();
     localStorage.setItem(
       FAVORITE_LOCAL_STORAGE_KEY,

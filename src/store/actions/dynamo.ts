@@ -1,18 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getFavoriteMessage } from '@/domain/favorite/api';
 import { UUID } from '@/domain/udonarium/class/core/system/util/uuid';
 import { getUsers, putUser } from '@/domain/user/api';
 import { toPutUserContext } from '@/domain/user/converter';
 import { RootState } from '..';
+import { favoritesSlice } from '../slices/favorite';
 import { userProfileSlice } from '../slices/userProfile';
 import { usersSlice } from '../slices/users';
 
 export const connectServer = createAsyncThunk<void, void, { state: RootState }>(
   'connectServer',
   async (req, thunkAPI) => {
+    const users = await getUsers();
+
+    thunkAPI.dispatch(usersSlice.actions.setUsersContext(users));
     const state = thunkAPI.getState();
     if (!state.userProfile.identifier) {
       const id = UUID.generateUuid();
-      console.log('new id', id);
+
       thunkAPI.dispatch(
         userProfileSlice.actions.setProfile({
           identifier: id,
@@ -24,10 +29,13 @@ export const connectServer = createAsyncThunk<void, void, { state: RootState }>(
           favoriteAttribute: [],
         })
       );
+      console.log('ミエナイトモダチ');
+      return;
     }
-    const users = await getUsers();
 
-    thunkAPI.dispatch(usersSlice.actions.setUsersContext(users));
+    const favorites = await getFavoriteMessage(state.userProfile.identifier);
+    console.log('favorrite', favorites);
+    thunkAPI.dispatch(favoritesSlice.actions.favoritesAdd(favorites));
   }
 );
 

@@ -27,5 +27,14 @@ export const favoritesSlice = createSlice({
     favoritesReceived(state, action) {
       favoritesAdapter.setAll(state, action.payload);
     },
+    favoritesAdd(state, action: PayloadAction<FavoriteMessage[]>) {
+      const attributes = Object.values(state.entities).map((attr) => attr?.attributeId);
+      const update = action.payload.filter((fav) => !attributes.includes(fav.attributeId));
+      console.log('update', update);
+      favoritesAdapter.upsertMany(
+        state,
+        update.map((fav) => ({ ...fav, createdAt: Date.now() }))
+      );
+    },
   },
 });
