@@ -1,5 +1,5 @@
 import React from 'react';
-import { favoriteAttributes } from '@/store/actions/attributes';
+import { favoriteAttributes } from '@/store/actions/attributesDynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { friendsSelector } from '@/store/selectors/usersSelector';
 import AttributeItem from './AttributeItem';

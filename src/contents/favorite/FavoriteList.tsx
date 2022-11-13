@@ -5,6 +5,7 @@ import { favoriteEntitySelector } from '@/store/selectors/favoriteSelector';
 
 const FavoriteList: React.FC = () => {
   const favorites = useAppSelector(favoriteEntitySelector);
+  console.log('fav', favorites);
   return (
     <div style={{ padding: '0 10px', backgroundColor: '#111' }}>
       <h2 style={{ display: 'flex', paddingTop: '1.5rem' }}>
