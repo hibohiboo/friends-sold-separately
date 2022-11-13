@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
-import { updateProfile } from '@/store/actions/connect';
+import { updateProfile } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { userProfileSlice } from '@/store/slices/userProfile';

@@ -49,8 +49,11 @@ export type MyFavorite = {
 };
 
 export type PutUserContext = {
-  userId: UserIdentifier;
-  name: string;
-  twitterId: string;
-  isPublish: boolean;
+  profile: {
+    userId: UserIdentifier;
+    name: string;
+    twitterId: string;
+    isPublish: boolean;
+  };
+  attributes: Attribute[];
 };

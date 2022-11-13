@@ -4,6 +4,7 @@ import { attributesSlice } from './slices/attributes';
 import { favoritesSlice } from './slices/favorite';
 import { peerSlice } from './slices/peer';
 import { userProfileSlice } from './slices/userProfile';
+import { usersSlice } from './slices/users';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     userProfile: userProfileSlice.reducer,
     attributes: attributesSlice.reducer,
     favorites: favoritesSlice.reducer,
+    users: usersSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(persistMiddleWare),
 });

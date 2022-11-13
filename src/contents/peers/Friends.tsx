@@ -1,7 +1,7 @@
 import React from 'react';
 import { favoriteAttributes } from '@/store/actions/attributes';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { friendsSelector } from '@/store/selectors/peerSelector';
+import { friendsSelector } from '@/store/selectors/usersSelector';
 import AttributeItem from './AttributeItem';
 
 const Friends: React.FC = () => {

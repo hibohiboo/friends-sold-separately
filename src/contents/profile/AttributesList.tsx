@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateAttributes } from '@/store/actions/connect';
+import { updateAttributes } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { attributesEntitySelector } from '@/store/selectors/attributesSelector';
 import { attributesSlice } from '@/store/slices/attributes';

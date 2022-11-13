@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler, useCallback, useState } from 'react';
 import { AttributeType, ATTRIBUTE_TYPE } from '@/domain/user/constants';
-import { updateAttributes } from '@/store/actions/connect';
+import { updateAttributes } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { newlySelector } from '@/store/selectors/attributesSelector';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';

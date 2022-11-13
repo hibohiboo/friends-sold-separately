@@ -40,5 +40,14 @@ export default defineConfig({
       },
     },
   },
-  server: { port: 4200 },
+  server: {
+    port: 4200,
+    // proxy: {
+    //   '/v1': {
+    //     target: 'http://example.com',
+    //     changeOrigin: true,
+    //     // rewrite: (path) => path.replace(/^\/api/, ''),
+    //   },
+    // },
+  },
 });

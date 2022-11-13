@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { MyFavorite, UserContext } from '@/domain/user/types';
+import { MyFavorite, PutUserContext, UserContext } from '@/domain/user/types';
 
 export interface UserProfileState {
   identifier: string;
@@ -33,6 +33,21 @@ export const userProfileSlice = createSlice({
       state.peerId = syncData.peerId;
       state.isPublish = syncData.isPublish;
       state.twitterId = syncData.twitterId;
+    },
+    setPutUserContext(state, action: PayloadAction<PutUserContext>) {
+      const { profile } = action.payload;
+      state.identifier = profile.userId;
+      state.name = profile.name;
+      state.userId = profile.userId;
+      state.isPublish = profile.isPublish;
+      state.twitterId = profile.twitterId;
+    },
+    setProfile(state, action: PayloadAction<UserProfileState>) {
+      state.identifier = action.payload.identifier;
+      state.name = action.payload.name;
+      state.userId = action.payload.userId;
+      state.isPublish = action.payload.isPublish;
+      state.twitterId = action.payload.twitterId;
     },
     setUserName(state, action: PayloadAction<string>) {
       state.name = action.payload;
