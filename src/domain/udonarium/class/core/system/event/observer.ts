@@ -23,6 +23,10 @@ export interface EventMap {
     minorVersion: number;
     syncData: Record<string | symbol, any>;
   };
+  [EVENT_NAME.DELETE_GAME_OBJECT]: {
+    aliasName: string;
+    identifier: string;
+  };
   [EVENT_NAME.SEND_FAVORITE_MESSAGE]: FavoriteMessage;
 }
 

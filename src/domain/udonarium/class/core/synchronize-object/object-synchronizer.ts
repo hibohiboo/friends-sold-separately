@@ -49,7 +49,7 @@ export class ObjectSynchronizer {
           if (ObjectStore.instance.isDeleted(item.identifier)) {
             EventSystem.call(
               EVENT_NAME.DELETE_GAME_OBJECT,
-              { identifier: item.identifier },
+              { aliasName: '', identifier: item.identifier },
               event.sendFrom
             );
           } else {
@@ -58,13 +58,13 @@ export class ObjectSynchronizer {
         }
         this.synchronize();
       })
-      .on(EVENT_NAME.REQUEST_GAME_OBJECT, (event) => {
+      .on(EVENT_NAME.REQUEST_GAME_OBJECT, 1000, (event) => {
         console.log(`REQUEST_GAME_OBJECT ${event}`);
         if (event.isSendFromSelf) return;
         if (ObjectStore.instance.isDeleted(event.data)) {
           EventSystem.call(
             EVENT_NAME.DELETE_GAME_OBJECT,
-            { identifier: event.data },
+            { aliasName: '', identifier: event.data },
             event.sendFrom
           );
         } else {
@@ -81,16 +81,16 @@ export class ObjectSynchronizer {
         } else if (ObjectStore.instance.isDeleted(context.identifier)) {
           EventSystem.call(
             EVENT_NAME.DELETE_GAME_OBJECT,
-            { identifier: context.identifier },
+            { aliasName: context.aliasName, identifier: context.identifier },
             event.sendFrom
           );
         } else {
           this.createObject(context);
         }
       })
-      .on(EVENT_NAME.DELETE_GAME_OBJECT, (event) => {
-        const context: ObjectContext = event.data;
-        ObjectStore.instance.delete(context.identifier, false);
+      .on(EVENT_NAME.DELETE_GAME_OBJECT, 1000, (event) => {
+        const { identifier } = event.data;
+        ObjectStore.instance.delete(identifier, false);
       });
   }
 

@@ -54,6 +54,10 @@ export class SkyWayDataConnection extends EventEmitter {
     return this.conn.metadata;
   }
 
+  get bufferedAmount(): number {
+    return this.conn._dc?.bufferedAmount ?? 0;
+  }
+
   private stats: WebRTCStats | null = null;
 
   private _timestamp: number = performance.now();

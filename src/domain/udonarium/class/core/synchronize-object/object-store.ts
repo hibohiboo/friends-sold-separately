@@ -83,7 +83,11 @@ export class ObjectStore {
   private _delete(object: GameObject, shouldBroadcast: boolean): GameObject | null {
     if (this.remove(object) === null) return null;
     if (shouldBroadcast)
-      EventSystem.call(EVENT_NAME.DELETE_GAME_OBJECT, { identifier: object.identifier });
+      if (shouldBroadcast)
+        EventSystem.call('DELETE_GAME_OBJECT', {
+          aliasName: object.aliasName,
+          identifier: object.identifier,
+        });
 
     return object;
   }
