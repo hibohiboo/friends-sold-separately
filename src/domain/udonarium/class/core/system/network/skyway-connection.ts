@@ -31,7 +31,7 @@ export class SkyWayConnection implements Connection {
     return this._peerIds;
   }
 
-  peerContext: PeerContext | null = null;
+  peerContext: PeerContext = PeerContext.parse('???');
 
   readonly peerContexts: PeerContext[] = [];
 
@@ -49,7 +49,9 @@ export class SkyWayConnection implements Connection {
 
   private httpRequestInterval: number = performance.now() + 500;
 
-  private queue: Promise<any> = Promise.resolve();
+  private outboundQueue: Promise<any> = Promise.resolve();
+
+  private inboundQueue: Promise<any> = Promise.resolve();
 
   private relayingPeerIds: Map<string, string[]> = new Map();
 
@@ -73,7 +75,7 @@ export class SkyWayConnection implements Connection {
     if (this.peer) this.peer.destroy();
     this.disconnectAll();
     this.peer = null;
-    this.peerContext = null;
+    this.peerContext = PeerContext.parse('???');
   }
 
   connect(peerId: string): boolean {
@@ -137,11 +139,11 @@ export class SkyWayConnection implements Connection {
 
     const { byteLength } = container.data;
     this.bandwidthUsage += byteLength;
-    this.queue = this.queue.then(
+    this.outboundQueue = this.outboundQueue.then(
       () =>
         new Promise<void>((resolve, reject) => {
           setZeroTimeout(async () => {
-            if (1 * 1024 < container.data.byteLength) {
+            if (1 * 1024 < container.data.byteLength && Array.isArray(data) && data.length > 1) {
               const compressed = await compressAsync(container.data);
               if (compressed && compressed.byteLength < container.data.byteLength) {
                 container.data = compressed;
@@ -307,6 +309,10 @@ export class SkyWayConnection implements Connection {
           break;
       }
       context.session.description = conn.candidateType;
+
+      if (context.session.health < 0.2) {
+        this.closeDataConnection(conn);
+      }
     });
   }
 
@@ -329,6 +335,8 @@ export class SkyWayConnection implements Connection {
       `<close()> Peer:${conn.remoteId} length:${this.connections.length}:${this.peerContexts.length}`
     );
     this.updatePeerList();
+
+    if (index >= 0 && this.callback.onDisconnect) this.callback.onDisconnect(conn.remoteId);
   }
 
   private addDataConnection(conn: SkyWayDataConnection): boolean {
@@ -367,7 +375,7 @@ export class SkyWayConnection implements Connection {
     if (this.callback.onData) {
       const { byteLength } = container.data;
       this.bandwidthUsage += byteLength;
-      this.queue = this.queue.then(
+      this.inboundQueue = this.inboundQueue.then(
         () =>
           new Promise<void>((resolve, reject) => {
             setZeroTimeout(async () => {
