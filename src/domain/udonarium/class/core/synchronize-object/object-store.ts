@@ -124,7 +124,7 @@ export class ObjectStore {
   update(identifier: string): void;
   update(context: ObjectContext): void;
   update(arg: any) {
-    let context: Record<string, any> | null = null; // ObjectContext
+    let context: ObjectContext | null = null; // ObjectContext
     if (typeof arg === 'string') {
       const object: GameObject | null = this.get(arg);
       if (object) context = object.toContext();
@@ -136,7 +136,7 @@ export class ObjectStore {
     if (this.queueMap.has(context.identifier)) {
       const queue = this.queueMap.get(context.identifier)! as Record<string, any>;
       for (const key in context) {
-        queue[key] = context[key];
+        queue[key] = context[key as keyof ObjectContext];
       }
       return;
     }
