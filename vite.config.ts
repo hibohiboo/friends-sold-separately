@@ -26,6 +26,7 @@ export default defineConfig({
     VITE_DEFINE_BASE_PATH: JSON.stringify(dev ? '' : process.env.DEFINE_BASE_PATH),
     VITE_DEFINE_SKYWAY_KEY: JSON.stringify(process.env.DEFINE_SKYWAY_KEY),
     VITE_DEFINE_ROOM_PASSWORD: JSON.stringify(process.env.DEFINE_ROOM_PASSWORD),
+    'import.meta.vitest': 'undefined',
   },
   base: dev ? '' : `/${process.env.DEFINE_BASE_PATH}/`,
   build: {
