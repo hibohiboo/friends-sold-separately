@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "check-eslint-setting": "npx eslint --print-config .eslintrc.cjs > docs/eslint設定確認.txt"
+    "check-eslint-setting": "npx eslint --print-config .eslintrc.cjs > docs/eslint設定確認.txt",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
@@ -35,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/coverage-c8": "^0.25.1",
     "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
