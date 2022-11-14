@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "zixuanchen.vitest-explorer",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "ZixuanChen.vitest-explorer"
   ]
 }
