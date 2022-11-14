@@ -12,3 +12,30 @@ export const toPutUserContext = (state: RootState): PutUserContext => {
     attributes: Object.values(state.attributes.entities) as Attribute[],
   };
 };
+// in-source test suites
+if (import.meta.vitest) {
+  const { it, expect } = import.meta.vitest;
+  it('profileが既定の場所に入ること', () => {
+    const state = {
+      userProfile: {
+        identifier: 'a',
+        twitterId: 'b',
+        name: 'c',
+        isPublish: false,
+      },
+      attributes: {
+        entities: {},
+      },
+    } as any;
+    const ret = toPutUserContext(state);
+    expect(ret).toEqual({
+      profile: {
+        userId: 'a',
+        twitterId: 'b',
+        name: 'c',
+        isPublish: false,
+      },
+      attributes: [],
+    });
+  });
+}

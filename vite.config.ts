@@ -16,6 +16,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./tests/setupTest.ts'],
+    includeSource: ['src/**/*.ts'],
   },
   resolve: {
     // viteのホットリロードのために、/で始める必要がある。
