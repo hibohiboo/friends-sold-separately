@@ -27,3 +27,6 @@ dist-ssr
 .env
 .env_1
 .env_2
+
+# vitest カバレッジ
+coverage
