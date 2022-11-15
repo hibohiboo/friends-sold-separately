@@ -7,7 +7,7 @@ import { initAttributeEntity as initFromPersistance } from './domain/user/reposi
 import { connectServer } from './store/actions/dynamo';
 import { store } from '@/store';
 
-import './index.css';
+import './index.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
