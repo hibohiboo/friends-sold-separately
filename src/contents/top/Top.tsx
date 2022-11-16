@@ -7,20 +7,14 @@ import Footer from './Footer';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <main style={{ minHeight: '100vh' }}>
         <h1>ぎゅっとはんど</h1>
-        <div style={{ display: 'flex', flexWrap: 'wrap', position: 'relative' }}>
-          <div style={{ maxWidth: '800px', maxHeight: '500px', overflowY: 'auto' }}>
-            <Profile />
-          </div>
-          <div style={{ maxHeight: '500px', overflowY: 'auto', maxWidth: '300px' }}>
-            <FavoriteList />
-          </div>
-        </div>
 
         <h3>ミエルトモダチ</h3>
         <Friends />
+        <Profile />
+        <FavoriteList />
       </main>
       <Footer />
     </div>
