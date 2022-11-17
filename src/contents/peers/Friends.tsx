@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaRegHandshake } from 'react-icons/fa';
 import { favoriteAttributes } from '@/store/actions/attributesDynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { friendsSelector } from '@/store/selectors/usersSelector';
@@ -10,6 +11,9 @@ const Friends: React.FC = () => {
 
   return (
     <section className="section">
+      <h2 className="title is-flex">
+        <FaRegHandshake /> <div style={{ marginLeft: '1rem' }}>ぎゅっとはんど</div>
+      </h2>
       <ul style={{ listStyle: 'none' }}>
         {friends.map((friend) => (
           <li key={friend.userIdentifier}>

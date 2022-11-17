@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
+import { FaRegAddressCard } from 'react-icons/fa';
 import { updateProfile } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
@@ -23,8 +24,10 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <section style={{ backgroundColor: '#333', padding: '10px' }}>
-      <h2 style={{ marginTop: '0' }}>僕の私の説明書</h2>
+    <section className="section">
+      <h2 className="title is-flex">
+        <FaRegAddressCard /> <div style={{ marginLeft: '1rem' }}>僕の私の説明書</div>
+      </h2>
       <label htmlFor="input-name" style={{ display: 'flex', margin: '0.5rem' }}>
         名前：
         <input

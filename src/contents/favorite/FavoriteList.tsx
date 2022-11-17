@@ -7,8 +7,8 @@ const FavoriteList: React.FC = () => {
   const favorites = useAppSelector(favoriteEntitySelector);
 
   return (
-    <div style={{ padding: '0 10px', backgroundColor: '#111' }}>
-      <h2 style={{ display: 'flex', paddingTop: '1.5rem' }}>
+    <section className="section">
+      <h2 className="title is-flex">
         <MdNotifications />
         <div style={{ marginLeft: '1rem' }}>僕も私も</div>
       </h2>
@@ -32,7 +32,7 @@ const FavoriteList: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

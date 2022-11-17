@@ -2,8 +2,8 @@ import React from 'react';
 import FavoriteList from '../favorite/FavoriteList';
 import Friends from '../peers/Friends';
 import Profile from '../profile/Profile';
+import BottomNav from './BottomNav';
 import Footer from './Footer';
-import BottomNav from './Nav';
 
 const App: React.FC = () => {
   return (

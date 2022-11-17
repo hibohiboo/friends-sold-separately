@@ -34,7 +34,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          react: ['react', 'react-dom'],
+          react: ['react', 'react-dom', 'react-router-dom'],
           reactFamilies: ['react-icons'],
           rtk: ['react-redux', '@reduxjs/toolkit'],
           udonarium: ['crypto-js', 'lzbase62', 'msgpack-lite', 'pako', 'skyway-js'],
