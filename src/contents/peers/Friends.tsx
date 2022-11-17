@@ -9,36 +9,38 @@ const Friends: React.FC = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <ul style={{ listStyle: 'none' }}>
-      {friends.map((friend) => (
-        <li key={friend.userIdentifier}>
-          {friend.twitterId ? (
-            <a
-              href={`https://twitter.com/${friend.twitterId}`}
-              title={friend.name}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {friend.name}
-            </a>
-          ) : (
-            <span>{friend.name}</span>
-          )}
-          <ul style={{ listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
-            {friend.attributes.map((attr) => (
-              <AttributeItem
-                key={attr.id}
-                attr={attr}
-                clickHandler={() => {
-                  if (attr.isFavorite) return;
-                  dispatch(favoriteAttributes({ friend, attribute: attr }));
-                }}
-              />
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+    <section className="section">
+      <ul style={{ listStyle: 'none' }}>
+        {friends.map((friend) => (
+          <li key={friend.userIdentifier}>
+            {friend.twitterId ? (
+              <a
+                href={`https://twitter.com/${friend.twitterId}`}
+                title={friend.name}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {friend.name}
+              </a>
+            ) : (
+              <span>{friend.name}</span>
+            )}
+            <ul style={{ listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
+              {friend.attributes.map((attr) => (
+                <AttributeItem
+                  key={attr.id}
+                  attr={attr}
+                  clickHandler={() => {
+                    if (attr.isFavorite) return;
+                    dispatch(favoriteAttributes({ friend, attribute: attr }));
+                  }}
+                />
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 export default Friends;

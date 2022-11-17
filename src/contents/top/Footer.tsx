@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className="footer">
       <a
         href="https://github.com/hibohiboo/friends-sold-separately/tree/develop#%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3"
         target="_blank"
