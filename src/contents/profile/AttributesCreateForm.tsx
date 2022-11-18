@@ -90,6 +90,11 @@ const AttributesCreateForm: React.FC = () => {
           title="遊びたいシステム"
           userId={user.identifier}
         />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.FavoriteReply}
+          title="好きなリプレイ"
+          userId={user.identifier}
+        />
 
         <AttributeInputForm
           type={ATTRIBUTE_TYPE.RolePlayType}

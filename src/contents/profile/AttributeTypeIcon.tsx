@@ -2,7 +2,7 @@ import React from 'react';
 import { BsFillTagFill, BsTrophy } from 'react-icons/bs';
 import { FaBookOpen, FaMask } from 'react-icons/fa';
 import { GiUnlitBomb } from 'react-icons/gi';
-import { MdAccessTime, MdFavorite, MdOutlineGrade } from 'react-icons/md';
+import { MdAccessTime, MdFavorite, MdLocalMovies, MdOutlineGrade } from 'react-icons/md';
 import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import mascleIcon from '@/assets/icons/mascle.svg';
 import newlyIcon from '@/assets/icons/newly.svg';
@@ -27,6 +27,8 @@ const AttributeTypeIcon: React.FC<{ type: string }> = ({ type }) => {
       return <MdFavorite />;
     case ATTRIBUTE_TYPE.RolePlayType:
       return <FaMask />;
+    case ATTRIBUTE_TYPE.FavoriteReply:
+      return <MdLocalMovies />;
   }
   return <BsFillTagFill />;
 };
