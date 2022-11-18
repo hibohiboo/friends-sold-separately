@@ -10,6 +10,7 @@ const RoutesApp: React.FC = () => {
       <Route path="/" element={<FriendsPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/notice" element={<NoticePage />} />
+      <Route element={<FriendsPage />} />
     </Routes>
   );
 };

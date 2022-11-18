@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FaRegHandshake, FaRegAddressCard } from 'react-icons/fa';
 import { MdNotifications } from 'react-icons/md';
+import { basePath } from '@/constants';
 
 const BottomNav: React.FC = () => {
   const lo = useLocation();
+  const pathname = lo.pathname.replace(basePath, '');
   return (
     <nav
       className="navbar is-hidden-tablet is-fixed-bottom"
@@ -12,17 +14,17 @@ const BottomNav: React.FC = () => {
     >
       <ul className="menu-list is-flex is-justify-content-space-between	">
         <li>
-          <Link to="/" className={lo.pathname === '/' ? 'is-active' : ''}>
+          <Link to="/" className={pathname === '/' ? 'is-active' : ''}>
             <FaRegHandshake size={50} />
           </Link>
         </li>
         <li>
-          <Link to="/profile" className={lo.pathname === '/profile' ? 'is-active' : ''}>
+          <Link to="/profile" className={pathname === '/profile' ? 'is-active' : ''}>
             <FaRegAddressCard size={50} />
           </Link>
         </li>
         <li>
-          <Link to="/notice" className={lo.pathname === '/notice' ? 'is-active' : ''}>
+          <Link to="/notice" className={pathname === '/notice' ? 'is-active' : ''}>
             <MdNotifications size={50} />
           </Link>
         </li>
