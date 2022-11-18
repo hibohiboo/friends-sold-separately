@@ -13,7 +13,16 @@ const AttributesList: React.FC = () => {
     dispatch(updateAttributes());
   };
   return (
-    <ul style={{ display: 'flex', listStyle: 'none', padding: '0', flexWrap: 'wrap' }}>
+    <ul
+      style={{
+        width: '100%',
+        overflowX: 'hidden',
+        display: 'flex',
+        listStyle: 'none',
+        padding: '0',
+        flexWrap: 'wrap',
+      }}
+    >
       {attributes.map((attr) => (
         <li
           key={attr.id}
@@ -29,7 +38,7 @@ const AttributesList: React.FC = () => {
           <div style={{ display: 'flex', padding: '0 5px' }}>
             <AttributeTypeIcon type={attr.type} />
           </div>
-          <div style={{ whiteSpace: 'nowrap' }}>{attr.name}</div>
+          <div>{attr.name}</div>
           <button
             type="button"
             onClick={() => deleteHandler(attr.id)}

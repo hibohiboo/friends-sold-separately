@@ -143,7 +143,7 @@ const AttributesCreateForm: React.FC = () => {
             }}
           />
         </div>
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', marginLeft: '0.5rem' }}>
           <AttributeTypeIcon type={ATTRIBUTE_TYPE.Newly} />
           <span style={{ marginLeft: '0.5rem' }}>初心者</span>
         </div>
