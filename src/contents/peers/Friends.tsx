@@ -17,40 +17,42 @@ const Friends: React.FC = () => {
       <h2 className="title is-flex">
         <FaRegHandshake /> <div style={{ marginLeft: '1rem' }}>ぎゅっとはんど</div>
       </h2>
-      <div className="tabs is-boxed">
-        <ul>
-          {Object.values(ATTRIBUTE_TYPE)
-            .filter((type) => type !== ATTRIBUTE_TYPE.Newly)
-            .map((type, i) => {
-              return (
-                <li key={type} className={type === selectedType ? 'is-active' : ''}>
-                  <a
-                    onClick={() => {
-                      if (type === selectedType) {
-                        setSelectedType('');
-                        return;
-                      }
-                      setSelectedType(type);
-                    }}
-                    role="button"
-                    type="button"
-                    tabIndex={i}
-                    onKeyUp={() => {
-                      if (type === selectedType) {
-                        setSelectedType('');
-                        return;
-                      }
-                      setSelectedType(type);
-                    }}
-                  >
-                    <span className="icon is-small">
-                      <AttributeTypeIcon type={type} />
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-        </ul>
+      <div style={{ width: '80vw', overflowX: 'auto' }}>
+        <div className="tabs is-boxed">
+          <ul>
+            {Object.values(ATTRIBUTE_TYPE)
+              .filter((type) => type !== ATTRIBUTE_TYPE.Newly)
+              .map((type, i) => {
+                return (
+                  <li key={type} className={type === selectedType ? 'is-active' : ''}>
+                    <a
+                      onClick={() => {
+                        if (type === selectedType) {
+                          setSelectedType('');
+                          return;
+                        }
+                        setSelectedType(type);
+                      }}
+                      role="button"
+                      type="button"
+                      tabIndex={i}
+                      onKeyUp={() => {
+                        if (type === selectedType) {
+                          setSelectedType('');
+                          return;
+                        }
+                        setSelectedType(type);
+                      }}
+                    >
+                      <span className="icon is-small">
+                        <AttributeTypeIcon type={type} />
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
       </div>
       <ul style={{ listStyle: 'none' }}>
         {friends.map((friend) => (
