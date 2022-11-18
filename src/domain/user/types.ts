@@ -37,6 +37,7 @@ export type Friend = {
   name: string;
   twitterId: string;
   attributes: FriendAttribute[];
+  isNewly?: boolean;
 };
 
 export type MyFavorite = {

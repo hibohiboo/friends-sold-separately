@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { Friend } from '@/domain/user/types';
 import { RootState } from '../index';
 import { myFavoriteSelector, userProfileSelector } from './userProfileSelector';
@@ -18,6 +19,7 @@ export const friendsSelector = createSelector(
           peerId: '',
           name: user.profile.name,
           twitterId: user.profile.twitterId,
+          isNewly: user.attributes.map((attr) => attr.type).includes(ATTRIBUTE_TYPE.Newly),
           attributes: user.attributes.map((attr) => ({
             ...attr,
             isFavorite: favorites.some((fav) => fav.id === attr.id),
