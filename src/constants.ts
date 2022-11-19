@@ -1,3 +1,10 @@
-export const basePath = import.meta.env.VITE_DEFINE_BASE_PATH ?? '';
-export const skywayKey = import.meta.env.VITE_DEFINE_SKYWAY_KEY as string;
-export const roomPassword = import.meta.env.VITE_DEFINE_ROOM_PASSWORD as string;
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+// @ts-ignore
+export const basePath = VITE_DEFINE_BASE_PATH ?? '';
+
+// @ts-ignore
+export const skywayKey = VITE_DEFINE_SKYWAY_KEY as string;
+
+// @ts-ignore
+export const roomPassword = VITE_DEFINE_ROOM_PASSWORD as string;
