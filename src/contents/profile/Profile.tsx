@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { userProfileSlice } from '@/store/slices/userProfile';
 import AttributesCheckCreateForm from './AttributesCheckCreateForm';
-import AttributesCreateForm from './AttributesCreateForm';
+import AttributesCheckCreateFormPatter1 from './AttributesCheckCreateFormPatter1';
 import AttributesList from './AttributesList';
 
 const Profile: React.FC = () => {
@@ -48,11 +48,13 @@ const Profile: React.FC = () => {
         />
       </label>
       <div className="pattern1-hidden">
-        <AttributesCreateForm />
+        <p>※ テスト中の機能です。機能やデザインは予告なく変更されることがあります。</p>
+        <AttributesCheckCreateForm />
       </div>
       <div className="pattern1-show">
         <p>※ テスト中の機能です。機能やデザインは予告なく変更されることがあります。</p>
-        <AttributesCheckCreateForm />
+
+        <AttributesCheckCreateFormPatter1 />
       </div>
       <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>

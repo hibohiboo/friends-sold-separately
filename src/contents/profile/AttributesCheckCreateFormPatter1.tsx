@@ -230,137 +230,133 @@ const AttributesCheckCreateForm: React.FC = () => {
         <AttributeCheck {...attrForTextVoiceLike} />
         <AttributeCheck {...attrForOffLike} />
       </div>
-      <details style={{ marginTop: '10px', marginBottom: '10px' }}>
-        <summary>当てはまる項目をチェック...(クリックで開きます)</summary>
+      <h3>GM/PL傾向</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForPLLike} />
+        <AttributeCheck {...attrForGMLike} />
+      </div>
 
-        <h3>GM/PL傾向</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForPLLike} />
-          <AttributeCheck {...attrForGMLike} />
-        </div>
+      <h3>好きなシナリオ傾向</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForHorrorLike} />
+        <AttributeCheck {...attrForMysteryLike} />
+        <AttributeCheck {...attrForComedeyLike} />
+        <AttributeCheck {...attrForBattlePvLike} />
+        <AttributeCheck {...attrForEmotionalLike} />
+        <AttributeCheck {...attrForUtiyosoLike} />
+        <AttributeCheck {...attrForShakaiLike} />
+        <AttributeCheck {...attrForLoveScenarioLike} />
+        <AttributeCheck {...attrForWilldenessLike} />
+        <AttributeCheck {...attrForDungeionLike} />
+        <AttributeCheck {...attrForLiddleLike} />
+        <AttributeCheck {...attrForCityLike} />
+        <AttributeCheck {...attrForClosedLike} />
+        <AttributeCheck {...attrForSingleLike} />
+        <AttributeCheck {...attrForKetudanLike} />
+        <AttributeCheck {...attrForR18Like} />
+        <AttributeCheck {...attrForR18GLike} />
+        <AttributeCheck {...attrForRihujinGLike} />
+        <AttributeCheck {...attrForRihujinMine} />
+        <AttributeCheck {...attrFor1PLLike} />
+        <AttributeCheck {...attrFor3PlLike} />
+        <AttributeCheck {...attrForHitokuHOLike} />
+        <AttributeCheck {...attrForPvPScenarioLike} />
+        <AttributeCheck {...attrForHightLostLike} />
+        <AttributeCheck {...attrForShorLike} />
+        <AttributeCheck {...attrForMiddleLike} />
+        <AttributeCheck {...attrForLongike} />
+        <AttributeCheck {...attrForCampainLike} />
+        <AttributeCheck {...attrForShortScenarioLike} />
+        <AttributeCheck {...attrForLongtimeScenarioLike} />
+      </div>
 
-        <h3>好きなシナリオ傾向</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForHorrorLike} />
-          <AttributeCheck {...attrForMysteryLike} />
-          <AttributeCheck {...attrForComedeyLike} />
-          <AttributeCheck {...attrForBattlePvLike} />
-          <AttributeCheck {...attrForEmotionalLike} />
-          <AttributeCheck {...attrForUtiyosoLike} />
-          <AttributeCheck {...attrForShakaiLike} />
-          <AttributeCheck {...attrForLoveScenarioLike} />
-          <AttributeCheck {...attrForWilldenessLike} />
-          <AttributeCheck {...attrForDungeionLike} />
-          <AttributeCheck {...attrForLiddleLike} />
-          <AttributeCheck {...attrForCityLike} />
-          <AttributeCheck {...attrForClosedLike} />
-          <AttributeCheck {...attrForSingleLike} />
-          <AttributeCheck {...attrForKetudanLike} />
-          <AttributeCheck {...attrForR18Like} />
-          <AttributeCheck {...attrForR18GLike} />
-          <AttributeCheck {...attrForRihujinGLike} />
-          <AttributeCheck {...attrForRihujinMine} />
-          <AttributeCheck {...attrFor1PLLike} />
-          <AttributeCheck {...attrFor3PlLike} />
-          <AttributeCheck {...attrForHitokuHOLike} />
-          <AttributeCheck {...attrForPvPScenarioLike} />
-          <AttributeCheck {...attrForHightLostLike} />
-          <AttributeCheck {...attrForShorLike} />
-          <AttributeCheck {...attrForMiddleLike} />
-          <AttributeCheck {...attrForLongike} />
-          <AttributeCheck {...attrForCampainLike} />
-          <AttributeCheck {...attrForShortScenarioLike} />
-          <AttributeCheck {...attrForLongtimeScenarioLike} />
-        </div>
+      <h3>好きな関係性</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForFriendsLike} />
+        <AttributeCheck {...attrForBadyLike} />
+        <AttributeCheck {...attrForLivalLike} />
+        <AttributeCheck {...attrForLoveLike} />
+        <AttributeCheck {...attrForKillLoveLike} />
+        <AttributeCheck {...attrForSishoDesiLike} />
+        <AttributeCheck {...attrForSenpaiKohaiLike} />
+      </div>
+      <h3>恋愛RP傾向</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForNLLike} />
+        <AttributeCheck {...attrForGLLike} />
+        <AttributeCheck {...attrForBLLike} />
+        <AttributeCheck {...attrForLoveMine} />
+      </div>
 
-        <h3>好きな関係性</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForFriendsLike} />
-          <AttributeCheck {...attrForBadyLike} />
-          <AttributeCheck {...attrForLivalLike} />
-          <AttributeCheck {...attrForLoveLike} />
-          <AttributeCheck {...attrForKillLoveLike} />
-          <AttributeCheck {...attrForSishoDesiLike} />
-          <AttributeCheck {...attrForSenpaiKohaiLike} />
-        </div>
-        <h3>恋愛RP傾向</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForNLLike} />
-          <AttributeCheck {...attrForGLLike} />
-          <AttributeCheck {...attrForBLLike} />
-          <AttributeCheck {...attrForLoveMine} />
-        </div>
-
-        <h3>プレイ傾向</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForBattleLike} />
-          <AttributeCheck {...attrForDetectiveLike} />
-          <AttributeCheck {...attrForConsiderationLike} />
-          <AttributeCheck {...attrForEmoLike} />
-          <AttributeCheck {...attrForTyabanLike} />
-          <AttributeCheck {...attrForHitokuLike} />
-          <AttributeCheck {...attrForPvPLike} />
-          <AttributeCheck {...attrForUtuLike} />
-          <AttributeCheck {...attrForUtuMine} />
-          <AttributeCheck {...attrForLostLike} />
-          <AttributeCheck {...attrForLostMine} />
-          <AttributeCheck {...attrForTakumaeLike} />
-          <AttributeCheck {...attrForTakugoLike} />
-          <AttributeCheck {...attrForKateiLike} />
-          <AttributeCheck {...attrForClearLike} />
-          <AttributeCheck {...attrForHodohodoLike} />
-          <AttributeCheck {...attrForTappuriLike} />
-          <AttributeCheck {...attrForRuleMine} />
-        </div>
-        <h3>スキル</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForScenarioSkill} />
-          <AttributeCheck {...attrForIllustSkill} />
-          <AttributeCheck {...attrForNovelSkill} />
-          <AttributeCheck {...attrForRoomSkill} />
-          <AttributeCheck {...attrForHukaoriSkill} />
-          <AttributeCheck {...attrForEngiSkill} />
-          <AttributeCheck {...attrForKoemaneSkill} />
-        </div>
-        <h3>遊べる日程</h3>
-        <div className="is-flex is-flex-wrap-wrap">
-          <AttributeCheck {...attrForPlayTimeMonday} />
-          <AttributeCheck {...attrForPlayTimeTuesday} />
-          <AttributeCheck {...attrForPlayTimeWednesday} />
-          <AttributeCheck {...attrForPlayTimeThirsday} />
-          <AttributeCheck {...attrForPlayTimeFriday} />
-          <AttributeCheck {...attrForEngiSkill} />
-          <AttributeCheck {...attrForPlayTimeSaturday} />
-          <AttributeCheck {...attrForPlayTimeSunday} />
-          <AttributeCheck {...attrForPlayTimeNight} />
-          <AttributeCheck {...attrForPlayTimeMidnight} />
-          <AttributeCheck {...attrForPlayTimeAfternonn} />
-          <AttributeCheck {...attrForPlayTimeFree} />
-        </div>
-        <details>
-          <summary>自由入力...</summary>
-          <AttributeInputForm type={ATTRIBUTE_TYPE.Like} title="好き" userId={user.identifier} />
-          <AttributeInputForm
-            type={ATTRIBUTE_TYPE.RolePlayType}
-            title="ロールプレイ傾向"
-            userId={user.identifier}
-          />
-          <AttributeInputForm
-            type={ATTRIBUTE_TYPE.SuperPower}
-            title="スキル"
-            userId={user.identifier}
-          />
-          <AttributeInputForm
-            type={ATTRIBUTE_TYPE.PlayableTime}
-            title="遊べる時間"
-            userId={user.identifier}
-          />
-          <AttributeInputForm
-            type={ATTRIBUTE_TYPE.Mine}
-            title="苦手。地雷。好きな人はごめん。"
-            userId={user.identifier}
-          />
-        </details>
+      <h3>プレイ傾向</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForBattleLike} />
+        <AttributeCheck {...attrForDetectiveLike} />
+        <AttributeCheck {...attrForConsiderationLike} />
+        <AttributeCheck {...attrForEmoLike} />
+        <AttributeCheck {...attrForTyabanLike} />
+        <AttributeCheck {...attrForHitokuLike} />
+        <AttributeCheck {...attrForPvPLike} />
+        <AttributeCheck {...attrForUtuLike} />
+        <AttributeCheck {...attrForUtuMine} />
+        <AttributeCheck {...attrForLostLike} />
+        <AttributeCheck {...attrForLostMine} />
+        <AttributeCheck {...attrForTakumaeLike} />
+        <AttributeCheck {...attrForTakugoLike} />
+        <AttributeCheck {...attrForKateiLike} />
+        <AttributeCheck {...attrForClearLike} />
+        <AttributeCheck {...attrForHodohodoLike} />
+        <AttributeCheck {...attrForTappuriLike} />
+        <AttributeCheck {...attrForRuleMine} />
+      </div>
+      <h3>スキル</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForScenarioSkill} />
+        <AttributeCheck {...attrForIllustSkill} />
+        <AttributeCheck {...attrForNovelSkill} />
+        <AttributeCheck {...attrForRoomSkill} />
+        <AttributeCheck {...attrForHukaoriSkill} />
+        <AttributeCheck {...attrForEngiSkill} />
+        <AttributeCheck {...attrForKoemaneSkill} />
+      </div>
+      <h3>遊べる日程</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        <AttributeCheck {...attrForPlayTimeMonday} />
+        <AttributeCheck {...attrForPlayTimeTuesday} />
+        <AttributeCheck {...attrForPlayTimeWednesday} />
+        <AttributeCheck {...attrForPlayTimeThirsday} />
+        <AttributeCheck {...attrForPlayTimeFriday} />
+        <AttributeCheck {...attrForEngiSkill} />
+        <AttributeCheck {...attrForPlayTimeSaturday} />
+        <AttributeCheck {...attrForPlayTimeSunday} />
+        <AttributeCheck {...attrForPlayTimeNight} />
+        <AttributeCheck {...attrForPlayTimeMidnight} />
+        <AttributeCheck {...attrForPlayTimeAfternonn} />
+        <AttributeCheck {...attrForPlayTimeFree} />
+      </div>
+      <details>
+        <summary>自由入力...</summary>
+        <AttributeInputForm type={ATTRIBUTE_TYPE.Like} title="好き" userId={user.identifier} />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.RolePlayType}
+          title="ロールプレイ傾向"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.SuperPower}
+          title="スキル"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.PlayableTime}
+          title="遊べる時間"
+          userId={user.identifier}
+        />
+        <AttributeInputForm
+          type={ATTRIBUTE_TYPE.Mine}
+          title="苦手。地雷。好きな人はごめん。"
+          userId={user.identifier}
+        />
       </details>
       <AttributeInputForm
         type={ATTRIBUTE_TYPE.WantToPlay}
