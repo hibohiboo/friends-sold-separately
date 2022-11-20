@@ -66,6 +66,34 @@ const AttributeInputForm: React.FC<{ userId: string; type: AttributeType; title:
   );
 };
 
+const AttributeCheck: React.FC<{
+  id: string;
+  checked: boolean;
+  change: () => void;
+  type: AttributeType;
+  labelText: string;
+}> = ({ id, checked, change, type, labelText }) => {
+  return (
+    <label
+      htmlFor={`input-${id}`}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        verticalAlign: 'center',
+        padding: '5px 10px',
+      }}
+    >
+      <div style={{ display: 'flex' }}>
+        <input type="checkbox" id={`input-${id}`} checked={checked} onChange={change} />
+      </div>
+      <div style={{ display: 'flex', marginLeft: '0.5rem' }}>
+        <AttributeTypeIcon type={type} />
+        <span style={{ marginLeft: '0.5rem' }}>{labelText}</span>
+      </div>
+    </label>
+  );
+};
+
 const AttributesCheckCreateForm: React.FC = () => {
   const user = useAppSelector(userProfileSelector);
   const newlyId = useAppSelector(newlySelector);
@@ -117,42 +145,28 @@ const AttributesCheckCreateForm: React.FC = () => {
           userId={user.identifier}
         />
       </details>
-      <label
-        htmlFor="input-newly"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          verticalAlign: 'center',
-          padding: '5px 10px',
-        }}
-      >
-        <div style={{ display: 'flex' }}>
-          <input
-            type="checkbox"
-            id="input-newly"
-            checked={!!newlyId}
-            onChange={() => {
-              if (newlyId) {
-                dispatch(attributesSlice.actions.attibuteRemove(newlyId));
-              } else {
-                dispatch(
-                  attributesSlice.actions.attributeAdded({
-                    userIdentifier: user.identifier,
-                    type: ATTRIBUTE_TYPE.Newly,
-                    name: '初心者',
-                  })
-                );
-              }
 
-              dispatch(updateAttributes());
-            }}
-          />
-        </div>
-        <div style={{ display: 'flex', marginLeft: '0.5rem' }}>
-          <AttributeTypeIcon type={ATTRIBUTE_TYPE.Newly} />
-          <span style={{ marginLeft: '0.5rem' }}>初心者</span>
-        </div>
-      </label>
+      <AttributeCheck
+        id="newly"
+        labelText="初心者"
+        type={ATTRIBUTE_TYPE.Newly}
+        checked={!!newlyId}
+        change={() => {
+          if (newlyId) {
+            dispatch(attributesSlice.actions.attibuteRemove(newlyId));
+          } else {
+            dispatch(
+              attributesSlice.actions.attributeAdded({
+                userIdentifier: user.identifier,
+                type: ATTRIBUTE_TYPE.Newly,
+                name: '初心者',
+              })
+            );
+          }
+
+          dispatch(updateAttributes());
+        }}
+      />
     </div>
   );
 };

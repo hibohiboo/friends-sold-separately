@@ -42,7 +42,7 @@ export const connectServer = createAsyncThunk<void, void, { state: RootState }>(
 // Google Tag Manger 用グローバル変数
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayerForGTM: any[];
   }
 }
 
@@ -54,10 +54,10 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     await putUser(toPutUserContext(state));
     thunkAPI.dispatch(connectServer());
 
-    // // GTMにイベントを送信
-    // window.dataLayer.push({
-    //   event: 'share',
-    // });
+    // GTMにイベントを送信
+    window.dataLayerForGTM.push({
+      event: 'profile_update',
+    });
   }
 );
 
