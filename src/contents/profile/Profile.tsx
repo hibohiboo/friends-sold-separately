@@ -46,7 +46,12 @@ const Profile: React.FC = () => {
           onChange={twitterChangeHandler}
         />
       </label>
-      <AttributesCreateForm />
+      <div className="pattern1-hidden">
+        <AttributesCreateForm />
+      </div>
+      <div className="pattern1-show">
+        <p>※ テスト中の機能です。予告なく変更されることがあります。</p>
+      </div>
       <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>
         ミエルようにする

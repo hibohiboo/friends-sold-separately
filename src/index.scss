@@ -21,4 +21,16 @@
 //   color: #535bf2;
 // }
 
+// ABテスト用 パターン1のときのみ表示 / 非表示
+.pattern1-show {
+  display: none;
+}
 
+
+.pattern-1 .pattern1-show {
+  display: block;
+}
+
+.pattern-1 .pattern1-hidden {
+  display: none;
+}
