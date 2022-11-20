@@ -54,9 +54,9 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     await putUser(toPutUserContext(state));
     thunkAPI.dispatch(connectServer());
 
-    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
+    // GTMにイベントを送信
     window.dataLayer.push({
-      event: 'purchase',
+      event: 'share',
     });
   }
 );
