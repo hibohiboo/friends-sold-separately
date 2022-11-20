@@ -51,7 +51,7 @@ const Profile: React.FC = () => {
         <AttributesCreateForm />
       </div>
       <div className="pattern1-show">
-        <p>※ テスト中の機能です。予告なく変更されることがあります。</p>
+        <p>※ テスト中の機能です。機能やデザインは予告なく変更されることがあります。</p>
         <AttributesCheckCreateForm />
       </div>
       <AttributesList />

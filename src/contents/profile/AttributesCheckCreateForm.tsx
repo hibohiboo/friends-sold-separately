@@ -238,8 +238,36 @@ const AttributesCheckCreateForm: React.FC = () => {
 
       <h3>好きなシナリオ傾向</h3>
       <div className="is-flex is-flex-wrap-wrap">
-        <AttributeCheck {...attrForPLLike} />
-        <AttributeCheck {...attrForGMLike} />
+        <AttributeCheck {...attrForHorrorLike} />
+        <AttributeCheck {...attrForMysteryLike} />
+        <AttributeCheck {...attrForComedeyLike} />
+        <AttributeCheck {...attrForBattlePvLike} />
+        <AttributeCheck {...attrForEmotionalLike} />
+        <AttributeCheck {...attrForUtiyosoLike} />
+        <AttributeCheck {...attrForShakaiLike} />
+        <AttributeCheck {...attrForLoveScenarioLike} />
+        <AttributeCheck {...attrForWilldenessLike} />
+        <AttributeCheck {...attrForDungeionLike} />
+        <AttributeCheck {...attrForLiddleLike} />
+        <AttributeCheck {...attrForCityLike} />
+        <AttributeCheck {...attrForClosedLike} />
+        <AttributeCheck {...attrForSingleLike} />
+        <AttributeCheck {...attrForKetudanLike} />
+        <AttributeCheck {...attrForR18Like} />
+        <AttributeCheck {...attrForR18GLike} />
+        <AttributeCheck {...attrForRihujinGLike} />
+        <AttributeCheck {...attrForRihujinMine} />
+        <AttributeCheck {...attrFor1PLLike} />
+        <AttributeCheck {...attrFor3PlLike} />
+        <AttributeCheck {...attrForHitokuHOLike} />
+        <AttributeCheck {...attrForPvPScenarioLike} />
+        <AttributeCheck {...attrForHightLostLike} />
+        <AttributeCheck {...attrForShorLike} />
+        <AttributeCheck {...attrForMiddleLike} />
+        <AttributeCheck {...attrForLongike} />
+        <AttributeCheck {...attrForCampainLike} />
+        <AttributeCheck {...attrForShortScenarioLike} />
+        <AttributeCheck {...attrForLongtimeScenarioLike} />
       </div>
 
       <h3>好きな関係性</h3>
