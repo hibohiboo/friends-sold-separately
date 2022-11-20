@@ -31,14 +31,3 @@ export const newlySelector = createSelector(attributesEntitySelector, (attribute
   if (!newly) return null;
   return newly.id;
 });
-
-// ------------
-const checkboxSelecter = (name: string) =>
-  createSelector(attributesEntitySelector, (attributes) => {
-    if (!attributes) return null;
-    const item = attributes.find((attr) => attr.name === name);
-    if (!item) return null;
-    return item.id;
-  });
-
-export const plLikeSelector = checkboxSelecter('どちらかと言えばPL');
