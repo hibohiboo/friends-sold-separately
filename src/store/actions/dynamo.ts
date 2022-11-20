@@ -54,10 +54,10 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
     await putUser(toPutUserContext(state));
     thunkAPI.dispatch(connectServer());
 
-    // GTMにイベントを送信
-    window.dataLayer.push({
-      event: 'share',
-    });
+    // // GTMにイベントを送信
+    // window.dataLayer.push({
+    //   event: 'share',
+    // });
   }
 );
 

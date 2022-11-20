@@ -64,7 +64,12 @@ const Profile: React.FC = () => {
           onChange={changePublishHandler}
         />
       </label>
-      <button type="button" onClick={submitHandler} style={{ cursor: 'pointer' }}>
+      <button
+        id="profile-submit" // GTM 用にIDを公開
+        type="button"
+        onClick={submitHandler}
+        style={{ cursor: 'pointer' }}
+      >
         変更を確定
       </button>
     </section>
