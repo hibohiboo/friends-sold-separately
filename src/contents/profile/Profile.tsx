@@ -4,6 +4,7 @@ import { updateProfile } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { userProfileSelector } from '@/store/selectors/userProfileSelector';
 import { userProfileSlice } from '@/store/slices/userProfile';
+import AttributesCheckCreateForm from './AttributesCheckCreateForm';
 import AttributesCreateForm from './AttributesCreateForm';
 import AttributesList from './AttributesList';
 
@@ -51,6 +52,7 @@ const Profile: React.FC = () => {
       </div>
       <div className="pattern1-show">
         <p>※ テスト中の機能です。予告なく変更されることがあります。</p>
+        <AttributesCheckCreateForm />
       </div>
       <AttributesList />
       <label htmlFor="input-is-publish" style={{ display: 'flex', margin: '0.5rem' }}>

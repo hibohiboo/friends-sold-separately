@@ -39,6 +39,13 @@ export const connectServer = createAsyncThunk<void, void, { state: RootState }>(
   }
 );
 
+// Google Tag Manger 用グローバル変数
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
   'updateProfile',
   async (req, thunkAPI) => {
@@ -46,6 +53,11 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
 
     await putUser(toPutUserContext(state));
     thunkAPI.dispatch(connectServer());
+
+    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
+    window.dataLayer.push({
+      event: 'purchase',
+    });
   }
 );
 

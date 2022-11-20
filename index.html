@@ -8,6 +8,10 @@
     <link href="/assets/css/darkly/bulmaswatch.min.css" rel="stylesheet" />
     <title>ぎゅっとはんど</title>
     <script async src="https://www.googleoptimize.com/optimize.js?id=GTM-5BQ4G6Q"></script>
+    <script>
+      // Google Tag Manger 用 データレイヤー
+      dataLayer = [];
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -19,11 +23,17 @@
         j.async = true;
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-5QHZ436');
+      })(
+        window,
+        document,
+        'script',
+        'dataLayer', // データレイヤーの名前
+        'GTM-5QHZ436'
+      );
     </script>
     <!-- End Google Tag Manager -->
   </head>
-  <body>
+  <body class="pattern-1">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
