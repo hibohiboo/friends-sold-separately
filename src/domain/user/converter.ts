@@ -8,6 +8,7 @@ export const toPutUserContext = (state: RootState): PutUserContext => {
       twitterId: state.userProfile.twitterId,
       name: state.userProfile.name,
       isPublish: state.userProfile.isPublish,
+      updatedAt: state.userProfile.updateAt,
     },
     attributes: Object.values(state.attributes.entities) as Attribute[],
   };
@@ -22,6 +23,7 @@ if (import.meta.vitest) {
         twitterId: 'b',
         name: 'c',
         isPublish: false,
+        updateAt: 0,
       },
       attributes: {
         entities: {},
@@ -34,6 +36,7 @@ if (import.meta.vitest) {
         twitterId: 'b',
         name: 'c',
         isPublish: false,
+        updateAt: 0,
       },
       attributes: [],
     });

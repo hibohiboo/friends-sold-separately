@@ -27,6 +27,7 @@ export const connectServer = createAsyncThunk<void, void, { state: RootState }>(
           twitterId: '',
           isPublish: false,
           favoriteAttribute: [],
+          updateAt: new Date().getTime(),
         })
       );
       console.log('ミエナイトモダチ');
@@ -50,8 +51,8 @@ export const updateProfile = createAsyncThunk<void, void, { state: RootState }>(
   'updateProfile',
   async (req, thunkAPI) => {
     const state = thunkAPI.getState();
-
-    await putUser(toPutUserContext(state));
+    const context = toPutUserContext(state);
+    await putUser({ ...context, profile: { ...context.profile, updatedAt: new Date().getTime() } });
     thunkAPI.dispatch(connectServer());
 
     // GTMにイベントを送信

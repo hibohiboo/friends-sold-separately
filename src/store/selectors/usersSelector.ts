@@ -13,7 +13,7 @@ export const friendsSelector = createSelector(
   (users, favorites, myProfile) => {
     return users.list
       .filter((user) => user.profile.isPublish)
-      .reverse()
+      .sort((a, b) => (b.profile?.updatedAt || 0) - (a.profile?.updatedAt || 0))
       .map(
         (user): Friend => ({
           userIdentifier: user.profile.userId,

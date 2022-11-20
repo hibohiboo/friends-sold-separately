@@ -9,6 +9,7 @@ export interface UserProfileState {
   twitterId: string;
   isPublish: boolean;
   favoriteAttribute: MyFavorite[];
+  updateAt: number;
 }
 
 const initialState: UserProfileState = {
@@ -19,6 +20,7 @@ const initialState: UserProfileState = {
   twitterId: '',
   isPublish: false,
   favoriteAttribute: [],
+  updateAt: 0,
 };
 
 export const userProfileSlice = createSlice({
@@ -48,6 +50,7 @@ export const userProfileSlice = createSlice({
       state.userId = action.payload.userId;
       state.isPublish = action.payload.isPublish;
       state.twitterId = action.payload.twitterId;
+      state.updateAt = action.payload.updateAt;
     },
     setUserName(state, action: PayloadAction<string>) {
       state.name = action.payload;

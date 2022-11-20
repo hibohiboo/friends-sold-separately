@@ -55,6 +55,7 @@ export type PutUserContext = {
     name: string;
     twitterId: string;
     isPublish: boolean;
+    updatedAt: number;
   };
   attributes: Attribute[];
 };
