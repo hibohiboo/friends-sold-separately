@@ -1,6 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { BsFillChatRightFill } from 'react-icons/bs';
+import { MdSend } from 'react-icons/md';
 import { ChatMessage } from '@/domain/chat/types';
 import { useChat } from '@/domain/chat/useChat';
 import Base from '../layouts/Base';
@@ -9,8 +10,8 @@ import newlyIcon from '@/assets/icons/newly.svg';
 const ChatMessageComponent: React.FC<{ message: ChatMessage }> = ({ message }) => {
   return (
     <div className="card">
-      <div className="card-content">
-        <div className="media">
+      <div className="card-content" style={{ padding: '1rem' }}>
+        <div className="media" style={{ marginBottom: '0' }}>
           <div className="media-left">
             <figure className="image is-48x48">
               {message.isNewly ? (
@@ -35,24 +36,44 @@ const ChatMessageComponent: React.FC<{ message: ChatMessage }> = ({ message }) =
             </p>
           </div>
         </div>
-        <div className="content">{message.text}</div>
+        <div className="content" style={{ whiteSpace: 'pre-wrap' }}>
+          {message.text}
+        </div>
       </div>
     </div>
   );
 };
 
 const ChatPage: React.FC = () => {
-  const { submitHandler, messages } = useChat();
+  const { submitHandler, messages, text, setText } = useChat();
   return (
     <Base>
-      <button type="button" role="submit" onClick={submitHandler}>
-        submit
-      </button>
-      <div style={{ padding: '10px' }}>
-        {messages.map((m) => (
-          <ChatMessageComponent key={`${m.uid}${m.updatedAt}`} message={m} />
-        ))}
-      </div>
+      <section className="section">
+        <h2 className="title is-flex">
+          <img src={newlyIcon} alt="Beginners" style={{ width: '48px' }} />
+          <div style={{ marginLeft: '1rem' }}>Beginners</div>
+        </h2>
+        <p>知らないことに対してはみんな初心者</p>
+        <div className="control">
+          <textarea
+            className="textarea is-small"
+            placeholder="自己紹介や挨拶、質問など自由に"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </div>
+        <button onClick={submitHandler} type="button" role="submit" className="button is-success">
+          <span>送信</span>
+          <span className="icon is-small">
+            <MdSend />
+          </span>
+        </button>
+        <div style={{ padding: '10px' }}>
+          {messages.map((m) => (
+            <ChatMessageComponent key={`${m.uid}${m.updatedAt}`} message={m} />
+          ))}
+        </div>
+      </section>
     </Base>
   );
 };
