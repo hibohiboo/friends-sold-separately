@@ -39,6 +39,8 @@ export default defineConfig({
           rtk: ['react-redux', '@reduxjs/toolkit'],
           udonarium: ['crypto-js', 'lzbase62', 'msgpack-lite', 'pako', 'skyway-js'],
           analytics: ['firebase/app', 'firebase/analytics', 'web-vitals'],
+          firestore: ['firebase/auth', 'firebase/firestore'],
+          others: ['date-fns'],
         },
       },
     },
