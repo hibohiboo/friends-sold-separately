@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FaRegAddressCard, FaRegHandshake } from 'react-icons/fa';
 import { MdNotifications } from 'react-icons/md';
+import newlyIcon from '@/assets/icons/newly.svg';
 import { basePath } from '@/constants';
 
 const SideNav: React.FC = () => {
@@ -24,6 +25,11 @@ const SideNav: React.FC = () => {
         <li>
           <Link to="/notice" className={pathname === '/notice' ? 'is-active' : ''}>
             <MdNotifications size={50} />
+          </Link>
+        </li>
+        <li>
+          <Link to="/beginners" className={pathname === '/beginners' ? 'is-active' : ''}>
+            <img src={newlyIcon} alt="初心者" style={{ width: '50px' }} />
           </Link>
         </li>
       </ul>

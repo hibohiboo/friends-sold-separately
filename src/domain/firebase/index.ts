@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import config from './config';
 import type { ReportCallback } from 'web-vitals';
 
-const firebaseApp = initializeApp(config);
+export const firebaseApp = initializeApp(config);
 
 const analytics = getAnalytics(firebaseApp);
 // web-vital用のハンドラを作成

@@ -90,5 +90,7 @@ module.exports = {
     ],
     // tsで型チェックするので不要
     'react/prop-types': ['off'],
+    // ???
+    'jsx-a11y/aria-role': ['off'],
   },
 };
