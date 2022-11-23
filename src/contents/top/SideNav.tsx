@@ -7,8 +7,7 @@ import { basePath } from '@/constants';
 const SideNav: React.FC = () => {
   const lo = useLocation();
   const pathname = lo.pathname.replace(basePath, '');
-  console.log(lo);
-  console.log(pathname);
+
   return (
     <aside className="menu">
       <ul className="menu-list">

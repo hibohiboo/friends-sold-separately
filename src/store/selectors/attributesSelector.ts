@@ -31,3 +31,6 @@ export const newlySelector = createSelector(attributesEntitySelector, (attribute
   if (!newly) return null;
   return newly.id;
 });
+export const isNewlySelector = createSelector(newlySelector, (newly) => {
+  return !!newly;
+});
