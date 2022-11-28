@@ -14,7 +14,8 @@ export const handlers = [
     console.log('get', req);
     const { userId } = req.params;
     const user = gyuttoHandUser.Items.find((item) => item.userId.S === userId);
-    return res(ctx.status(200), ctx.json(user));
+    const ret = { Item: user };
+    return res(ctx.status(200), ctx.json(ret));
   }),
   rest.get('/v1/api/gyutto-hand-user', (req, res, ctx) => {
     console.log('get', req);

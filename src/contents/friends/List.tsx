@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { FaRegHandshake } from 'react-icons/fa';
 import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
