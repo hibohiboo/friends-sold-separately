@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoriteList from '../favorite/FavoriteList';
-import Friends from '../peers/Friends';
+import Friends from '../friends/List';
 import Profile from '../profile/Profile';
 import BottomNav from './BottomNav';
 import Footer from './Footer';

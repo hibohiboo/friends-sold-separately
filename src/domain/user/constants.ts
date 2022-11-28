@@ -1,3 +1,5 @@
+import { API_BASE_PATH } from '@/domain/http/constants';
+
 export const ATTRIBUTE_TYPE = {
   Rulebook: 'Rulebook',
   Newly: 'Newly',
@@ -11,3 +13,5 @@ export const ATTRIBUTE_TYPE = {
   FavoriteReply: 'FavoriteReply',
 } as const;
 export type AttributeType = typeof ATTRIBUTE_TYPE[keyof typeof ATTRIBUTE_TYPE];
+export const GYUTTO_HAND_USER_PATH = 'gyutto-hand-user';
+export const GYUTTO_HAND_USER_FULL_PATH = `${API_BASE_PATH}${GYUTTO_HAND_USER_PATH}`;

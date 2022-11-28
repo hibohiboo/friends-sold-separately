@@ -1,9 +1,9 @@
 import { myFetch } from '../http/fetch';
-import { PutUserContext } from './types';
+import { GYUTTO_HAND_USER_FULL_PATH } from './constants';
+import { DynamoResponseUser, PutUserContext } from './types';
 
-const GYUTTO_HAND_USER_PATH = `/v1/api/gyutto-hand-user`;
 export const putUser = async (context: PutUserContext) => {
-  await myFetch(GYUTTO_HAND_USER_PATH, {
+  await myFetch(GYUTTO_HAND_USER_FULL_PATH, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ export const putUser = async (context: PutUserContext) => {
   });
 };
 export const getUsers = async (): Promise<PutUserContext[]> => {
-  const response = await myFetch(GYUTTO_HAND_USER_PATH, {
+  const response = await myFetch(GYUTTO_HAND_USER_FULL_PATH, {
     method: 'GET',
   });
   const resultJson = await response.text();
@@ -34,4 +34,13 @@ type DynamoResponseUsers = {
     };
   }[];
   ScannedCount: number;
+};
+export const getUser = async (id: string): Promise<PutUserContext> => {
+  const response = await myFetch(`${GYUTTO_HAND_USER_FULL_PATH}/${id}`, {
+    method: 'GET',
+  });
+  const resultJson = await response.text();
+  const result = JSON.parse(resultJson) as DynamoResponseUser;
+  const user = JSON.parse(result.Item.json.S);
+  return user as PutUserContext;
 };

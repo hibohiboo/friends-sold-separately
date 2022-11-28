@@ -59,3 +59,13 @@ export type PutUserContext = {
   };
   attributes: Attribute[];
 };
+export type DynamoResponseUser = {
+  Item: {
+    json: {
+      S: string;
+    };
+    userId: {
+      S: string;
+    };
+  };
+};

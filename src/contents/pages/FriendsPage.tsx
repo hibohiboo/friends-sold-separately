@@ -1,6 +1,6 @@
 import React from 'react';
+import Friends from '../friends/List';
 import Base from '../layouts/Base';
-import Friends from '../peers/Friends';
 
 const FriendsPage: React.FC = () => {
   return (
