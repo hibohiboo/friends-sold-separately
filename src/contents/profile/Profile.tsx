@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaRegAddressCard } from 'react-icons/fa';
 import { updateProfile } from '@/store/actions/dynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -11,14 +12,16 @@ import AttributesList from './AttributesList';
 const Profile: React.FC = () => {
   const user = useAppSelector(userProfileSelector);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const nameChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     dispatch(userProfileSlice.actions.setUserName(e.target.value));
   };
   const twitterChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     dispatch(userProfileSlice.actions.setTwitterId(e.target.value));
   };
-  const submitHandler = () => {
-    dispatch(updateProfile());
+  const submitHandler = async () => {
+    await dispatch(updateProfile());
+    navigate(`/friend/${user.identifier}`);
   };
   const changePublishHandler = () => {
     dispatch(userProfileSlice.actions.toggleIsPublish());
