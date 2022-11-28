@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaRegAddressCard, FaTwitter } from 'react-icons/fa';
-import { ATTRIBUTE_ORDER, ATTRIBUTE_TYPE } from '@/domain/user/constants';
+import { ATTRIBUTE_ORDER, ATTRIBUTE_TITLE, ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { favoriteAttributes } from '@/store/actions/attributesDynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { useGetUserByIdQuery } from '@/store/query/api';
 import { myFavoriteSelector, userProfileSelector } from '@/store/selectors/userProfileSelector';
 import AttributeTypeIcon from '../profile/AttributeTypeIcon';
 import AttributeItem from './AttributeItem';
+import newlyIcon from '@/assets/icons/newly.svg';
 
 const Friend: React.FC<{ id: string }> = ({ id }) => {
   const { data, refetch } = useGetUserByIdQuery(id);
@@ -26,9 +27,8 @@ const Friend: React.FC<{ id: string }> = ({ id }) => {
   }, [refetch]);
 
   if (!data) return <div>読込中...</div>;
-  const types = Array.from(new Set(data.attributes.map((attr) => attr.type))).sort(
-    (type) => -ATTRIBUTE_ORDER[type]
-  );
+  const uniqueTypes = Array.from(new Set(data.attributes.map((attr) => attr.type)));
+
   const attributes = data.attributes.map((attr) => ({
     ...attr,
     isFavorite: favorites.some((fav) => fav.id === attr.id),
@@ -40,19 +40,30 @@ const Friend: React.FC<{ id: string }> = ({ id }) => {
     name: data.profile.name,
     twitterId: data.profile.twitterId,
     attributes,
-    isNewly: types.includes(ATTRIBUTE_TYPE.Newly),
+    isNewly: uniqueTypes.includes(ATTRIBUTE_TYPE.Newly),
   };
+
+  const types = uniqueTypes
+    .filter((type) => type !== ATTRIBUTE_TYPE.Newly)
+    .sort((type) => -ATTRIBUTE_ORDER[type]);
 
   return (
     <section className="section">
       <h2 className="title is-flex">
-        <FaRegAddressCard /> <div style={{ marginLeft: '1rem' }}>{data.profile.name}</div>
+        <FaRegAddressCard />
+        {friend.isNewly ? (
+          <img src={newlyIcon} alt="初心者" style={{ width: '2rem', marginLeft: '1rem' }} />
+        ) : (
+          <span />
+        )}
+        <div style={{ marginLeft: '1rem' }}>{friend.name}</div>
       </h2>
-      <SubTitle twitterId={data.profile.twitterId} />
+      <SubTitle twitterId={friend.twitterId} />
       {types.map((type) => (
-        <div key={type} className="is-flex">
+        <div key={type} style={{ padding: '1rem' }}>
           <div>
             <AttributeTypeIcon type={type} />
+            <span style={{ marginLeft: '1rem' }}> {ATTRIBUTE_TITLE[type]}</span>
           </div>
           <div>
             {attributes

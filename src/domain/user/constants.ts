@@ -27,3 +27,16 @@ export const ATTRIBUTE_ORDER = {
   FunScenario: 8,
   FavoriteReply: 9,
 } as const;
+
+export const ATTRIBUTE_TITLE = {
+  Rulebook: '遊びたいシステム',
+  Newly: '初心者',
+  WantToPlay: '遊びたいシナリオ',
+  FunScenario: '楽しかったシナリオ',
+  Mine: '苦手。地雷。好きな人はごめん。',
+  PlayableTime: '遊べる時間',
+  SuperPower: 'スキル',
+  Like: '好き',
+  RolePlayType: 'ロールプレイ傾向',
+  FavoriteReply: '好きなリプレイ',
+} as const;
