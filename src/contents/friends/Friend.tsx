@@ -70,6 +70,16 @@ const Friend: React.FC<{ id: string }> = ({ id }) => {
           </div>
         </div>
       ))}
+      <p style={{ padding: '30px' }}>
+        <a
+          className="button is-primary twitter-hashtag-button"
+          href={`https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&text=僕の私のTRPG説明書を作成しました。&hashtags=ぎゅっとはんど&url=https%3A%2F%2Fd3snr6xc5uvnuy.cloudfront.net%2Ffriends-shakehand%2Ffriend%2F${friend.userIdentifier}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaTwitter /> <span style={{ paddingLeft: '1rem' }}>呟く</span>
+        </a>
+      </p>
     </section>
   );
 };
