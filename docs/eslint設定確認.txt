@@ -135,6 +135,20 @@
         "warnOnUnassignedImports": false
       }
     ],
+    "react/prop-types": [
+      "off",
+      {
+        "ignore": [],
+        "customValidators": [],
+        "skipUndeclared": false
+      }
+    ],
+    "jsx-a11y/aria-role": [
+      "off",
+      {
+        "ignoreNonDOM": true
+      }
+    ],
     "jest-dom/prefer-checked": [
       "error"
     ],
@@ -1326,14 +1340,6 @@
     "react/no-unsafe": [
       0
     ],
-    "react/prop-types": [
-      2,
-      {
-        "ignore": [],
-        "customValidators": [],
-        "skipUndeclared": false
-      }
-    ],
     "react/require-render-return": [
       2
     ],
@@ -1732,12 +1738,6 @@
     ],
     "jsx-a11y/aria-proptypes": [
       "warn"
-    ],
-    "jsx-a11y/aria-role": [
-      "warn",
-      {
-        "ignoreNonDOM": true
-      }
     ],
     "jsx-a11y/aria-unsupported-elements": [
       "warn"
