@@ -30,3 +30,7 @@ dist-ssr
 
 # vitest カバレッジ
 coverage
+
+# draw.io
+*.dtmp
+*.bkp
