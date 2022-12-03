@@ -1,0 +1,32 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - develop  # Set a branch name to trigger deployment
+    paths:
+      - 'documents/**' # documentsフォルダ内が更新されたときのみ実施
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create gh-pages-dir
+        run: |
+          mkdir -p ./documents/publish
+
+      # draw.io
+      - name: Export draw.io
+        uses: rlespinasse/drawio-export-action@v1.x
+        with:
+          path: documents/draw.io
+          format: png
+          output: ../../documents/publish/drawio
+          transparent: true
+
+      # デプロイ
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./documents
