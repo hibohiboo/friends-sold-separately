@@ -20,7 +20,7 @@ jobs:
       - name: Export draw.io
         uses: rlespinasse/drawio-export-action@v2
         with:
-          path: documents/draw.io
+          path: docs/draw.io
           format: png
           output: ../../documents/publish/drawio
           transparent: true
