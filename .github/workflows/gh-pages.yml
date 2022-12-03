@@ -5,7 +5,8 @@ on:
     branches:
       - develop  # Set a branch name to trigger deployment
     paths:
-      - 'docs/**' # documentsフォルダ内が更新されたときのみ実施
+      - .github/workflows/**
+      - docs/** # documentsフォルダ内が更新されたときに実施
 jobs:
   deploy:
     runs-on: ubuntu-22.04
