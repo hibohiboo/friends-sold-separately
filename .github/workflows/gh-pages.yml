@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: Create gh-pages-dir
         with:
           fetch-depth: 0
+      # 公開用リポジトリ作成
+      - name: Create gh-pages-dir
         run: |
           mkdir -p ./documents/publish
 
