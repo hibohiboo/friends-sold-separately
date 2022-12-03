@@ -5,7 +5,7 @@ on:
     branches:
       - develop  # Set a branch name to trigger deployment
     paths:
-      - 'documents/**' # documentsフォルダ内が更新されたときのみ実施
+      - 'docs/**' # documentsフォルダ内が更新されたときのみ実施
 jobs:
   deploy:
     runs-on: ubuntu-22.04
