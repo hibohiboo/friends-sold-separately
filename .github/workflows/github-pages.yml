@@ -54,8 +54,14 @@ jobs:
         with:
           path: docs/drawio
           format: png
-          output: ../documents/astro/dist/
+          output: drawio-assets
           transparent: true
+
+      - name: Draw.io Move files
+        run: |
+          mkdir -p ./documents/astro/dist/drawio-assets
+          mv ./drawio/drawio-assets/* ../documents/astro/dist/drawio-assets/
+        working-directory: docs
 
       # アーティファクト作成
       - name: Upload artifact
