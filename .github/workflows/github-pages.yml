@@ -40,13 +40,13 @@ jobs:
         with:
           node-version: 18
 
-      # - name: Install dependencies
-      #   run: npm install
-      #   working-directory: docs/documents/astro
+      - name: Install dependencies
+        run: npm install
+        working-directory: docs/documents/astro
 
-      # - name: Build Astro
-      #   run: npm run build
-      #   working-directory: docs/documents/astro
+      - name: Build Astro
+        run: npm run build
+        working-directory: docs/documents/astro
 
       # draw.io
       - name: Export draw.io
@@ -61,31 +61,25 @@ jobs:
       - name: Draw.io Move files
         run: |
           mkdir -p ./docs/documents/astro/dist/drawio-assets
-          ls ./
-
-      - name: Docs
-        run: ls ./docs
-
-      - name: drawio
-        run: ls ./docs/drawio
+          mv ./docs/drawio/draio-assets/* ./docs/documents/astro/dist/drawio-assets/
 
 
-  #     # アーティファクト作成
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v1
-  #       with:
-  #         path: docs/documents/astro/dist/
+      # アーティファクト作成
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/documents/astro/dist/
 
 
 
-  # # Single deploy job since we're just deploying
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v1
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
