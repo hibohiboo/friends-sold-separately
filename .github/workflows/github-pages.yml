@@ -58,6 +58,10 @@ jobs:
           transparent: false
           action-mode: all
 
+      # カバレッジ作成
+      - name: Coverage
+        run: npm run coverage
+
       # アーティファクト作成
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
