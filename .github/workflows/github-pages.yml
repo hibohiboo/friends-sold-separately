@@ -60,25 +60,26 @@ jobs:
       - name: Draw.io Move files
         run: |
           mkdir -p ./documents/astro/dist/drawio-assets
-          mv ./drawio/drawio-assets/* ./documents/astro/dist/drawio-assets/
+          ls ./documents/astro/dist
+          ls ./drawio/
         working-directory: docs
 
-      # アーティファクト作成
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: docs/documents/astro/dist/
+  #     # アーティファクト作成
+  #     - name: Upload artifact
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: docs/documents/astro/dist/
 
 
 
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+  # # Single deploy job since we're just deploying
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v1
