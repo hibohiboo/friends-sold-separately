@@ -11,3 +11,7 @@ layout: ../../layouts/MainLayout.astro
 ## アーキテクチャ
 
 ![](../../drawio-assets/architechture-services.png)
+
+## 開発利用サービス
+
+![](../../drawio-assets/architechture-develop.png)
