@@ -58,6 +58,10 @@ jobs:
           transparent: false
           action-mode: all
 
+      # ユニットテスト用環境インストール
+      - name: Install dependencies
+        run: npm install
+
       # カバレッジ作成
       - name: Coverage
         run: npm run coverage
