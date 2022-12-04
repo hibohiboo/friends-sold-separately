@@ -48,14 +48,14 @@ jobs:
         run: npm run build
         working-directory: docs/documents/astro
 
-      # draw.io
+      # draw.io ※ 日本語は文字化けする
       - name: Export draw.io
         uses: rlespinasse/drawio-export-action@v2
         with:
           path: docs/drawio
           format: png
           output: ../documents/astro/dist/drawio-assets
-          transparent: true
+          transparent: false
           action-mode: all
 
       # アーティファクト作成
