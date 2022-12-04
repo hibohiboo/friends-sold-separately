@@ -54,7 +54,7 @@ jobs:
         with:
           path: docs/drawio
           format: png
-          output: ../documents/astro/dist/images/
+          output: ../documents/astro/dist/
           transparent: true
 
       # アーティファクト作成

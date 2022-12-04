@@ -10,4 +10,4 @@ layout: ../../layouts/MainLayout.astro
 
 ## アーキテクチャ
 
-![](../../images/architechture.drawio.png)
+![](../../architechture.drawio.png)
