@@ -25,9 +25,22 @@ export type Frontmatter = {
 
 export const KNOWN_LANGUAGES = {
   日本語: 'ja',
-  English: 'en',
 } as const;
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
 export const GITHUB_EDIT_URL = `https://github.com/hibohiboo/friends-sold-separately/tree/main/docs`;
 export const BASE_PATH = 'friends-sold-separately';
+
+export type Sidebar = Record<
+  typeof KNOWN_LANGUAGE_CODES[number],
+  Record<string, { text: string; link: string }[]>
+>;
+export const SIDEBAR: Sidebar = {
+  ja: {
+    目次: [
+      { text: 'イントロダクション', link: 'ja/introduction' },
+      { text: '機能一覧', link: 'ja/page-2' },
+    ],
+    他のセクション: [{ text: 'ページ4', link: 'ja/page-4' }],
+  },
+};
