@@ -10,4 +10,4 @@ layout: ../../layouts/MainLayout.astro
 
 ## アーキテクチャ
 
-![](../../drawio-assets/architechture.drawio.png)
+![](../../drawio-assets/architechture-services.png)
