@@ -54,16 +54,9 @@ jobs:
         with:
           path: docs/drawio
           format: png
-          output: drawio-assets
+          output: ../documents/astro/dist/drawio-assets
           transparent: true
           action-mode: all
-
-      - name: Draw.io Move files
-        run: |
-          mkdir -p ./docs/documents/astro/dist/drawio-assets
-          chmod 666 ./docs/documents/astro/dist/drawio-assets
-          mv ./docs/drawio/drawio-assets/* ./docs/documents/astro/dist/drawio-assets/
-
 
       # アーティファクト作成
       - name: Upload artifact
