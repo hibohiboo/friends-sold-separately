@@ -6,7 +6,7 @@ layout: ../../layouts/MainLayout.astro
 
 **開発室 にようこそ！**
 
-ぎゅっとはんどに関連する開発ドキュメント一覧
+[ぎゅっとはんど](https://d3snr6xc5uvnuy.cloudfront.net/friends-shakehand/)に関連する開発ドキュメント一覧
 
 ## アーキテクチャ
 
