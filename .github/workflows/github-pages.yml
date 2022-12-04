@@ -4,8 +4,8 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    # branches:
-    #   - main
+    branches:
+      - develop
     paths:
       - .github/workflows/**
       - docs/** # documentsフォルダ内が更新されたときに実施
@@ -48,11 +48,6 @@ jobs:
         run: npm run build
         working-directory: docs/documents/astro
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: docs/documents/astro/dist/
-
       # draw.io
       - name: Export draw.io
         uses: rlespinasse/drawio-export-action@v2
@@ -61,6 +56,14 @@ jobs:
           format: png
           output: ../documents/astro/dist/images/
           transparent: true
+
+      # アーティファクト作成
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs/documents/astro/dist/
+
+
 
   # Single deploy job since we're just deploying
   deploy:
