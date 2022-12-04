@@ -51,6 +51,15 @@ jobs:
         with:
           path: docs/documents/astro/dist/
 
+      # draw.io
+      - name: Export draw.io
+        uses: rlespinasse/drawio-export-action@v2
+        with:
+          path: docs/drawio
+          format: png
+          output: ../documents/astro/dist/images/
+          transparent: true
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
