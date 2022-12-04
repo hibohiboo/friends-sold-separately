@@ -60,9 +60,7 @@ jobs:
       - name: Draw.io Move files
         run: |
           mkdir -p ./documents/astro/dist/drawio-assets
-          ls ./documents/astro/dist
-          ls ./drawio/
-          ls ./
+          ls ./drawio-assets/
         working-directory: docs
 
   #     # アーティファクト作成
