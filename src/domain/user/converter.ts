@@ -36,7 +36,7 @@ if (import.meta.vitest) {
         twitterId: 'b',
         name: 'c',
         isPublish: false,
-        updateAt: 0,
+        updatedAt: 0,
       },
       attributes: [],
     });
