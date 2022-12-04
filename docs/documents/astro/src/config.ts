@@ -41,6 +41,9 @@ export const SIDEBAR: Sidebar = {
       { text: 'イントロダクション', link: `${BASE_PATH}/ja/introduction` },
       { text: '機能一覧', link: `${BASE_PATH}/ja/page-2` },
     ],
-    開発用: [{ text: 'ユニットテスト カバレッジ', link: `${BASE_PATH}/coverage/index.html` }],
+    開発用: [
+      { text: 'ユニットテスト カバレッジ', link: `${BASE_PATH}/coverage/index.html` },
+      { text: 'リンク集', link: `${BASE_PATH}/ja/links` },
+    ],
   },
 };

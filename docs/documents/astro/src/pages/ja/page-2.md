@@ -1,6 +1,6 @@
 ---
 title: 機能一覧
-description: Lorem ipsum dolor sit amet - 2
+description: 機能一覧
 layout: ../../layouts/MainLayout.astro
 ---
 
@@ -12,6 +12,6 @@ layout: ../../layouts/MainLayout.astro
 | ----------- | ---------------- |
 | /           | 友達ページ       |
 | /profile    | 個人情報         |
-| /noteice    | 通知             |
+| /notice     | 通知             |
 | /beginners  | 初心者チャット   |
 | /friend/:id | 個人ごとのページ |
