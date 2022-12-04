@@ -40,15 +40,25 @@ jobs:
         with:
           node-version: 18
 
+      # ユニットテスト用環境インストール
+      - name: Install dependencies
+        run: npm install
+
+      # カバレッジ作成 -> astro の publicフォルダ内
+      - name: Coverage
+        run: npm run coverage
+
+      # markdown エディタ用
       - name: Install dependencies
         run: npm install
         working-directory: docs/documents/astro
 
+      # markdown 公開 (astro/dist)
       - name: Build Astro
         run: npm run build
         working-directory: docs/documents/astro
 
-      # draw.io ※ 日本語は文字化けする
+      # draw.io ※ 日本語は文字化けする  astro/dist 内にpngエクスポート
       - name: Export draw.io
         uses: rlespinasse/drawio-export-action@v2
         with:
@@ -58,15 +68,9 @@ jobs:
           transparent: false
           action-mode: all
 
-      # ユニットテスト用環境インストール
-      - name: Install dependencies
-        run: npm install
 
-      # カバレッジ作成
-      - name: Coverage
-        run: npm run coverage
 
-      # アーティファクト作成
+      # アーティファクト作成 (astro/dist フォルダを公開用に梱包)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
