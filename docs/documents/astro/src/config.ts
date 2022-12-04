@@ -38,9 +38,9 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
   ja: {
     目次: [
-      { text: 'イントロダクション', link: 'ja/introduction' },
-      { text: '機能一覧', link: 'ja/page-2' },
+      { text: 'イントロダクション', link: `${BASE_PATH}/ja/introduction` },
+      { text: '機能一覧', link: `${BASE_PATH}/ja/page-2` },
     ],
-    他のセクション: [{ text: 'ページ4', link: 'ja/page-4' }],
+    開発用: [{ text: 'ユニットテスト カバレッジ', link: `${BASE_PATH}/coverage/index.html` }],
   },
 };

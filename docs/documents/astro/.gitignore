@@ -18,3 +18,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# drawio
+public/drawio-assets
+
+# vitest c8 coverage
+public/coverage

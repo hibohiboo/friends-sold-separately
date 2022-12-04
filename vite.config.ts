@@ -17,6 +17,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setupTest.ts'],
     includeSource: ['src/**/*.ts'],
+    coverage: {
+      reportsDirectory: 'docs/documents/astro/public/coverage',
+    },
   },
   resolve: {
     // viteのホットリロードのために、/で始める必要がある。
