@@ -61,6 +61,12 @@ layout: ../../layouts/MainLayout.astro
 - [AWS CDK](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/home.html) ... [qiita](https://qiita.com/hibohiboo/items/1a6dec3bbcf941ea4d9e)
 - [AWS CloudFormation](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/Welcome.html)
 
+## 開発
+
+#### VCS
+
+- [Git](https://github.com/hibohiboo/friends-sold-separately)
+
 #### Language
 
 - [サバイバル TypeScript](https://typescriptbook.jp/)
@@ -71,3 +77,25 @@ layout: ../../layouts/MainLayout.astro
 - [Prettier](https://prettier.io/docs/en/index.html)
 - [eslint](https://eslint.org/docs/latest/user-guide/core-concepts)
 - [editorconfig](https://editorconfig.org/)
+
+#### Build
+
+- [vite](https://ja.vitejs.dev/)
+- [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+#### UnitTest
+
+- [vitest](https://vitest.dev/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Mock Service Worker](https://mswjs.io/docs/) ... HTTP の プロキシ
+
+#### GithubPages
+
+- [github workflow yaml](https://github.com/hibohiboo/friends-sold-separately/blob/develop/.github/workflows/github-pages.yml)
+- [GitHub Pages: Custom GitHub Actions Workflows (beta)](https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/)
+- [GithubActions](https://docs.github.com/ja/actions/using-workflows/workflow-syntax-for-github-actions)
+- [drawio](https://github.com/rlespinasse/drawio-export-action)
+
+#### WebFramework
+
+- [Astro](https://docs.astro.build/ja/getting-started/) ... Markdown
