@@ -6,12 +6,10 @@ export const SITE = {
 
 export const OPEN_GRAPH = {
   image: {
-    src: 'https://github.com/withastro/astro/blob/main/assets/social/banner.jpg?raw=true',
-    alt:
-      'astro logo on a starry expanse of space,' +
-      ' with a purple saturn-like planet floating in the right foreground',
+    src: 'https://d3snr6xc5uvnuy.cloudfront.net/friends-shakehand/assets/icons/fa-handshake-regular.svg',
+    alt: 'font awesome',
   },
-  twitter: 'astrodotbuild',
+  twitter: 'hibohiboo',
 };
 
 // This is the type of the frontmatter you put in the docs markdown files.
@@ -31,4 +29,4 @@ export const KNOWN_LANGUAGES = {
 } as const;
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
-export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;
+export const GITHUB_EDIT_URL = `https://github.com/hibohiboo/friends-sold-separately/tree/main/docs`;
