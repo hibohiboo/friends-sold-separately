@@ -100,3 +100,7 @@ layout: ../../layouts/MainLayout.astro
 
 - [Astro](https://docs.astro.build/ja/getting-started/) ... Markdown
   - [sample](https://github.com/withastro/astro/tree/main/examples/docs)
+
+### OpenAPI
+
+- [OAI](https://github.com/OAI/OpenAPI-Specification)

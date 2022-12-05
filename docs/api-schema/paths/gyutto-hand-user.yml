@@ -1,0 +1,52 @@
+get:
+  operationId: ユーザ情報一覧取得API
+  responses:
+    200:
+      description: 200 OK
+      content:
+        application/json:
+          schema:
+            required:
+              - Count
+              - ScannedCount
+            properties:
+              Count:
+                type: integer
+              ScannedCount:
+                type: integer
+              Items:
+                type: array
+                description: ユーザ情報はユーザIDと、ユーザ情報のプロパティをJSONにしたもの。
+                items:
+                  type: object
+                  title: ユーザ情報
+                  required:
+                    - userId
+                    - json
+                  properties:
+                    userId:
+                      $ref: '../openapi.yml#/components/schemas/DynamoString'
+                    json:
+                      $ref: '../openapi.yml#/components/schemas/DynamoString'
+put:
+  operationId: ユーザ情報登録API
+  responses:
+    200:
+      description: 200 OK
+  requestBody:
+    description: ユーザ情報
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - userId
+            - json
+          properties:
+            userId:
+              description: ユーザID
+              type: string
+            json:
+              description: ユーザ情報のプロパティをJSONにしたもの。
+              type: string

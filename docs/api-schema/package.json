@@ -1,0 +1,15 @@
+{
+  "name": "api-schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "redoc": "redoc-cli build ./openapi.yml --options.menuToggle --options.pathInMiddlePanel  -o ./dist/index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "redoc": "^2.0.0",
+    "redoc-cli": "^0.13.20"
+  }
+}

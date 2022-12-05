@@ -1,0 +1,39 @@
+openapi: 3.1.0
+info:
+  title: ぎゅっとはんど
+  description: ぎゅっとはんど用API
+  version: 0.0.1
+  contact:
+    name: hibohiboo
+    url: https://hibohiboo.github.io/friends-sold-separately/ja/introduction/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: "{{OutputApiUrl}}"
+paths:
+  # /gyutto-hand-favorite:
+  #   $ref: ./paths/sample-users.yml
+  /gyutto-hand-user:
+    $ref: ./paths/gyutto-hand-user.yml
+
+
+components:
+  schemas:
+    DynamoString:
+      title: Dynamo 文字列型
+      description: Dynamo文字列オブジェクト
+      type: object
+      required:
+        - S
+      properties:
+        S:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: X-API-KEY  # name of the header, query parameter or cookie
+# Apply the API key globally to all operations
+security:
+  - ApiKeyAuth: []
