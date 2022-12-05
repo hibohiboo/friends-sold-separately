@@ -1,43 +1,18 @@
 get:
-  operationId: ユーザ情報一覧取得API
+  operationId: getGyuttoHandUserById
+  summary: ユーザ情報取得API
+  description: ユーザIDを指定して、対応したユーザ情報を取得する
+  parameters:
+    - in: path
+      name: id
+      description: ユーザID
+      required: true
+      schema:
+        type: string
   responses:
     200:
       description: 200 OK
       content:
         application/json:
           schema:
-            required:
-              - Count
-              - ScannedCount
-            properties:
-              Count:
-                type: integer
-              ScannedCount:
-                type: integer
-              Items:
-                type: array
-                description: ユーザ情報はユーザIDと、ユーザ情報のプロパティをJSONにしたもの。
-                items:
-                  $ref: '../components/gyutto-hand-user.yml#/components/schemas/DynamoGyuttoHandUserProfile'
-put:
-  operationId: ユーザ情報登録API
-  responses:
-    200:
-      description: 200 OK
-  requestBody:
-    description: ユーザ情報
-    required: true
-    content:
-      application/json:
-        schema:
-          type: object
-          required:
-            - userId
-            - json
-          properties:
-            userId:
-              description: ユーザID
-              type: string
-            json:
-              description: ユーザ情報のプロパティをJSONにしたもの。
-              type: string
+            $ref: '../components/gyutto-hand-user.yml#/components/schemas/DynamoGyuttoHandUserProfile'

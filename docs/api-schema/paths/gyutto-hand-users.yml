@@ -1,0 +1,52 @@
+get:
+  operationId: getGyuttoHandUsers
+  summary: ユーザ情報一覧取得API
+  responses:
+    200:
+      description: 200 OK
+      content:
+        application/json:
+          schema:
+            required:
+              - Count
+              - ScannedCount
+              - Items
+            properties:
+              Count:
+                description: 取得した数
+                type: integer
+              ScannedCount:
+                description: スキャンした数
+                type: integer
+              Items:
+                type: array
+                description: ユーザ情報はユーザIDと、ユーザ情報のプロパティをJSONにしたもの。
+                items:
+                  $ref: '../components/gyutto-hand-user.yml#/components/schemas/DynamoGyuttoHandUserProfile'
+              LastEvaluatedKey:
+                description: ページ分割が必要な場合のみ。次の取得項目があることを示す項目。最終ページではこの項目は存在しない。
+                $ref: '../components/gyutto-hand-user.yml#/components/schemas/DynamoGyuttoHandUserProfile'
+
+put:
+  operationId: putGyuttoHandUsers
+  summary: ユーザ情報登録API
+  responses:
+    200:
+      description: 200 OK
+  requestBody:
+    description: ユーザ情報
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - userId
+            - json
+          properties:
+            userId:
+              description: ユーザID
+              type: string
+            json:
+              description: ユーザ情報のプロパティをJSONにしたもの。
+              type: string
