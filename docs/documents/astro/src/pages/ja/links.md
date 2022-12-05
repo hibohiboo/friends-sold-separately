@@ -104,3 +104,8 @@ layout: ../../layouts/MainLayout.astro
 ### OpenAPI
 
 - [OAI](https://github.com/OAI/OpenAPI-Specification)
+
+### typedoc
+
+- [typedoc](https://typedoc.org/guides/overview/)
+- [hierarchy](https://www.npmjs.com/package/typedoc-theme-hierarchy)

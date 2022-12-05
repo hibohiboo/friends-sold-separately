@@ -45,6 +45,7 @@ export const SIDEBAR: Sidebar = {
       { text: 'OpenAPI Redoc', link: `${BASE_PATH}/api-schema/index.html` },
       { text: 'ユニットテスト カバレッジ', link: `${BASE_PATH}/coverage/index.html` },
       { text: 'リンク集', link: `${BASE_PATH}/ja/links` },
+      { text: 'Typedoc', link: `${BASE_PATH}/typedoc/index.html` },
     ],
   },
 };

@@ -27,3 +27,6 @@ public/coverage
 
 # open api redoc
 public/api-schema
+
+# typedoc
+public/typedoc
