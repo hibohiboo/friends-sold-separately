@@ -1,0 +1,56 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+const { headings } = Astro.props as Props;
+const activeId = 'overview';
+---
+
+<script>
+  const elm = document.getElementById('right-menu-ul');
+  const setCurrent: IntersectionObserverCallback = (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        elm?.querySelector('.current-header-link')?.classList.remove('current-header-link');
+        document
+          .getElementById(`right-menu-item-${entry.target.id}`)
+          ?.classList.add('current-header-link');
+        break;
+      }
+    }
+  };
+
+  const observerOptions: IntersectionObserverInit = {
+    rootMargin: '-100px 0% -66%',
+    threshold: 1,
+  };
+
+  const headingsObserver = new IntersectionObserver(setCurrent, observerOptions);
+  document.querySelectorAll('article :is(h1,h2,h3)').forEach((h) => headingsObserver.observe(h));
+</script>
+
+<h2 class="heading">On this page</h2>
+<ul id="right-menu-ul">
+  <li
+    id={`right-menu-item-overview`}
+    class={`heading-link depth-2 ${activeId === 'overview' ? 'current-header-link' : ''}`.trim()}
+  >
+    <a href="#overview">Overview</a>
+  </li>
+  {
+    headings
+      .filter(({ depth }) => depth > 1 && depth < 4)
+      .map((heading) => (
+        <li
+          id={`right-menu-item-${heading.slug}`}
+          class={`heading-link depth-${heading.depth} ${
+            activeId === heading.slug ? 'current-header-link' : ''
+          }`.trim()}
+        >
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))
+  }
+</ul>
