@@ -48,6 +48,17 @@ jobs:
       - name: Coverage
         run: npm run coverage
 
+      # open api redoc 準備
+      - name: Install dependencies
+        run: npm install
+        working-directory: docs/api-schema
+
+      # open api redoc ビルド -> astro の publicフォルダ内
+      - name: Build Redoc
+        run: npm run redoc
+        working-directory: docs/api-schema
+
+
       # markdown エディタ用
       - name: Install dependencies
         run: npm install

@@ -24,3 +24,6 @@ public/drawio-assets
 
 # vitest c8 coverage
 public/coverage
+
+# open api redoc
+public/api-schema
