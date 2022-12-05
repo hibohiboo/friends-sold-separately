@@ -18,16 +18,7 @@ get:
                 type: array
                 description: ユーザ情報はユーザIDと、ユーザ情報のプロパティをJSONにしたもの。
                 items:
-                  type: object
-                  title: ユーザ情報
-                  required:
-                    - userId
-                    - json
-                  properties:
-                    userId:
-                      $ref: '../components/dynamo.yml#/components/schemas/DynamoString'
-                    json:
-                      $ref: '../components/dynamo.yml#/components/schemas/DynamoString'
+                  $ref: '../components/gyutto-hand-user.yml#/components/schemas/DynamoGyuttoHandUserProfile'
 put:
   operationId: ユーザ情報登録API
   responses:
