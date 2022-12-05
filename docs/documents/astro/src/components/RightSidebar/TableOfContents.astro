@@ -5,18 +5,24 @@ type Props = {
   headings: MarkdownHeading[];
 };
 const { headings } = Astro.props as Props;
-const activeId = 'overview';
+const CURRENT_CLASS = 'current-header-link';
+const RIGHT_MENU_WRAPPER_ID = 'right-menu-ul';
+const RIGHT_MENU_ITEM_ID_PREFIX = 'right-menu-item';
 ---
 
 <script>
-  const elm = document.getElementById('right-menu-ul');
+  const CURRENT_CLASS = 'current-header-link';
+  const RIGHT_MENU_WRAPPER_ID = 'right-menu-ul';
+  const RIGHT_MENU_ITEM_ID_PREFIX = 'right-menu-item';
+
+  const elm = document.getElementById(RIGHT_MENU_WRAPPER_ID);
   const setCurrent: IntersectionObserverCallback = (entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
-        elm?.querySelector('.current-header-link')?.classList.remove('current-header-link');
+        elm?.querySelector(`.${CURRENT_CLASS}`)?.classList.remove(CURRENT_CLASS);
         document
-          .getElementById(`right-menu-item-${entry.target.id}`)
-          ?.classList.add('current-header-link');
+          .getElementById(`${RIGHT_MENU_ITEM_ID_PREFIX}-${entry.target.id}`)
+          ?.classList.add(CURRENT_CLASS);
         break;
       }
     }
@@ -32,10 +38,10 @@ const activeId = 'overview';
 </script>
 
 <h2 class="heading">On this page</h2>
-<ul id="right-menu-ul">
+<ul id={RIGHT_MENU_WRAPPER_ID}>
   <li
-    id={`right-menu-item-overview`}
-    class={`heading-link depth-2 ${activeId === 'overview' ? 'current-header-link' : ''}`.trim()}
+    id={`${RIGHT_MENU_ITEM_ID_PREFIX}-overview`}
+    class={`heading-link depth-2 ${CURRENT_CLASS}`.trim()}
   >
     <a href="#overview">Overview</a>
   </li>
@@ -44,10 +50,8 @@ const activeId = 'overview';
       .filter(({ depth }) => depth > 1 && depth < 4)
       .map((heading) => (
         <li
-          id={`right-menu-item-${heading.slug}`}
-          class={`heading-link depth-${heading.depth} ${
-            activeId === heading.slug ? 'current-header-link' : ''
-          }`.trim()}
+          id={`${RIGHT_MENU_ITEM_ID_PREFIX}-${heading.slug}`}
+          class={`heading-link depth-${heading.depth}`.trim()}
         >
           <a href={`#${heading.slug}`}>{heading.text}</a>
         </li>
