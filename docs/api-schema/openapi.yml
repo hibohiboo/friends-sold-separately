@@ -19,16 +19,6 @@ paths:
 
 
 components:
-  schemas:
-    DynamoString:
-      title: Dynamo 文字列型
-      description: Dynamo文字列オブジェクト
-      type: object
-      required:
-        - S
-      properties:
-        S:
-          type: string
   securitySchemes:
     ApiKeyAuth:        # arbitrary name for the security scheme
       type: apiKey

@@ -25,9 +25,9 @@ get:
                     - json
                   properties:
                     userId:
-                      $ref: '../openapi.yml#/components/schemas/DynamoString'
+                      $ref: '../components/dynamo.yml#/components/schemas/DynamoString'
                     json:
-                      $ref: '../openapi.yml#/components/schemas/DynamoString'
+                      $ref: '../components/dynamo.yml#/components/schemas/DynamoString'
 put:
   operationId: ユーザ情報登録API
   responses:

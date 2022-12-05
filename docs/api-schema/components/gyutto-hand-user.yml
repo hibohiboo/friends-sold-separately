@@ -1,0 +1,13 @@
+components:
+  schemas:
+    DynamoGyuttoHandUserProfile:
+      title: Dynamoユーザ情報
+      type: object
+      required:
+        - userId
+        - json
+      properties:
+        userId:
+          $ref: './dynamo.yml#/components/schemas/DynamoString'
+        json:
+          $ref: './dynamo.yml#/components/schemas/DynamoString'
