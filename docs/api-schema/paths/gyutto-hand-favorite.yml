@@ -1,0 +1,27 @@
+put:
+  operationId: putGyuttoHandFavorites
+  summary: 握手情報登録API
+  responses:
+    200:
+      description: 200 OK
+  requestBody:
+    description: ユーザ情報
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - attributeId
+            - userId
+            - json
+          properties:
+            attributeId:
+              description: 握手ID
+              type: string
+            userId:
+              description: ユーザID
+              type: string
+            json:
+              description: 握手情報のプロパティをJSONにしたもの。
+              type: string

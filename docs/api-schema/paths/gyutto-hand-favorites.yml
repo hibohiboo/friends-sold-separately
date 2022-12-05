@@ -1,0 +1,35 @@
+get:
+  operationId: getGyuttoHandFavorites
+  summary: 握手一覧取得API
+  parameters:
+    - in: path
+      name: userId
+      description: ユーザID
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: 200 OK
+      content:
+        application/json:
+          schema:
+            required:
+              - Count
+              - ScannedCount
+              - Items
+            properties:
+              Count:
+                description: 取得した数
+                type: integer
+              ScannedCount:
+                description: スキャンした数
+                type: integer
+              Items:
+                type: array
+                description: 握手ID、ユーザID、握手情報JSON
+                items:
+                  $ref: '../components/gyutto-hand-favorite.yml#/components/schemas/DynamoGyuttoHandFavorite'
+              LastEvaluatedKey:
+                description: ページ分割が必要な場合のみ。次の取得項目があることを示す項目。最終ページではこの項目は存在しない。
+                $ref: '../components/gyutto-hand-favorite.yml#/components/schemas/DynamoGyuttoHandFavorite'

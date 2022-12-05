@@ -12,13 +12,14 @@ info:
 servers:
   - url: "{{OutputApiUrl}}"
 paths:
-  # /gyutto-hand-favorite:
-  #   $ref: ./paths/sample-users.yml
   /gyutto-hand-user:
     $ref: ./paths/gyutto-hand-users.yml
   /gyutto-hand-user/{id}:
     $ref: ./paths/gyutto-hand-user.yml
-
+  /gyutto-hand-favorite:
+    $ref: ./paths/gyutto-hand-favorite.yml
+  /gyutto-hand-favorite/{userId}:
+    $ref: ./paths/gyutto-hand-favorites.yml
 
 components:
   securitySchemes:

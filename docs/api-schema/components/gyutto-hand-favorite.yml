@@ -1,0 +1,16 @@
+components:
+  schemas:
+    DynamoGyuttoHandFavorite:
+      title: Dynamo握手情報
+      type: object
+      required:
+        - attributeId
+        - userId
+        - json
+      properties:
+        attributeId:
+          $ref: './dynamo.yml#/components/schemas/DynamoString'
+        userId:
+          $ref: './dynamo.yml#/components/schemas/DynamoString'
+        json:
+          $ref: './dynamo.yml#/components/schemas/DynamoString'
