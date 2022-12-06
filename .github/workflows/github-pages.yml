@@ -69,6 +69,11 @@ jobs:
         run: npm run build
         working-directory: docs/typedoc
 
+      # Mermaid ビルド -> astro の publicフォルダ内
+      - name: Build Typedoc
+        run: npm run build-img
+        working-directory: docs/typedoc
+
       # markdown エディタ用
       - name: Install dependencies
         run: npm install
