@@ -46,7 +46,7 @@ export const SIDEBAR: Sidebar = {
       { text: 'ユニットテスト カバレッジ', link: `${BASE_PATH}/coverage/index.html` },
       { text: 'リンク集', link: `${BASE_PATH}/ja/links` },
       { text: 'import依存関係図', link: `${BASE_PATH}/ja/dependencyCruiser` },
-      { text: 'Typedoc', link: `${BASE_PATH}/typedoc/index.html` },
+      // { text: 'Typedoc', link: `${BASE_PATH}/typedoc/index.html` },
     ],
   },
 };
