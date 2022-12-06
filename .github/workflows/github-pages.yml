@@ -64,10 +64,11 @@ jobs:
         run: npm install
         working-directory: docs/typedoc
 
-      # TypeDoc ビルド -> astro の publicフォルダ内
-      - name: Build Typedoc
-        run: npm run build
-        working-directory: docs/typedoc
+      # const { it, expect } = import.meta.vitest; でワークフロー上でエラーが出るのでコメントアウト。 https://github.com/hibohiboo/friends-sold-separately/actions/runs/3631408628/jobs/6126000399
+      # # TypeDoc ビルド -> astro の publicフォルダ内
+      # - name: Build Typedoc
+      #   run: npm run build
+      #   working-directory: docs/typedoc
 
       # Mermaid ビルド -> astro の publicフォルダ内
       - name: Build Typedoc
