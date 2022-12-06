@@ -59,6 +59,16 @@ jobs:
         working-directory: docs/api-schema
 
 
+      # TypeDoc 準備
+      - name: Install dependencies
+        run: npm install
+        working-directory: docs/typedoc
+
+      # TypeDoc ビルド -> astro の publicフォルダ内
+      - name: Build Typedoc
+        run: npm run build
+        working-directory: docs/typedoc
+
       # markdown エディタ用
       - name: Install dependencies
         run: npm install

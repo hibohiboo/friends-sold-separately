@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "typedoc  --entryPointStrategy expand ../../src --plugin typedoc-theme-hierarchy --theme hierarchy --out ../documents/astro/public/typedoc"
+    "build": "typedoc  --entryPointStrategy expand ../../src --plugin typedoc-theme-hierarchy --theme hierarchy --out ../documents/astro/public/typedoc",
+    "build-img": "npm run depcruise-mermaid && npm run mermaid",
+    "depcruise-mermaid": "depcruise ../../src  --include-only \"^../../src\" --config --output-type mermaid > dependency-graph.mmd",
+    "depcruise-svg": "depcruise ../../src  --include-only \"^../../src\" --config --output-type dot | dot -T svg > dependency-graph.svg",
+    "mermaid": "mmdc -i dependency-graph.mmd -o ../documents/astro/public/mermaid/dependency-graph.svg"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^9.2.2",
+    "dependency-cruiser": "^12.1.0",
     "typedoc": "^0.23.21",
     "typedoc-theme-hierarchy": "^3.0.0"
   }
