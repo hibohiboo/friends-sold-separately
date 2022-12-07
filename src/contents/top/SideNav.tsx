@@ -12,32 +12,41 @@ const SideNav: React.FC = () => {
     <aside className="menu">
       <ul className="menu-list">
         <li>
-          <Link to="/" className={pathname === '/' ? 'is-active' : ''}>
+          <NavLink currentPath={pathname} path="/">
             <FaRegHandshake size={50} />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/profile" className={pathname === '/profile' ? 'is-active' : ''}>
+          <NavLink currentPath={pathname} path="/profile">
             <FaRegAddressCard size={50} />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/notice" className={pathname === '/notice' ? 'is-active' : ''}>
+          <NavLink currentPath={pathname} path="/notice">
             <MdNotifications size={50} />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/beginners" className={pathname === '/beginners' ? 'is-active' : ''}>
+          <NavLink currentPath={pathname} path="/beginners">
             <img src={newlyIcon} alt="初心者" style={{ width: '50px' }} />
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/beginners" className={pathname === '/beginners' ? 'is-active' : ''}>
+          <NavLink currentPath={pathname} path="/garallery">
             <MdLocalMovies size={50} />
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </aside>
   );
 };
 export default SideNav;
+const NavLink: React.FC<{ currentPath: string; path: string; children: React.ReactNode }> = ({
+  currentPath,
+  children,
+  path,
+}) => (
+  <Link to={`${path}`} className={currentPath === path ? 'is-active' : ''}>
+    {children}
+  </Link>
+);

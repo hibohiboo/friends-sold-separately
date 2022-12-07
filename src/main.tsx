@@ -13,10 +13,7 @@ import { store } from '@/store';
 
 import './index.scss';
 
-// TODO: MSWが設定されてから開発環境でfetchできるようにする
-mswInit(() => {
-  store.dispatch(connectServer());
-});
+await mswInit();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter basename={basePath}>
@@ -27,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </Provider>
   </BrowserRouter>
 );
-
+store.dispatch(connectServer());
 initFromPersistance(store.dispatch);
 
 // 開発環境ではログに。本番環境ではグーグル アナリティクスに出力。
