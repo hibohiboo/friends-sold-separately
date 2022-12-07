@@ -1,11 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FaRegHandshake, FaRegAddressCard } from 'react-icons/fa';
-import { MdNotifications } from 'react-icons/md';
+import { MdLocalMovies, MdNotifications } from 'react-icons/md';
+import { useAppSelector } from '@/store/hooks';
+import { configProfileSelector } from '@/store/selectors/configSelector';
 import newlyIcon from '@/assets/icons/newly.svg';
 import { basePath } from '@/constants';
 
 const BottomNav: React.FC = () => {
   const lo = useLocation();
+  const config = useAppSelector(configProfileSelector);
   const pathname = lo.pathname.replace(basePath, '');
   return (
     <nav
@@ -34,6 +37,13 @@ const BottomNav: React.FC = () => {
             <img src={newlyIcon} alt="初心者" style={{ width: '50px' }} />
           </Link>
         </li>
+        {config.beta && (
+          <li>
+            <Link to="/gallery" className={pathname === '/gallery' ? 'is-active' : ''}>
+              <MdLocalMovies size={50} />
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

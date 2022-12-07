@@ -2,6 +2,7 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { persistMiddleWare } from '@/domain/user/repository';
 import { api } from './query/api';
 import { attributesSlice } from './slices/attributes';
+import { configSlice } from './slices/config';
 import { favoritesSlice } from './slices/favorite';
 import { peerSlice } from './slices/peer';
 import { userProfileSlice } from './slices/userProfile';
@@ -15,6 +16,7 @@ export const store = configureStore({
     favorites: favoritesSlice.reducer,
     users: usersSlice.reducer,
     [api.reducerPath]: api.reducer,
+    config: configSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([api.middleware, persistMiddleWare]),
