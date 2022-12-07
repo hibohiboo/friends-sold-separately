@@ -4,6 +4,7 @@ import { api } from './query/api';
 import { attributesSlice } from './slices/attributes';
 import { configSlice } from './slices/config';
 import { favoritesSlice } from './slices/favorite';
+import { gallerySlice } from './slices/gallery';
 import { peerSlice } from './slices/peer';
 import { userProfileSlice } from './slices/userProfile';
 import { usersSlice } from './slices/users';
@@ -17,6 +18,7 @@ export const store = configureStore({
     users: usersSlice.reducer,
     [api.reducerPath]: api.reducer,
     config: configSlice.reducer,
+    gallery: gallerySlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([api.middleware, persistMiddleWare]),
