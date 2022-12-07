@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 import { GYUTTO_HAND_USER_PATH } from '@/domain/user/constants';
-import { API_BASE_PATH } from '../constants';
+import { API_BASE_PATH } from '../../domain/http/constants';
 import gyuttoAttr from './response/get-gyutto-hand-favorites';
 import gyuttoHandUser from './response/get-gyutto-hand-user';
 
