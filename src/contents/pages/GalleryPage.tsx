@@ -8,11 +8,12 @@ const GalleryPage: React.FC = () => {
   return (
     <Base>
       <section className="hibo-gh-gallery">
-        <h2 className="title is-flex">ギャラリー</h2>
+        <h2 className="title is-flex">ひぼのギャラリー</h2>
+        <p>イラスト頂けて本当に嬉しいです。ありがとうございます。</p>
         <div className="masonry">
           {gallery.items.map((item) => (
             <div className="item_m" key={item.imageUrl}>
-              <img src={item.imageUrl} alt={item.name} />
+              <img src={item.imageUrl} alt={item.name} loading="lazy" />
               <h3 className="subtitle">
                 <LinkableText url={item.sheetUrl} text={item.name} />
               </h3>
