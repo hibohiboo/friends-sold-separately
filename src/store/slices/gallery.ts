@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const domain = 'https://d3snr6xc5uvnuy.cloudfront.net/gallery/hibohiboo';
 const initialState = {
+  sheetName: 'hibohiboo',
   items: [
     {
       name: 'スラグ',

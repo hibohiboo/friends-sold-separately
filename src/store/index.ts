@@ -1,6 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import { persistMiddleWare } from '@/domain/user/repository';
 import { api } from './query/api';
+import { spreadsheetApi } from './query/spreadsheetApi';
 import { attributesSlice } from './slices/attributes';
 import { configSlice } from './slices/config';
 import { favoritesSlice } from './slices/favorite';
@@ -19,9 +20,10 @@ export const store = configureStore({
     [api.reducerPath]: api.reducer,
     config: configSlice.reducer,
     gallery: gallerySlice.reducer,
+    [spreadsheetApi.reducerPath]: spreadsheetApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([api.middleware, persistMiddleWare]),
+    getDefaultMiddleware().concat([api.middleware, spreadsheetApi.middleware, persistMiddleWare]),
 });
 
 export type AppDispatch = typeof store.dispatch;

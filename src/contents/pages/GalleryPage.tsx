@@ -1,11 +1,10 @@
 import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { useAppSelector } from '@/store/hooks';
-import { gallerySelector } from '@/store/selectors/gallerySelector';
 import Base from '../layouts/Base';
+import { useGalleryPageHooks } from '@/hooks/useGalleryPageHooks';
 
 const GalleryPage: React.FC = () => {
-  const gallery = useAppSelector(gallerySelector);
+  const gallery = useGalleryPageHooks();
   return (
     <Base>
       <section className="hibo-gh-gallery">
