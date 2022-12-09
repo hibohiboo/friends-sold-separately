@@ -3,15 +3,21 @@
 /// <reference types="vite/client" />
 import react from '@vitejs/plugin-react';
 import dotenv from 'dotenv';
-import { terser } from 'rollup-plugin-terser';
 import { defineConfig } from 'vite';
 
 dotenv.config();
 const dev = process.env.npm_lifecycle_event === 'dev';
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
-  plugins: [react(), terser({ compress: { drop_console: true } })],
+  plugins: [react()],
+  esbuild: {
+    drop: ['console'],
+  },
+  // vite 4 を vitestが対応するまでの一時的対応
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   test: {
     globals: true,
     environment: 'jsdom',
@@ -21,6 +27,15 @@ export default defineConfig({
       reportsDirectory: 'docs/documents/astro/public/coverage',
     },
   },
+  // test: {
+  //   globals: true,
+  //   environment: 'jsdom',
+  //   setupFiles: ['./tests/setupTest.ts'],
+  //   includeSource: ['src/**/*.ts'],
+  //   coverage: {
+  //     reportsDirectory: 'docs/documents/astro/public/coverage',
+  //   },
+  // },
   resolve: {
     // viteのホットリロードのために、/で始める必要がある。
     alias: [{ find: '@', replacement: '/src' }],
