@@ -8,3 +8,5 @@ layout: ../../layouts/MainLayout.astro
 設定確定後、 `/friend/:id` の個別に設定を確認するページに遷移する
 
 ## アーキテクチャ
+
+![](../../drawio-assets/architechture-shakehand.png)

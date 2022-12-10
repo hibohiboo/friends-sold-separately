@@ -7,3 +7,5 @@ layout: ../../layouts/MainLayout.astro
 握手されたことを通知する画面
 
 ## アーキテクチャ
+
+![](../../drawio-assets/architechture-shakehand.png)
