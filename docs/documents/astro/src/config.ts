@@ -40,6 +40,12 @@ export const SIDEBAR: Sidebar = {
     目次: [
       { text: 'イントロダクション', link: `${BASE_PATH}/ja/introduction` },
       { text: '機能一覧', link: `${BASE_PATH}/ja/page-2` },
+      { text: 'フロントエンド', link: `${BASE_PATH}/ja/frontend` },
+      { text: 'ぎゅっとはんど', link: `${BASE_PATH}/ja/shakehand` },
+      { text: '僕の私の説明書', link: `${BASE_PATH}/ja/profile` },
+      { text: '僕も私も', link: `${BASE_PATH}/ja/notice` },
+      { text: 'Beginners', link: `${BASE_PATH}/ja/beginners` },
+      { text: 'Gallery', link: `${BASE_PATH}/ja/gallery` },
     ],
     開発用: [
       { text: 'OpenAPI Redoc', link: `${BASE_PATH}/api-schema/index.html` },
