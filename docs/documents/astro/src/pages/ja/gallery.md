@@ -9,6 +9,12 @@ layout: ../../layouts/MainLayout.astro
 
 紐づけは Google Spread Sheet で行う。SpreadSheet は「閲覧者」の権限を「誰でも」に設定しておく必要がある
 
-## アーキテクチャ
+## アーキテクチャ (データ取得)
 
 ![](../../drawio-assets/architechture-gallery.png)
+
+## アーキテクチャ(OGP)
+
+twitter からのアクセスの場合、Gallery は OGP 専用の HTML を Lambda@Edge の機能を使って作成している。
+
+![](../../drawio-assets/architechture-frontend.png)
