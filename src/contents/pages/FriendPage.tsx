@@ -5,7 +5,7 @@ import Base from '../layouts/Base';
 
 const FriendPage: React.FC = () => {
   const { id } = useParams();
-
+  console.log('params', id);
   return (
     <Base>
       <Friend id={id!} />

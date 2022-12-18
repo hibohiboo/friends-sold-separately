@@ -173,6 +173,14 @@ const response = {
     },
     {
       json: {
+        S: json,
+      },
+      userId: {
+        S: '9ea11ebb-ab0c-4b61-801f-0c3348817039',
+      },
+    },
+    {
+      json: {
         S: user2,
       },
       userId: {

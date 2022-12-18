@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaRegHandshake } from 'react-icons/fa';
 import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { favoriteAttributes } from '@/store/actions/attributesDynamo';
@@ -59,19 +60,11 @@ const Friends: React.FC = () => {
         {friends.map((friend) => (
           <li key={friend.userIdentifier} style={{ padding: '10px' }}>
             {friend.isNewly ? <AttributeTypeIcon type={ATTRIBUTE_TYPE.Newly} /> : <div />}
-            {friend.twitterId ? (
-              <a
-                href={`https://twitter.com/${friend.twitterId}`}
-                title={friend.name}
-                target="_blank"
-                rel="noreferrer"
-                style={{ marginLeft: '10px' }}
-              >
-                {friend.name}
-              </a>
-            ) : (
-              <span style={{ marginLeft: '10px' }}>{friend.name}</span>
-            )}
+
+            <Link to={`/friend/${friend.userIdentifier}`} style={{ marginLeft: '10px' }}>
+              {friend.name}
+            </Link>
+
             <ul style={{ listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
               {friend.attributes
                 .filter(

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaRegAddressCard, FaTwitter } from 'react-icons/fa';
+import { MdLocalMovies } from 'react-icons/md';
 import { ATTRIBUTE_ORDER, ATTRIBUTE_TITLE, ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { favoriteAttributes } from '@/store/actions/attributesDynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -81,6 +83,16 @@ const Friend: React.FC<{ id: string }> = ({ id }) => {
           </div>
         </div>
       ))}
+      {friend.twitterId === 'hibohiboo' ? (
+        <p style={{ padding: '30px' }}>
+          <Link to="/gallery">
+            <MdLocalMovies /> <span style={{ paddingLeft: '1rem' }}>ひぼのギャラリー </span>
+          </Link>
+          <span>※ギャラリー機能はベータ版機能です。使いたい場合は管理者に連絡ください</span>
+        </p>
+      ) : (
+        <div />
+      )}
       <p style={{ padding: '30px' }}>
         <a
           className="button is-primary twitter-hashtag-button"

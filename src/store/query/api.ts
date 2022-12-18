@@ -9,7 +9,15 @@ export const api = createApi({
   endpoints: (builder) => ({
     getUserById: builder.query<PutUserContext, string>({
       query: (id) => `${GYUTTO_HAND_USER_PATH}/${id}`,
-      transformResponse: (response: DynamoResponseUser) => JSON.parse(response.Item.json.S),
+      transformResponse: (response: DynamoResponseUser) => {
+        try {
+          return JSON.parse(response.Item.json.S);
+        } catch (e) {
+          console.warn(e);
+          console.warn('response', response?.Item?.json?.S);
+          throw e;
+        }
+      },
     }),
   }),
 });
