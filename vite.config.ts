@@ -13,7 +13,7 @@ const dev = process.env.npm_lifecycle_event === 'dev';
 export default defineConfig({
   plugins: [react()],
   esbuild: {
-    drop: ['console'],
+    drop: dev ? [] : ['console'],
   },
   // vite 4 を vitestが対応するまでの一時的対応
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
