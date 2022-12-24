@@ -3,7 +3,7 @@
 /// <reference types="vite/client" />
 import react from '@vitejs/plugin-react';
 import dotenv from 'dotenv';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 dotenv.config();
 const dev = process.env.npm_lifecycle_event === 'dev';
@@ -15,9 +15,6 @@ export default defineConfig({
   esbuild: {
     drop: dev ? [] : ['console'],
   },
-  // vite 4 を vitestが対応するまでの一時的対応
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   test: {
     globals: true,
     environment: 'jsdom',
@@ -27,15 +24,6 @@ export default defineConfig({
       reportsDirectory: 'docs/documents/astro/public/coverage',
     },
   },
-  // test: {
-  //   globals: true,
-  //   environment: 'jsdom',
-  //   setupFiles: ['./tests/setupTest.ts'],
-  //   includeSource: ['src/**/*.ts'],
-  //   coverage: {
-  //     reportsDirectory: 'docs/documents/astro/public/coverage',
-  //   },
-  // },
   resolve: {
     // viteのホットリロードのために、/で始める必要がある。
     alias: [{ find: '@', replacement: '/src' }],
