@@ -2,6 +2,11 @@ export const useLinksPageHooks = () => {
   return {
     items: [
       {
+        label: '頂き物イラストギャラリー',
+        url: 'https://d3snr6xc5uvnuy.cloudfront.net/friends-shakehand/gallery/?beta',
+        description: '頂いたイラスト置き場。キャラクターシートへのリンク付き',
+      },
+      {
         label: 'TRPG自己紹介シートメーカー',
         url: 'https://create-now.vercel.app/trpg-manual',
         description: 'かえる３号さん作のTRPG自己紹介シートを簡単に入力できるようにしたもの。',
