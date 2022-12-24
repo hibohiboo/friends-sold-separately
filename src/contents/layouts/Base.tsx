@@ -1,6 +1,6 @@
 import React from 'react';
-import BottomNav from '../top/navigation/BottomNav';
 import Footer from '../top/Footer';
+import BottomNav from '../top/navigation/BottomNav';
 import SideNav from '../top/navigation/SideNav';
 
 const Base: React.FC<{ children: React.ReactNode }> = ({ children }) => {
