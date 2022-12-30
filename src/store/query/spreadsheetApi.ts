@@ -8,7 +8,7 @@ type SpreadSheetResponse<T> = {
   values: T;
 };
 
-const range = 'A1:H103';
+const range = 'A1:H200';
 type SheetName = string;
 
 export const spreadsheetApi = createApi({
