@@ -28,6 +28,12 @@ export const useLinksPageHooks = () => {
         description: 'ユドナリウムのチャット機能を抜き出したもの。スマホ対応。開発中アルファ版。',
       },
       {
+        label: 'ユドナリウム リリィ2D',
+        url: 'https://d3snr6xc5uvnuy.cloudfront.net/cartagraph-udonarium-lily/udonarium_lily/?2d',
+        description: 'ユドナリウム リリィを2dで利用できるようにしたもの。',
+      },
+
+      {
         label: 'ユドナリウム プラス',
         url: 'https://create-now.vercel.app/tyrano/udon-lily',
         description: 'ユドナリウムに追加機能を選択できるようにしたもの。リメイクしたい。v1.14.1',
