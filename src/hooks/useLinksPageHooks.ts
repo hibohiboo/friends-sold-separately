@@ -32,7 +32,12 @@ export const useLinksPageHooks = () => {
         url: 'https://d3snr6xc5uvnuy.cloudfront.net/cartagraph-udonarium-lily/udonarium_lily/?2d',
         description: 'ユドナリウム リリィを2dで利用できるようにしたもの。',
       },
-
+      {
+        label: 'ユドナリウム プラス プラス',
+        url: 'https://d3snr6xc5uvnuy.cloudfront.net/cartagraph-udonarium-plus/?settings',
+        description:
+          'ユドナリウムに追加機能を選択できるようにしたもの。既存機能の非表示も対応。v1.14.5',
+      },
       {
         label: 'ユドナリウム プラス',
         url: 'https://create-now.vercel.app/tyrano/udon-lily',
@@ -116,6 +121,11 @@ export const useLinksPageHooks = () => {
         label: 'ゲームブックメイカー 個人用',
         url: 'https://www.cartagraph.eisei-teien.ml/cartagraph-gamebook/private/',
         description: '上記は他人もパラグラフを作れるが、こちらは自分だけの領域。',
+      },
+      {
+        label: 'github',
+        url: 'https://github.com/hibohiboo/friends-sold-separately',
+        description: '本サイトのソースコード',
       },
     ],
     junks: [
