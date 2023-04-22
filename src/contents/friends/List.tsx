@@ -6,8 +6,8 @@ import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { favoriteAttributes } from '@/store/actions/attributesDynamo';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { friendsSelector } from '@/store/selectors/usersSelector';
-import AttributeTypeIcon from '../profile/AttributeTypeIcon';
 import AttributeItem from './AttributeItem';
+import AttributeTypeIcon from '../profile/AttributeTypeIcon';
 
 const Friends: React.FC = () => {
   const friends = useAppSelector(friendsSelector);

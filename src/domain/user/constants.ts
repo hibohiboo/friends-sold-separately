@@ -12,7 +12,7 @@ export const ATTRIBUTE_TYPE = {
   RolePlayType: 'RolePlayType',
   FavoriteReply: 'FavoriteReply',
 } as const;
-export type AttributeType = typeof ATTRIBUTE_TYPE[keyof typeof ATTRIBUTE_TYPE];
+export type AttributeType = (typeof ATTRIBUTE_TYPE)[keyof typeof ATTRIBUTE_TYPE];
 export const GYUTTO_HAND_USER_PATH = 'gyutto-hand-user';
 export const GYUTTO_HAND_USER_FULL_PATH = `${API_BASE_PATH}${GYUTTO_HAND_USER_PATH}`;
 export const ATTRIBUTE_ORDER = {

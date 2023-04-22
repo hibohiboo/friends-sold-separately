@@ -1,6 +1,6 @@
-import { myFetch } from '../http/fetch';
 import { GYUTTO_HAND_USER_FULL_PATH } from './constants';
 import { DynamoResponseUser, PutUserContext } from './types';
+import { myFetch } from '../http/fetch';
 
 export const putUser = async (context: PutUserContext) => {
   await myFetch(GYUTTO_HAND_USER_FULL_PATH, {

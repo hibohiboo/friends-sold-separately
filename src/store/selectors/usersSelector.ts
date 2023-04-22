@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { ATTRIBUTE_TYPE } from '@/domain/user/constants';
 import { Friend } from '@/domain/user/types';
-import { RootState } from '../index';
 import { myFavoriteSelector, userProfileSelector } from './userProfileSelector';
+import { RootState } from '../index';
 
 const usersSelector = (state: RootState) => state.users;
 

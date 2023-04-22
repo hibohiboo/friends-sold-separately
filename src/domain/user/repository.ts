@@ -4,17 +4,21 @@ import { favoritesSlice } from '@/store/slices/favorite';
 import { userProfileSlice, UserProfileState } from '@/store/slices/userProfile';
 import type { RootState } from '@/store';
 
-const USER_LOCAL_STORAGE_KEY = 'JOURNEY_LOcAL_STORAGE_KEY';
-const ATTRIBUTES_LOCAL_STORAGE_KEY = 'SCENARIOS_LOCAL_STORAGE_KEY';
+const USER_LOCAL_STORAGE_KEY = 'USER_LOCAL_STORAGE_KEY';
+const ATTRIBUTES_LOCAL_STORAGE_KEY = 'ATTRIBUTES_LOCAL_STORAGE_KEY';
 const FAVORITE_LOCAL_STORAGE_KEY = 'FAVORITE_LOCAL_STORAGE_KEY';
 
 export const initUser = (): UserProfileState | null => {
-  const userJson = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
+  const userJson =
+    localStorage.getItem(USER_LOCAL_STORAGE_KEY) ||
+    localStorage.getItem('JOURNEY_LOcAL_STORAGE_KEY'); // 一時的バグ修正： 定数間違いをしていたため。。
   if (!userJson) return null;
   return JSON.parse(userJson) as UserProfileState;
 };
 export const initAttributes = () => {
-  const attributesJson = localStorage.getItem(ATTRIBUTES_LOCAL_STORAGE_KEY);
+  const attributesJson =
+    localStorage.getItem(ATTRIBUTES_LOCAL_STORAGE_KEY) ||
+    localStorage.getItem('SCENARIOS_LOCAL_STORAGE_KEY'); // 一時的バグ修正： 定数間違いをしていたため。。
   if (!attributesJson) return null;
   return JSON.parse(attributesJson);
 };

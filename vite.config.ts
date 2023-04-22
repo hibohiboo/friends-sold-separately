@@ -53,7 +53,7 @@ export default defineConfig({
   },
 
   server: {
-    port: 4200,
+    port: 3000,
     // proxy: {
     //   '/v1': {
     //     target: 'http://example.com',

@@ -160,12 +160,30 @@ const user2 = JSON.stringify({
   ],
 });
 
+const json3 = JSON.stringify({
+  profile: {
+    userId: '9a3fed-71e5-4a1c-abbc-095ce2356754',
+    twitterId: 'hibohiboo',
+    name: 'ひぼ(テスト3)',
+    isPublish: true,
+  },
+  attributes: [
+    {
+      id: '620b45ea-9bc3-49f2-bd64-ec73700d647d',
+      name: '高森藍子',
+      type: 'Like',
+      userIdentifier: 'test',
+      createdAt: 1667838140006,
+    },
+  ],
+});
+
 const response = {
   Count: 1,
   Items: [
     {
       json: {
-        S: json,
+        S: json3,
       },
       userId: {
         S: '389a3fed-71e5-4a1c-abbc-095ce2356754',
