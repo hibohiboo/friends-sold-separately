@@ -1,7 +1,7 @@
-import { Dispatch } from '@reduxjs/toolkit';
 import { udonariumLilySlice } from '@/store/slices/udonariumLily';
+import { AppStore } from '@/store';
 
-export const listenFromInlineUdonarium = (dispatch: Dispatch) => {
+export const listenFromInlineUdonarium = (store: AppStore) => {
   window.addEventListener(
     'message',
     (event: MessageEvent) => {
@@ -9,7 +9,9 @@ export const listenFromInlineUdonarium = (dispatch: Dispatch) => {
       // event.data.type webpackOKのメッセージなども来る。
 
       if (event.data.type === 'open-connect')
-        dispatch(udonariumLilySlice.actions.setUserId(event.data.payload));
+        store.dispatch(udonariumLilySlice.actions.setUserId(event.data.payload));
+      if (event.data.type === 'connect-peer')
+        store.dispatch(udonariumLilySlice.actions.hidePeerArea());
     },
     false
   );

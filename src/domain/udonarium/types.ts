@@ -24,7 +24,7 @@ type PostMessageChat = PostMessageData<{
   message: ChatMessageContext;
   tab: string;
 }>;
-export type PostMessageEventType = 'change-player-name';
+export type PostMessageEventType = 'change-player-name' | 'connect-by-target-user-id';
 export type Message = {
   type: PostMessageEventType;
   payload: any;

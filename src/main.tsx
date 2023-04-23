@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 );
 
 initFromPersistance(store.dispatch);
-listenFromInlineUdonarium(store.dispatch);
+listenFromInlineUdonarium(store);
 // 開発環境ではログに。本番環境ではグーグル アナリティクスに出力。
 const isDevevelopServe = import.meta.env.MODE === 'development'; // import.meta.env.DEV
 
