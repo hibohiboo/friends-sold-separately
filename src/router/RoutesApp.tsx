@@ -7,6 +7,7 @@ import GalleryPage from '@/contents/pages/GalleryPage';
 import LinksPage from '@/contents/pages/LinksPage';
 import NoticePage from '@/contents/pages/NoticePage';
 import ProfilePage from '@/contents/pages/ProfilePage';
+import UdonariumPage from '@/contents/pages/UdonariumPage';
 
 const RoutesApp: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const RoutesApp: React.FC = () => {
       <Route path="/friend/:id" element={<FriendPage />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/links" element={<LinksPage />} />
+      <Route path="/udonarium" element={<UdonariumPage />} />
       <Route element={<FriendsPage />} />
     </Routes>
   );

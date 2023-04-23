@@ -11,6 +11,10 @@ const items = [
     path: '/beginners',
     icon: <img src={newlyIcon} alt="初心者" style={{ width: '50px' }} />,
   },
+  {
+    path: '/udonarium',
+    icon: <FaRegAddressCard size={50} />,
+  },
   { path: '/links', icon: <IoIosConstruct size={50} /> },
 ];
 

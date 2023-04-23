@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import { basePath } from './constants';
 import { sendToGoogleAnalytics } from './domain/firebase';
+import { listenFromInlineUdonarium } from './domain/udonarium/listener';
 import { initAttributeEntity as initFromPersistance } from './domain/user/repository';
 import { mswInit } from './mock/msw';
 import reportWebVitals from './reportWebVitals';
@@ -26,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 );
 
 initFromPersistance(store.dispatch);
-
+listenFromInlineUdonarium(store.dispatch);
 // 開発環境ではログに。本番環境ではグーグル アナリティクスに出力。
 const isDevevelopServe = import.meta.env.MODE === 'development'; // import.meta.env.DEV
 
