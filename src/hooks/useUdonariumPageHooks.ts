@@ -4,6 +4,7 @@ import {
   sendUdonariumChatMessage,
 } from '@/store/actions/udonariumLily';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { udonariumLilyChatSelector } from '@/store/selectors/udonariumLilyChatSelector';
 import { udonariumSelector } from '@/store/selectors/udonariumSelector';
 import {
   changeUdonariumPlayerName,
@@ -14,6 +15,7 @@ import {
 export const useUdonariumPageHooks = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(udonariumSelector);
+  const chatList = useAppSelector(udonariumLilyChatSelector);
   const nickNameChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
     dispatch(changeUdonariumPlayerName(event.target.value));
   };
@@ -31,6 +33,7 @@ export const useUdonariumPageHooks = () => {
     dispatch(udonariumLilySlice.actions.setChatText(text));
   };
   const sendText = () => {
+    console.log('send');
     dispatch(sendUdonariumChatMessage());
   };
   return {
@@ -42,5 +45,6 @@ export const useUdonariumPageHooks = () => {
     toggleMapMessage,
     setText,
     sendText,
+    chatList,
   };
 };

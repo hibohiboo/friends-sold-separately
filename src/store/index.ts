@@ -8,6 +8,7 @@ import { favoritesSlice } from './slices/favorite';
 import { gallerySlice } from './slices/gallery';
 import { peerSlice } from './slices/peer';
 import { udonariumLilySlice } from './slices/udonariumLily';
+import { udonariumLilyChatSlice } from './slices/udonariumLilyChat';
 import { userProfileSlice } from './slices/userProfile';
 import { usersSlice } from './slices/users';
 
@@ -23,6 +24,7 @@ export const store = configureStore({
     gallery: gallerySlice.reducer,
     [spreadsheetApi.reducerPath]: spreadsheetApi.reducer,
     udonarium: udonariumLilySlice.reducer,
+    udonariumLilyChat: udonariumLilyChatSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([api.middleware, spreadsheetApi.middleware, persistMiddleWare]),

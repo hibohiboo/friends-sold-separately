@@ -1,5 +1,7 @@
 import React from 'react';
+import { format } from 'date-fns';
 import { MdSend } from 'react-icons/md';
+import { ChatMessage } from '@/domain/udonarium/types';
 import Base from '../layouts/Base';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
@@ -84,15 +86,50 @@ const UdonariumPage: React.FC = () => {
             onChange={(e) => vm.setText(e.target.value)}
           />
         </div>
-        <button type="button" role="submit" className="button is-success">
+        <button onClick={vm.sendText} type="button" role="submit" className="button is-success">
           <span>送信</span>
           <span className="icon is-small">
-            <MdSend onClick={vm.sendText} />
+            <MdSend />
           </span>
         </button>
+      </div>
+      <div>
+        {vm.chatList.map((chat) => (
+          <ChatMessageComponent key={chat.id} message={chat} />
+        ))}
       </div>
     </Base>
   );
 };
 
 export default UdonariumPage;
+
+const ChatMessageComponent: React.FC<{ message: ChatMessage }> = ({ message }) => {
+  return (
+    <div className="card">
+      <div className="card-content" style={{ padding: '1rem' }}>
+        <div className="media" style={{ marginBottom: '0' }}>
+          {/* <div className="media-left">
+            <figure className="image is-48x48">
+              <BsFillChatRightFill size={48} />
+            </figure>
+          </div> */}
+          <div className="media-content">
+            <p className="title is-5">{message.name}</p>
+            <p className="subtitle is-7">
+              <time
+                style={{ marginLeft: '1rem' }}
+                dateTime={format(new Date(message.timestamp), 'yyyy-MM-dd')}
+              >
+                {format(new Date(message.timestamp), 'yyyy/MM/dd HH:mm:ss')}
+              </time>
+            </p>
+          </div>
+        </div>
+        <div className="content" style={{ whiteSpace: 'pre-wrap' }}>
+          {message.text}
+        </div>
+      </div>
+    </div>
+  );
+};

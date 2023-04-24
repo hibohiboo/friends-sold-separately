@@ -16,14 +16,18 @@ export const sendUdonariumChatMessage = createAsyncThunk<void, undefined, { stat
   async (req, thunkAPI) => {
     const state = thunkAPI.getState().udonarium;
     const text = state.chatText;
-    if (text === '') return;
+    if (text === '') {
+      console.warn('text is empy');
+      return;
+    }
     const chatMessage = {
       from: state.userId,
       name: state.playerName,
       timestamp: Date.now(),
       text,
     };
-    postUdonariumMessage(chatMessage, 'send-chat-message');
+    console.log('send');
     thunkAPI.dispatch(udonariumLilySlice.actions.setChatText(''));
+    postUdonariumMessage(chatMessage, 'send-chat-message');
   }
 );
