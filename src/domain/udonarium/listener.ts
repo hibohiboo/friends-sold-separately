@@ -1,11 +1,12 @@
 import { udonariumLilySlice } from '@/store/slices/udonariumLily';
+import { udonariumOrigin } from './const';
 import { AppStore } from '@/store';
 
 export const listenFromInlineUdonarium = (store: AppStore) => {
   window.addEventListener(
     'message',
     (event: MessageEvent) => {
-      if (event.origin !== 'http://localhost:4200') return;
+      if (event.origin !== udonariumOrigin) return;
       // event.data.type webpackOKのメッセージなども来る。
 
       if (event.data.type === 'open-connect')
