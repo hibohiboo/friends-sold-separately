@@ -1,6 +1,6 @@
 import { FaRegAddressCard, FaRegHandshake } from 'react-icons/fa';
 import { IoIosConstruct } from 'react-icons/io';
-import { MdNotifications } from 'react-icons/md';
+import { MdNotifications, MdRamenDining } from 'react-icons/md';
 import newlyIcon from '@/assets/icons/newly.svg';
 
 const items = [
@@ -13,7 +13,7 @@ const items = [
   },
   {
     path: '/udonarium',
-    icon: <FaRegAddressCard size={50} />,
+    icon: <MdRamenDining size={50} />,
   },
   { path: '/links', icon: <IoIosConstruct size={50} /> },
 ];
