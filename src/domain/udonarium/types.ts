@@ -7,7 +7,7 @@ interface ChatMessageContext {
   name?: string;
   text?: string;
   timestamp?: number;
-  tag?: string;
+  tag?: string; // game type
   dicebot?: string;
   imageIdentifier?: string;
 
@@ -24,7 +24,10 @@ type PostMessageChat = PostMessageData<{
   message: ChatMessageContext;
   tab: string;
 }>;
-export type PostMessageEventType = 'change-player-name' | 'connect-by-target-user-id';
+export type PostMessageEventType =
+  | 'change-player-name'
+  | 'connect-by-target-user-id'
+  | 'send-chat-message';
 export type Message = {
   type: PostMessageEventType;
   payload: any;

@@ -7,6 +7,7 @@ const initialState = {
   targetUserId: '',
   visiblePeerArea: true,
   visibleMap: true,
+  chatText: '',
 };
 
 export const changeUdonariumPlayerName = createAsyncThunk<string, string>(
@@ -37,6 +38,9 @@ export const udonariumLilySlice = createSlice({
     },
     setVisibleMap(state, action: PayloadAction<boolean>) {
       state.visibleMap = action.payload;
+    },
+    setChatText(state, action: PayloadAction<string>) {
+      state.chatText = action.payload;
     },
   },
   extraReducers: (builder) =>

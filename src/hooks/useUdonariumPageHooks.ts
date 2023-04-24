@@ -1,5 +1,8 @@
 import { ChangeEventHandler } from 'react';
-import { connectUdonariumByTargetUserId } from '@/store/actions/udonariumLily';
+import {
+  connectUdonariumByTargetUserId,
+  sendUdonariumChatMessage,
+} from '@/store/actions/udonariumLily';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { udonariumSelector } from '@/store/selectors/udonariumSelector';
 import {
@@ -24,6 +27,12 @@ export const useUdonariumPageHooks = () => {
     dispatch(udonariumLilySlice.actions.setVisibleMap(!state.visibleMap));
   };
   const toggleMapMessage = state.visibleMap ? '隠す' : '表示する';
+  const setText = (text: string) => {
+    dispatch(udonariumLilySlice.actions.setChatText(text));
+  };
+  const sendText = () => {
+    dispatch(sendUdonariumChatMessage());
+  };
   return {
     ...state,
     nickNameChangeHandler,
@@ -31,5 +40,7 @@ export const useUdonariumPageHooks = () => {
     connectPrivateHandler,
     toggleMapHandler,
     toggleMapMessage,
+    setText,
+    sendText,
   };
 };

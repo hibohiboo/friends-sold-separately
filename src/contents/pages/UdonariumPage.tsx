@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdSend } from 'react-icons/md';
 import Base from '../layouts/Base';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
@@ -74,6 +75,22 @@ const UdonariumPage: React.FC = () => {
         height="80%"
         style={{ display: vm.visibleMap ? 'block' : 'none' }}
       />
+      <div>
+        <div className="control">
+          <textarea
+            className="textarea is-small"
+            placeholder="ユドナリウムにチャットを送る"
+            value={vm.chatText}
+            onChange={(e) => vm.setText(e.target.value)}
+          />
+        </div>
+        <button type="button" role="submit" className="button is-success">
+          <span>送信</span>
+          <span className="icon is-small">
+            <MdSend onClick={vm.sendText} />
+          </span>
+        </button>
+      </div>
     </Base>
   );
 };
