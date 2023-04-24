@@ -29,7 +29,7 @@ const UdonariumPage: React.FC = () => {
         <HorizonLabelForm label="ニックネーム" id="nickname">
           <input
             className="input is-small"
-            value={vm.playerName}
+            defaultValue={vm.playerName}
             id="nickname"
             style={{ width: '150px' }}
             onChange={vm.nickNameChangeHandler}
@@ -43,7 +43,7 @@ const UdonariumPage: React.FC = () => {
         <HorizonLabelForm label="接続相手のID" id="targetPlayerId">
           <input
             className="input is-small"
-            value={vm.targetUserId}
+            defaultValue={vm.targetUserId}
             id="targetPlayerId"
             style={{ width: '150px' }}
             onChange={vm.targetUserIdChangeHandler}
