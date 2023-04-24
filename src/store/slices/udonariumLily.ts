@@ -6,6 +6,7 @@ const initialState = {
   playerName: 'プレイヤー',
   targetUserId: '',
   visiblePeerArea: true,
+  visibleMap: true,
 };
 
 export const changeUdonariumPlayerName = createAsyncThunk<string, string>(
@@ -33,6 +34,9 @@ export const udonariumLilySlice = createSlice({
     },
     hidePeerArea(state) {
       state.visiblePeerArea = false;
+    },
+    setVisibleMap(state, action: PayloadAction<boolean>) {
+      state.visibleMap = action.payload;
     },
   },
   extraReducers: (builder) =>

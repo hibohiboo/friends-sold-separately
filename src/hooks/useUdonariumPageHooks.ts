@@ -5,6 +5,7 @@ import { udonariumSelector } from '@/store/selectors/udonariumSelector';
 import {
   changeUdonariumPlayerName,
   changeUdonariumTargetUserId,
+  udonariumLilySlice,
 } from '@/store/slices/udonariumLily';
 
 export const useUdonariumPageHooks = () => {
@@ -19,5 +20,16 @@ export const useUdonariumPageHooks = () => {
   const connectPrivateHandler = () => {
     dispatch(connectUdonariumByTargetUserId());
   };
-  return { ...state, nickNameChangeHandler, targetUserIdChangeHandler, connectPrivateHandler };
+  const toggleMapHandler = () => {
+    dispatch(udonariumLilySlice.actions.setVisibleMap(!state.visibleMap));
+  };
+  const toggleMapMessage = state.visibleMap ? '隠す' : '表示する';
+  return {
+    ...state,
+    nickNameChangeHandler,
+    targetUserIdChangeHandler,
+    connectPrivateHandler,
+    toggleMapHandler,
+    toggleMapMessage,
+  };
 };

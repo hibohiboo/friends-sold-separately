@@ -25,7 +25,7 @@ const UdonariumPage: React.FC = () => {
   const vm = useUdonariumPageHooks();
   return (
     <Base>
-      <div style={{ paddingTop: '5px' }}>
+      <div style={{ paddingTop: '5px', paddingBottom: '5px' }}>
         <HorizonLabelForm label="ニックネーム" id="nickname">
           <input
             className="input is-small"
@@ -49,16 +49,22 @@ const UdonariumPage: React.FC = () => {
             onChange={vm.targetUserIdChangeHandler}
           />
         </HorizonLabelForm>
-        <button
-          onClick={vm.connectPrivateHandler}
-          type="button"
-          role="submit"
-          className="button is-success"
-        >
-          <span>プライベート接続</span>
-        </button>
+        <div className="field">
+          <div className="control">
+            <button
+              onClick={vm.connectPrivateHandler}
+              type="button"
+              role="submit"
+              className="button is-success"
+            >
+              <span>プライベート接続</span>
+            </button>
+          </div>
+        </div>
       </div>
-
+      <button type="button" onClick={vm.toggleMapHandler}>
+        マップを{vm.toggleMapMessage}
+      </button>
       <iframe
         title="udonarium"
         id="iframe-udonarium"
@@ -66,6 +72,7 @@ const UdonariumPage: React.FC = () => {
         allowFullScreen
         width="100%"
         height="80%"
+        style={{ display: vm.visibleMap ? 'block' : 'none' }}
       />
     </Base>
   );
