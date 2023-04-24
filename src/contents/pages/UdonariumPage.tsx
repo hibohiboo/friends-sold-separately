@@ -2,7 +2,7 @@ import React from 'react';
 import Base from '../layouts/Base';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
-const src = 'http://localhost:4200/?pl&post-message';
+const src = `${import.meta.env.VITE_UDONARIUM_URL}?pl&post-message`;
 
 const HorizonLabelForm: React.FC<{ children: React.ReactNode; label: string; id: string }> = ({
   children,
