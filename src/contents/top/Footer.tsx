@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ const Footer: React.FC = () => {
       >
         利用規約
       </a>
+      /<Link to="/beginners">初心者チャット</Link>
       /©hibohiboo from 2022
     </footer>
   );
