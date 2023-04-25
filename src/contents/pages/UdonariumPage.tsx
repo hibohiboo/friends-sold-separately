@@ -5,7 +5,10 @@ import { ChatMessage } from '@/domain/udonarium/types';
 import Base from '../layouts/Base';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
-const src = `${import.meta.env.VITE_UDONARIUM_URL}?pl&post-message`;
+const src = `${import.meta.env.VITE_UDONARIUM_URL}?pl&post-message&${window.location.search.replace(
+  '?',
+  ''
+)}`;
 
 const HorizonLabelForm: React.FC<{ children: React.ReactNode; label: string; id: string }> = ({
   children,
@@ -65,9 +68,16 @@ const UdonariumPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <button type="button" onClick={vm.toggleMapHandler}>
-        マップを{vm.toggleMapMessage}
+
+      <button
+        style={{ marginTop: '10px' }}
+        className="button"
+        type="button"
+        onClick={vm.toggleMapHandler}
+      >
+        マップ を{vm.toggleMapMessage}
       </button>
+
       <iframe
         title="udonarium"
         id="iframe-udonarium"
