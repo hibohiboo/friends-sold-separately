@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { MdSend } from 'react-icons/md';
 import { ChatMessage } from '@/domain/udonarium/types';
 import Base from '../layouts/Base';
+import RoomList from '../udonarium/RoomList';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
 const src = `${import.meta.env.VITE_UDONARIUM_URL}?pl&post-message&${window.location.search.replace(
@@ -67,6 +68,7 @@ const UdonariumPage: React.FC = () => {
             </button>
           </div>
         </div>
+        <RoomList rooms={vm.roomList} />
       </div>
 
       <button

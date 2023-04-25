@@ -1,3 +1,4 @@
+import { loadedUdonariumRooms } from '@/store/actions/udonariumLily';
 import { udonariumLilySlice } from '@/store/slices/udonariumLily';
 import { udonariumLilyChatSlice } from '@/store/slices/udonariumLilyChat';
 import { udonariumOrigin } from './const';
@@ -26,6 +27,9 @@ export const listenFromInlineUdonarium = (store: AppStore) => {
             timestamp: payload.syncData.attributes.timestamp,
           })
         );
+      }
+      if (event.data.type === 'load-rooms') {
+        store.dispatch(loadedUdonariumRooms(event.data.payload));
       }
     },
     false

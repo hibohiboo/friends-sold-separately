@@ -6,6 +6,7 @@ import {
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { udonariumLilyChatSelector } from '@/store/selectors/udonariumLilyChatSelector';
 import { udonariumSelector } from '@/store/selectors/udonariumSelector';
+import { udonariumRoomSelector } from '@/store/selectors/udonRoomSelector';
 import {
   changeUdonariumPlayerName,
   changeUdonariumTargetUserId,
@@ -16,6 +17,7 @@ export const useUdonariumPageHooks = () => {
   const dispatch = useAppDispatch();
   const state = useAppSelector(udonariumSelector);
   const chatList = useAppSelector(udonariumLilyChatSelector);
+  const roomList = useAppSelector(udonariumRoomSelector);
   const nickNameChangeHandler: ChangeEventHandler<HTMLInputElement> = (event) => {
     dispatch(changeUdonariumPlayerName(event.target.value));
   };
@@ -33,7 +35,6 @@ export const useUdonariumPageHooks = () => {
     dispatch(udonariumLilySlice.actions.setChatText(text));
   };
   const sendText = () => {
-    console.log('send');
     dispatch(sendUdonariumChatMessage());
   };
   return {
@@ -46,5 +47,6 @@ export const useUdonariumPageHooks = () => {
     setText,
     sendText,
     chatList,
+    roomList,
   };
 };
