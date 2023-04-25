@@ -69,3 +69,16 @@
     }
    }
 }
+// モーダル
+dialog::backdrop {
+  background: hsl(0 0% 10% / 0.5);
+}
+
+dialog[open] {
+  display: grid;
+}
+:modal {
+  border: 5px solid black;
+  background-color: #222;
+  box-shadow: 3px 3px 10px rgba(0 0 0 / 0.5);
+}
