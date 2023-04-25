@@ -27,6 +27,7 @@ type PostMessageChat = PostMessageData<{
 export type PostMessageEventType =
   | 'change-player-name'
   | 'connect-by-target-user-id'
+  | 'connect-by-room-alias'
   | 'send-chat-message';
 export type Message = {
   type: PostMessageEventType;

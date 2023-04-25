@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Room } from '@/domain/udonarium/types';
+import { useAppDispatch } from '@/store/hooks';
 
 const centerStyle = { maxWidth: '500px', margin: '0 auto' } as const;
 const rowStyle = {
@@ -18,7 +19,9 @@ const rowStyle = {
 
 const RoomList: React.FC<{
   rooms: Room[];
-}> = ({ rooms }) => {
+  connectHandler: (con: { alias: string; pass: string }) => void;
+}> = ({ rooms, connectHandler }) => {
+  const dispatch = useAppDispatch();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [selectedRoom, setRoom] = useState<null | Room>(null);
   const [pass, setPass] = useState('');
@@ -52,6 +55,10 @@ const RoomList: React.FC<{
             type="submit"
             className="button is-primary"
             disabled={selectedRoom?.hasPassword && pass.length === 0}
+            onClick={() => {
+              if (!selectedRoom) return;
+              connectHandler({ alias: selectedRoom.alias, pass });
+            }}
           >
             入室
           </button>

@@ -31,6 +31,10 @@ export const listenFromInlineUdonarium = (store: AppStore) => {
       if (event.data.type === 'load-rooms') {
         store.dispatch(loadedUdonariumRooms(event.data.payload));
       }
+      if (event.data.type === 'password-verify-error') {
+        // eslint-disable-next-line no-alert
+        alert('パスワードが違います');
+      }
     },
     false
   );

@@ -1,5 +1,6 @@
 import { ChangeEventHandler } from 'react';
 import {
+  connectUdonariumByRoom,
   connectUdonariumByTargetUserId,
   sendUdonariumChatMessage,
 } from '@/store/actions/udonariumLily';
@@ -37,6 +38,9 @@ export const useUdonariumPageHooks = () => {
   const sendText = () => {
     dispatch(sendUdonariumChatMessage());
   };
+  const connectRoom = (con: { alias: string; pass: string }) => {
+    dispatch(connectUdonariumByRoom(con));
+  };
   return {
     ...state,
     nickNameChangeHandler,
@@ -48,5 +52,6 @@ export const useUdonariumPageHooks = () => {
     sendText,
     chatList,
     roomList,
+    connectRoom,
   };
 };

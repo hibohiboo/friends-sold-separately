@@ -53,3 +53,10 @@ export const loadedUdonariumRooms = createAsyncThunk<void, PeerRoom[], { state: 
     );
   }
 );
+export const connectUdonariumByRoom = createAsyncThunk<
+  void,
+  { alias: string; pass: string },
+  { state: RootState }
+>('connectUdonariumByRoom', async (req, thunkAPI) => {
+  postUdonariumMessage(req, 'connect-by-room-alias');
+});

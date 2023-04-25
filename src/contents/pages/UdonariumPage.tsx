@@ -68,7 +68,7 @@ const UdonariumPage: React.FC = () => {
             </button>
           </div>
         </div>
-        <RoomList rooms={vm.roomList} />
+        <RoomList rooms={vm.roomList} connectHandler={vm.connectRoom} />
       </div>
 
       <button
