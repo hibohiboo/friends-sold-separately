@@ -133,6 +133,7 @@ const ChatMessageComponent: React.FC<{ message: ChatMessage }> = ({ message }) =
               >
                 {format(new Date(message.timestamp), 'yyyy/MM/dd HH:mm:ss')}
               </time>
+              <span style={{ marginLeft: '1rem' }}>{message.from}</span>
             </p>
           </div>
         </div>
