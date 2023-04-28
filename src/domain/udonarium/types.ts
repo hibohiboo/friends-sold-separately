@@ -118,3 +118,10 @@ export type Room = {
   hasPassword: boolean;
   numberOfEntrants: number;
 };
+
+export interface IRoomInfo {
+  readonly id: string;
+  readonly name: string;
+  readonly hasPassword: boolean;
+  readonly peers: IPeerContext[];
+}

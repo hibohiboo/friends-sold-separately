@@ -6,10 +6,12 @@ import Base from '../layouts/Base';
 import RoomList from '../udonarium/RoomList';
 import { useUdonariumPageHooks } from '@/hooks/useUdonariumPageHooks';
 
-const src = `${import.meta.env.VITE_UDONARIUM_URL}?pl&post-message&${window.location.search.replace(
-  '?',
-  ''
-)}`;
+const params = new URL(document.URL).searchParams;
+const url =
+  params.get('is_plus') != null
+    ? import.meta.env.VITE_UDONARIUM_PLUS_URL
+    : import.meta.env.VITE_UDONARIUM_URL;
+const src = `${url}?pl&post-message&${window.location.search.replace('?', '')}`;
 
 const HorizonLabelForm: React.FC<{ children: React.ReactNode; label: string; id: string }> = ({
   children,
@@ -32,6 +34,8 @@ const UdonariumPage: React.FC = () => {
   const vm = useUdonariumPageHooks();
   return (
     <Base>
+      <a href="/udonarium">▼リリィ</a>
+      <a href="/udonarium?id_plus">▲v1.15</a>
       <div style={{ paddingTop: '5px', paddingBottom: '5px' }}>
         <HorizonLabelForm label="ニックネーム" id="nickname">
           <input

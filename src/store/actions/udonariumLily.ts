@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { postUdonariumMessage } from '@/domain/udonarium/post';
-import { PeerRoom } from '@/domain/udonarium/types';
+import { IRoomInfo, PeerRoom } from '@/domain/udonarium/types';
 import { RootState } from '..';
 import { udonariumLilySlice } from '../slices/udonariumLily';
 import { udonariumRoomSlice } from '../slices/udonariumRooms';
@@ -31,28 +31,43 @@ export const sendUdonariumChatMessage = createAsyncThunk<void, undefined, { stat
     postUdonariumMessage(chatMessage, 'send-chat-message');
   }
 );
-export const loadedUdonariumRooms = createAsyncThunk<void, PeerRoom[], { state: RootState }>(
-  'loadedUdonariumRooms',
-  async (req, thunkAPI) => {
-    thunkAPI.dispatch(
-      udonariumRoomSlice.actions.chatAdd(
-        req.flatMap((room) => {
-          const [firstUser] = room.peerContexts;
-          if (!firstUser) return []; // 空配列を返すとflatMapでfilterと同様の挙動になる
 
+const isIRoom = (x: any): x is IRoomInfo => !!x.id;
+
+export const loadedUdonariumRooms = createAsyncThunk<
+  void,
+  (PeerRoom | IRoomInfo)[],
+  { state: RootState }
+>('loadedUdonariumRooms', async (req, thunkAPI) => {
+  thunkAPI.dispatch(
+    udonariumRoomSlice.actions.roomsAdd(
+      req.flatMap((room) => {
+        if (isIRoom(room)) {
+          const [firstUser] = room.peers;
           return [
             {
               hasPassword: !!firstUser.digestPassword,
-              name: room.roomName,
-              numberOfEntrants: room.peerContexts.length,
-              alias: room.alias, // `${roomId}${roomName}`
+              name: room.name,
+              numberOfEntrants: room.peers.length,
+              alias: room.id, // roomId。 v1.15はこちらのIF
             },
           ];
-        })
-      )
-    );
-  }
-);
+        }
+        const [firstUser] = room.peerContexts;
+        if (!firstUser) return []; // 空配列を返すとflatMapでfilterと同様の挙動になる
+
+        return [
+          {
+            hasPassword: !!firstUser.digestPassword,
+            name: room.roomName,
+            numberOfEntrants: room.peerContexts.length,
+            alias: room.alias, // `${roomId}${roomName}`
+          },
+        ];
+      })
+    )
+  );
+});
 export const connectUdonariumByRoom = createAsyncThunk<
   void,
   { alias: string; pass: string },
