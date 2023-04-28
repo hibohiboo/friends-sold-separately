@@ -34,8 +34,10 @@ const UdonariumPage: React.FC = () => {
   const vm = useUdonariumPageHooks();
   return (
     <Base>
-      <a href="/udonarium">▼リリィ</a>
-      <a href="/udonarium?id_plus">▲v1.15</a>
+      <a href="/friends-shakehand/udonarium">▼リリィ</a>
+      <a href="/friends-shakehand/udonarium?is_plus">▲v1.15</a>
+      <a href="/friends-shakehand/udonarium?2d">▼リリィ 2d</a>
+      <a href="/friends-shakehand/udonarium?is_plus&2d">▲v1.15 2d</a>
       <div style={{ paddingTop: '5px', paddingBottom: '5px' }}>
         <HorizonLabelForm label="ニックネーム" id="nickname">
           <input
